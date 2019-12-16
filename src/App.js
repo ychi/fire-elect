@@ -8,6 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
+          Shoegaze time <span role="img" aria-label="shoe">👟👟</span><br/>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a

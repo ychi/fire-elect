@@ -1,8 +1,45 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Useful links
+* https://firebase.google.com/docs/cli
+* https://reactjs.org/docs/getting-started.html
 
-In the project directory, you can run:
+
+## Setting Up Dev Environment
+
+## Install yarn
+https://yarnpkg.com/en/docs/install
+
+## Install dependencies
+`yarn install`
+
+## Install firebase cli
+`yarn global add firebase-tools`
+
+## Add firebase cli path to your PATH 
+By adding this line to your .bashrc or other shell rc: <br/>
+`export PATH="$(yarn global bin):$PATH"`
+
+## Login to firebase
+With your google account: <br/>
+`firebase login`
+
+
+## List the projects you have access to
+`firebase projects:list`
+
+
+## Create .firebaserc, add project info:
+`
+{
+  "projects": {
+    "default": "YOUR_PROJECT_ID"
+  }
+}
+`
+
+## Develop app with: 
+
 
 ### `yarn start`
 
@@ -26,6 +63,10 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn deploy`
+
+Builds a production level dist and deploy to firebase.
 
 ### `yarn eject`
 
