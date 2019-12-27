@@ -7,16 +7,12 @@ import {
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { makeStyles, Typography} from '@material-ui/core';
-import Link from '@material-ui/core/Link';
+import { makeStyles, Typography, withTheme} from '@material-ui/core';
 import './topbar.scss';
 
 const useStyles = makeStyles(theme=>({
     title: {
-        flexGrow: 1,
-        alignSelf: 'center',
-        textAlign: 'left',
-        padding: '0 30px',
+            fontSize: '20px'
     }
 }));
 
@@ -27,13 +23,12 @@ export default ({routes}) => {
         <AppBar position="static" style={{boxShadow: 'none',}}>
             <div className="topbar">
                 <Tabs value={location.pathname}>
-                <Typography variant="h5" className={classes.title}>
-                    Fire Elect
-                </Typography>
-                    {routes.map((route)=>(
+                    {routes
+                    .map((route)=>(
                         <Tab label={route.label} 
                             value={route.path} 
                             to={route.path}
+                            className = {(route.className)? classes[route.className] : null}
                             component={
                                 React.forwardRef((props, ref)=>
                                     <RouterLink innerRef={ref} {...props}/>)}/>

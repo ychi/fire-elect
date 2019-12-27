@@ -5,9 +5,10 @@ import Dummy from "./presentational/Dummy/Dummy";
 
 export default [
     {
-        label: 'Home',
+        label: 'Fire Elect',
         path: '/',
-        render: ()=>(<Landing/>)
+        render: ()=>(<Landing/>),
+        className: 'title'
     },
     {
         label: '我大膽預測',
