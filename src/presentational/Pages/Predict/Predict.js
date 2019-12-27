@@ -13,7 +13,7 @@ import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
     section: {
-        minWidth: '50vw',
+        minWidth: '30vw',
     },
   }));
 
@@ -57,7 +57,7 @@ export default function Landing() {
         <Masthead title={"我大膽預測"}/>
         <div className="predict">
          <Grid container justify="center">
-                <Grid item xs={12} sm={4} spacing={8} direction="column">
+                <Grid item xs={12} sm={3} spacing={8} direction="column">
                 <Typography component="div">
                     <Box fontSize="h5.fontSize" lineHeight={1.6}>2020 總統大選</Box>
                     <Box fontSize="h3.fontSize" fontWeight="fontWeightBold" lineHeight={2}>蒜什麼總統</Box>
@@ -65,7 +65,7 @@ export default function Landing() {
                     <Box fontSize="body2.fontSize" lineHeight={1.6}>台灣政壇瞬息萬變<br/>你的猜測神不神、準不準<br/>選前趕快來預測！</Box>
                 </Typography>
                 </Grid>
-                <Grid item xs={12} sm={8} spacing={8} justify="center" direction="column" alignItems="center" >
+                <Grid item xs={12} sm={7} spacing={8} justify="center" direction="column" alignItems="center" >
                     <div className={classes.section}>
                         <Typography id="discrete-slider-always" gutterBottom>
                             <Box fontSize="h6.fontSize" fontWeight="fontWeightBold" textAlign="left">宋楚瑜</Box>
@@ -103,7 +103,7 @@ export default function Landing() {
         <Divider/>
         <div className="predict">
          <Grid container justify="center">
-                <Grid item xs={12} sm={4} spacing={8} direction="column">
+                <Grid item xs={12} sm={3} spacing={8} direction="column">
                 <Typography component="div">
                     <Box fontSize="h5.fontSize" lineHeight={1.6}>2020 立委選舉</Box>
                     <Box fontSize="h3.fontSize" fontWeight="fontWeightBold" lineHeight={2}>選個席次好過年</Box>
@@ -111,36 +111,36 @@ export default function Landing() {
                     <Box fontSize="body2.fontSize" lineHeight={1.6}>幾家歡樂幾家愁<br/>你看好的政黨能奪幾席？<br/>現在預測！</Box>
                 </Typography>
                 </Grid>
-                <Grid container xs={12} sm={8} spacing={2} justify="center" direction="column" alignItems="center">
-                <div>
-        <TextField label="Size" id="standard-size-small" defaultValue="Small" size="small" />
-        <TextField label="Size" id="standard-size-normal" defaultValue="Normal" />
-      </div>
-      <div>
-        <TextField
-          label="Size"
-          id="filled-size-small"
-          defaultValue="Small"
-          variant="filled"
-          size="small"
-        />
-        <TextField label="Size" id="filled-size-normal" defaultValue="Normal" variant="filled" />
-      </div>
-      <div>
-        <TextField
-          label="Size"
-          id="outlined-size-small"
-          defaultValue="Small"
-          variant="outlined"
-          size="small"
-        />
-        <TextField
-          label="Size"
-          id="outlined-size-normal"
-          defaultValue="Normal"
-          variant="outlined"
-        />
-      </div>
+                <Grid container xs={12} sm={7} spacing={2} justify="center" direction="column" alignItems="center">
+                    <div>
+                        <TextField label="Size" id="standard-size-small" defaultValue="Small" size="small" />
+                        <TextField label="Size" id="standard-size-normal" defaultValue="Normal" />
+                    </div>
+                    <div>
+                        <TextField
+                        label="Size"
+                        id="filled-size-small"
+                        defaultValue="Small"
+                        variant="filled"
+                        size="small"
+                        />
+                        <TextField label="Size" id="filled-size-normal" defaultValue="Normal" variant="filled" />
+                    </div>
+                    <div>
+                        <TextField
+                        label="Size"
+                        id="outlined-size-small"
+                        defaultValue="Small"
+                        variant="outlined"
+                        size="small"
+                        />
+                        <TextField
+                        label="Size"
+                        id="outlined-size-normal"
+                        defaultValue="Normal"
+                        variant="outlined"
+                        />
+                    </div>
                 </Grid>
                 
             </Grid>

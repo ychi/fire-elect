@@ -17,10 +17,10 @@ function Footer(props) {
   return (
   <div>
     <div className={classes.root}>
-      <Typography component="div">
+      <Typography component="div" color="textSecondary">
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
-            <Box fontSize="h5.fontSize" fontWeight="fontWeightBold" lineHeight={1.6} textAlign="left">
+            <Box fontSize="h5.fontSize" fontWeight="fontWeightBold" lineHeight={1.6} textAlign="center">
               Fire Elect
             </Box>
           </Grid>
