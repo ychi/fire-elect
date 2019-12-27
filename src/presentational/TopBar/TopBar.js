@@ -22,8 +22,7 @@ export default ({routes}) => {
     const location = useLocation();
     const classes = useStyles();
     return (
-        <AppBar position="static">
-            
+        <AppBar position="static" style={{ background: '#fafafa', boxShadow: 'none', color: '#000000',}}>
             <Tabs value={location.pathname}>
             <Typography variant="h5" className={classes.title}>
                 Fire Elect
