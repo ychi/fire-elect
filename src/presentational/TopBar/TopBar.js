@@ -7,12 +7,20 @@ import {
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { makeStyles, Typography, withTheme} from '@material-ui/core';
+import { makeStyles} from '@material-ui/core';
 import './topbar.scss';
 
 const useStyles = makeStyles(theme=>({
+    appbar: {
+        boxShadow: 'none'
+    },
     title: {
-            fontSize: '20px'
+        fontSize: '20px',
+        fontWeight: '800'
+    },
+    normalTab: {
+        fontSize: '16px',
+        fontWeight: '800'
     }
 }));
 
@@ -20,7 +28,7 @@ export default ({routes}) => {
     const location = useLocation();
     const classes = useStyles();
     return (
-        <AppBar position="static" style={{boxShadow: 'none',}}>
+        <AppBar position="static" className={classes.appbar}>
             <div className="topbar">
                 <Tabs value={location.pathname}>
                     {routes
