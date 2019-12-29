@@ -1,6 +1,5 @@
 import React from 'react';
-import './predict.scss';
-import { makeStyles } from '@material-ui/core/styles';
+import styles from './predict.module.scss';
 import Masthead from '../../Components/Masthead/Masthead';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -10,12 +9,6 @@ import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
 
 
-
-const useStyles = makeStyles(theme => ({
-    section: {
-        minWidth: '30vw',
-    },
-  }));
 
   
 const marks = [
@@ -51,11 +44,10 @@ return `${value}°C`;
 
 export default function Landing() {
 
-  const classes = useStyles();
     return(
     <div>
         <Masthead title={"我大膽預測"}/>
-        <div className="predict">
+        <div className={styles.predict}>
          <Grid container justify="center">
                 <Grid item xs={12} sm={3} spacing={8} direction="column">
                 <Typography component="div">
@@ -66,7 +58,7 @@ export default function Landing() {
                 </Typography>
                 </Grid>
                 <Grid item xs={12} sm={7} spacing={8} justify="center" direction="column" alignItems="center" >
-                    <div className={classes.section}>
+                    <div className={styles.section}>
                         <Typography id="discrete-slider-always" gutterBottom>
                             <Box fontSize="h6.fontSize" fontWeight="fontWeightBold" textAlign="left">宋楚瑜</Box>
                             <Slider
@@ -101,7 +93,7 @@ export default function Landing() {
             </Grid>
         </div>
         <Divider/>
-        <div className="predict">
+        <div className={styles.predict}>
          <Grid container justify="center">
                 <Grid item xs={12} sm={3} spacing={8} direction="column">
                 <Typography component="div">
