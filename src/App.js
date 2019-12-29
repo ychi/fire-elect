@@ -10,6 +10,7 @@ import TopBar from './presentational/TopBar/TopBar';
 import Footer from './presentational/Footer/Footer';
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { StylesProvider } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
   palette: {
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <StylesProvider injectFirst>
       <div className="App">
         <Router>
           <TopBar routes={routes}></TopBar>
@@ -39,6 +41,7 @@ function App() {
           <Footer/>
         </Router>
       </div>
+      </StylesProvider>
     </ThemeProvider>
   );
 }
