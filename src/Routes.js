@@ -2,6 +2,7 @@ import React from 'react';
 import Landing from "./presentational/Pages/Landing/Landing";
 import Predict from "./presentational/Pages/Predict/Predict";
 import Dummy from "./presentational/Dummy/Dummy";
+import Armeggeddon from "./presentational/Armeggeddon/Armeggeddon";
 
 export default [
     {
@@ -32,7 +33,7 @@ export default [
         label: '認同請分享',
         path: '/archive',
         className: 'normalTab',
-        render: ()=>(<Dummy text="認同請分享"/>)
+        render: ()=>(<Armeggeddon text="認同請分享"/>)
     },
 
 ];

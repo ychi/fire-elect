@@ -9,6 +9,8 @@ import routes from './Routes';
 import TopBar from './presentational/TopBar/TopBar';
 import Footer from './presentational/Footer/Footer';
 
+import Firebase, {FirebaseProvider} from './container/Firebase';
+
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { StylesProvider } from '@material-ui/core/styles';
 
@@ -28,6 +30,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <StylesProvider injectFirst>
+      <FirebaseProvider value={ new Firebase() }>
       <div className="App">
         <Router>
           <TopBar routes={routes}></TopBar>
@@ -41,6 +44,7 @@ function App() {
           <Footer/>
         </Router>
       </div>
+      </FirebaseProvider>
       </StylesProvider>
     </ThemeProvider>
   );
