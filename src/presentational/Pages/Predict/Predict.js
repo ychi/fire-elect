@@ -226,10 +226,10 @@ export default function Landing() {
         <hr/>
 
 
-        <section className={styles.window__section}>
-            <Grid container height="90vh">
+        <section>
+            <Grid container >
                 <Grid item className={styles.frame} md={3}>
-                    <Box height="90vh" textAlign='left' marginLeft='8vw'>
+                    <Box textAlign='left' marginLeft='8vw'>
                         <Typography variant="h1" display="inline">20</Typography>
                         <Typography variant="h6" display="inline">我</Typography>
                         <hr/>
@@ -238,26 +238,26 @@ export default function Landing() {
                     </Box>
                 </Grid>
                 <Grid item className={styles.frame} md={1}>
-                    <Box height="90vh"></Box>
+                    <Box height="60vh"></Box>
                 </Grid>
                 <Grid item className={styles.frame} md={5}>
                     <Form/>
                 </Grid>
                 <Grid item className={styles.frame} md={3}>
-                    <Box height="90vh"></Box>
+                    <Box height="10vh"></Box>
                 </Grid>
             </Grid>
         </section>
         <hr/>
-        <section className={styles.window__section}>
-            <Grid container height="60vh">
+        <section height="60vh">
+            <Grid container >
                 <Grid item className={styles.frame} md={1}>
-                    <Box height="90vh">
+                    <Box height="60vh">
                         <Typography className={styles.predict__subtitle__verticalRotate}>庶民的心聲</Typography>
                     </Box>
                 </Grid>
                 <Grid item className={styles.frame} md={9}>
-                    <Box textAlign="left"  bgcolor="red" height="100%">
+                    <Box textAlign="left"  bgcolor="red" height="60vh">
                         <Grid container>
                             <Grid item md={1}></Grid>
                             <Grid item md={11}>
@@ -276,12 +276,12 @@ export default function Landing() {
                     </Box>
                 </Grid>
                 <Grid item className={styles.frame} md={1}>
-                    <Box height="45vh" bgcolor='black'></Box>
-                    <Box height="45vh"></Box>
+                    <Box height="50%"s bgcolor='black'></Box>
+                    <Box height="50%"></Box>
 
                 </Grid>
                 <Grid item className={styles.frame} md={1}>
-                    <Box height="90vh" bgcolor='gray'></Box>
+                    <Box height="60vh" bgcolor='gray'></Box>
                 </Grid>
             </Grid>
         </section>

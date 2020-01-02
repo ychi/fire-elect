@@ -14,49 +14,64 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 
 export default function Form() {
+    function handleSubmit(e) {
+
+        e.preventDefault();
+    }
+
     return(
-        <Box height="90vh" textAlign='left'>
+        <Box height="100%" textAlign='left'>
             <Typography>
                 <Box>送出前</Box>
                 <Box>幫助我們了解你是誰</Box>
             </Typography>
             <hr/>
             <Box>
-                <FormControl>
-                    <InputLabel htmlFor="form-gender">性別</InputLabel>
-                    <Input id="form-gender" aria-describedby="gender-helper-text" />
-                    <FormHelperText id="gender-helper-text">請勾選您的性別</FormHelperText>
-                    <Checkbox></Checkbox>
-                    <Checkbox></Checkbox>
+                <FormControl className={styles.checkBox__dir}>
+                    <label for="name">性別:</label>
+                    <FormControlLabel control={<Checkbox value="m" />} label="男" display='inline' />
+                    <FormControlLabel control={<Checkbox value="f" />} label="女" display='inline' />
                 </FormControl>
             </Box>
 
             <Box>
-                <FormControl>
-                    <InputLabel htmlFor="form-gender">年齡</InputLabel>
-                    <Input id="form-gender" aria-describedby="gender-helper-text" />
-                    <FormHelperText id="gender-helper-text">請勾選您的年齡</FormHelperText>
+                <FormControl className={styles.checkBox__dir}>
+                    <label for="name">年齡:</label>
+                    <FormControlLabel control={<Checkbox value="20" />} label="20以下" />
+                    <FormControlLabel control={<Checkbox value="29" />} label="20-29" />
+                    <FormControlLabel control={<Checkbox value="39" />} label="30-39" />
+                    <FormControlLabel control={<Checkbox value="49" />} label="40-49" />
+                    <FormControlLabel control={<Checkbox value="59" />} label="50-59" />
+                    <FormControlLabel control={<Checkbox value="60" />} label="60以上" />
                 </FormControl>
             </Box>
             <Box>
-                <FormControl>
-                    <InputLabel htmlFor="form-gender">教育程度</InputLabel>
-                    <Input id="form-gender" aria-describedby="gender-helper-text" />
-                    <FormHelperText id="gender-helper-text">請勾選您的教育程度</FormHelperText>
+                <FormControl className={styles.checkBox__dir}>
+                    <label for="name">教育程度:</label>
+                    <FormControlLabel control={<Checkbox value="elementary school" />} label="小學" />
+                    <FormControlLabel control={<Checkbox value="mid-high school" />} label="國中" />
+                    <FormControlLabel control={<Checkbox value="high school" />} label="高中" />
+                    <FormControlLabel control={<Checkbox value="bachelor" />} label="大學" />
+                    <FormControlLabel control={<Checkbox value="master" />} label="碩士" />
+                    <FormControlLabel control={<Checkbox value="doctor" />} label="博士" />
                 </FormControl>
             </Box>
             <Box>
-                <FormControl>
-                    <InputLabel htmlFor="form-gender">婚姻狀況</InputLabel>
-                    <Input id="form-gender" aria-describedby="gender-helper-text" />
-                    <FormHelperText id="gender-helper-text">請勾選您的婚姻狀況</FormHelperText>
+                <FormControl className={styles.checkBox__dir}>
+                    <label for="name">婚姻狀況:</label>
+                    <FormControlLabel control={<Checkbox value="married" />} label="已婚" />
+                    <FormControlLabel control={<Checkbox value="single" />} label="未婚" />
+                    <FormControlLabel control={<Checkbox value="others" />} label="其他" />
                 </FormControl>
             </Box>
             <Box>   
-                <FormControl>
-                    <InputLabel htmlFor="form-gender">收入</InputLabel>
-                    <Input id="form-gender" aria-describedby="gender-helper-text" />
-                    <FormHelperText id="gender-helper-text">請勾選您的收入</FormHelperText>
+                <FormControl className={styles.checkBox__dir}>
+                    <label for="name">收入:</label>
+                    <FormControlLabel control={<Checkbox value="$" />} label="$" />
+                    <FormControlLabel control={<Checkbox value="$$" />} label="$$" />
+                    <FormControlLabel control={<Checkbox value="$$$" />} label="$$$" />
+                    <FormControlLabel control={<Checkbox value="$$$$" />} label="$$$$" />
+                    <FormControlLabel control={<Checkbox value="$$$$$" />} label="$$$$$" />
                 </FormControl>
             </Box>
             <Box>
@@ -66,9 +81,8 @@ export default function Form() {
                     label="我同意隱私條款"
                     labelPlacement="end"
                 />
-                <Button variant="contained" color="black">送出</Button>
             </Box>
-
+            <Button variant="contained" color="black">送出</Button>
         </Box>
 )}
 
