@@ -43,9 +43,24 @@ function presidentReducer (state, action) {
     }
 }
 
-export default function Predict() {
+function legislativeReducer (state, action) {
+  return state;
+}
+
+
+export default function Predict({submitable = true, formContent = null, submitForm = ()=>{}}) {
 
     const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, {s: 33, h: 33, t: 33});
+    const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer()
+
+    const onClickSubmit = (formContentSnapshot)=> {
+        submitForm(
+            formContentContentSnapshot, 
+            {
+                president: presidentPercentages, 
+                legislative: legislativeDistribution
+            });
+    };
 
     return(
     <div>
@@ -241,7 +256,23 @@ export default function Predict() {
         </section>
 
         <section height="auto">
-            <Form/>
+            <Form
+              preloadedContent = {formContent}
+              submitable = {submitable}
+              onClickSubmit = {onClickSubmit}
+            />
+        {/* <section>
+            <Grid container>
+                <Grid item md={12}>
+                    <Box height="60vh">
+                        <Form 
+                            preloadedContent = {formContent}
+                            submitable = {submitable}
+                            onClickSubmit = {onClickSubmit}
+                        />
+                    </Box>
+                </Grid>
+            </Grid> */}
         </section>
         
         <section height="60vh">
