@@ -8,17 +8,17 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 
 function ActionBloc(props) {
   return (
-    <Card className="actionbloc" align="center" justifyContent="center">
+    <Box className="actionbloc">
       <CardActionArea>
         <Box className="textbloc">
-          <Typography component="div">
+          <Typography className="type">
             <Box fontSize="body2.fontSize" lineHeight={1.6}>{props.desc}</Box>
-            <Box fontSize="h3.fontSize" fontWeight="fontWeightBold" lineHeight={2}>{props.title}</Box>
-            <Box fontSize="h6.fontSize " lineHeight={1.8}>{props.subtitle}</Box>
+            <Box fontSize="h4.fontSize" fontWeight="fontWeightBold" lineHeight={1.3}>{props.title}</Box>
+            <Box fontSize="caption.fontSize " lineHeight={1.8}>{props.subtitle}</Box>
           </Typography>
         </Box> 
       </CardActionArea>
-    </Card>
+    </Box>
   );
 }
 
