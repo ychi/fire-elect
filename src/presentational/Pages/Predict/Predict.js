@@ -8,7 +8,7 @@ import Divider from '@material-ui/core/Divider';
 import { Button } from '@material-ui/core';
 import Form from './form'
 
-
+import PredictSeats from '../../Components/PredictSeats/PredictSeats';
 
 const marks = [
     {
@@ -202,7 +202,7 @@ export default function Landing() {
                 <Grid item className={styles.frame} md={3}></Grid>
                 <Grid item className={styles.frame} md={5}>
                     <Grid container height="90vh">
-                        <Grid item md={12}> 
+                        {/* <Grid item md={12}> 
                             <Box height="30vh" border={1}>chart1</Box>
                         </Grid>
                         <Grid item md={12}> 
@@ -211,9 +211,10 @@ export default function Landing() {
                                     <Box><span>113</span><span>議席</span></Box>
                                 </Typography>
                             </Box>
-                        </Grid>
+                        </Grid> */}
                         <Grid item md={12}> 
-                            <Box height="30vh" border={1}>chart2</Box>
+                            {/* <Box height="30vh" border={1}>chart2</Box> */}
+                          <PredictSeats/>
                         </Grid>
                     </Grid>
                 </Grid>
