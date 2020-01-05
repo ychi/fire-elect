@@ -17,33 +17,26 @@
   min-height: 90vh;
 }
 
-.frame{
-  border-color:rgb(238, 238, 255); 
-  border-style:solid;
-  border-width: 1px;
-}
-
-
 .predict__title__vertical{
   writing-mode: vertical-lr;
   text-orientation: upright;
-  font-size: 130px;
-  text-align:right; 
+  text-align:right;
+  font:{
+    size: 130px;
+    family: Noto Sans; 
+    weight: bold;
+  }
+   text-shadow: 6px -8px white, 4px -8px #CC9423,8px -8px #CC9423, 6px -6px #CC9423, 6px -10px #CC9423, 8px -10px #CC9423;
 }
 
 .predict__subtitle__vertical{
   writing-mode: vertical-lr;
   text-orientation: upright;
-  font-size: 60px;
-  text-align:right; 
-}
-
-.predict__subtitle__verticalRotate{
-  writing-mode: vertical-lr;
-  text-orientation: upright;
-  font-size: 50px;
-  text-align:right;
-  text-orientation: sideways;
+  font:{
+    size: 60px;
+    family: Noto Sans; 
+    weight: bold;
+  }
 }
 
 .cover__text__predict{
@@ -61,10 +54,83 @@
 
 .date{
   width: 30px;
-  margin-top: 0px;
+  margin-top: 5vh;
   margin-left: 50px;
+  font:{
+    family: Noto Sans; 
+    weight: bold;
+  }
 }
 
-.checkBox__dir{
-  flex-direction: row;
+.date_gold{
+  color:#CC9423;
+}
+
+
+.section__brief{
+  margin-left: 10px;
+  white-space:nowrap;
+}
+
+
+.predict__Bottom__subtitle{
+  writing-mode: vertical-lr;
+  text-orientation: sideways;
+  font-size: 70px;
+  color: white;
+}
+
+.bottom__graphic__goldLine{
+  border-color: #CC9423;
+  background-color: #273A3C; 
+}
+
+.bottom__graphic__whiteLine{
+  border-color:white;
+}
+
+.bottom__oval__red{
+  border-radius: 50%;
+  background-color: #FF2600;
+  height: 300px;
+  width: 300px;
+}
+
+.bottom__oval__gold{
+  border-radius: 50%;
+  border-color: #CC9423;
+  height: 100px;
+  width: 100px;
+}
+
+.bottom__oval__container{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.bottom__redOval__container{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: repeating-linear-gradient(to right, white, white 30px, #B2ABA1 30px,  #B2ABA1 60px, white 60px, white 90px, #CC9423 90px, #CC9423 120px);
+}
+
+.bottom__button__black{
+  background-color: #273A3C;
+  color:white; 
+}
+
+.bottom__linkIntro__text{
+  color:white;
+}
+
+.votes__subtitle{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-left: 20px;
+  border-left: 2px solid black;
+  
 }

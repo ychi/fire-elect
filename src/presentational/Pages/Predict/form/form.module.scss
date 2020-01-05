@@ -1,0 +1,41 @@
+
+ 
+  .checkBox__dir{
+    flex-direction: row;
+  }
+  
+  .section__brief{
+    margin-left: 10px;
+    white-space:nowrap;
+  }
+  
+
+  .form__oval_left{
+    border-radius: 40vh 0vh 0vh 40vh;
+    height:40vh;
+    width: 20vh;
+    border: 2px solid #CC9423;
+    border-right:none;
+    display: inline-block;
+    position: relative;
+    top:10vh;
+    left:6.9vw;
+  }
+  .form__oval_right{
+    border-radius: 0vh 40vh 40vh 00vh;
+    height:40vh;
+    width: 20vh;
+    border: 2px solid #CC9423;
+    background-color: #CC9423;
+    border-left:none;
+    display: inline-block;
+    position: relative;
+    left:-12.4vh;
+    top:10vh;
+  
+  }
+
+  .form__inputArea{
+    background-color:#E9F2F2;
+  }
+  
