@@ -1,51 +1,52 @@
-import React from 'react';
+import React, {useReducer} from 'react';
 import styles from './predict.module.scss';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Slider from '@material-ui/core/Slider';
 import { Button } from '@material-ui/core';
 import Form from './form/form';
 import { positions } from '@material-ui/system';
+import PresidentPredict from '../../Components/PresidentPredict/PresidentPredict';
 
 
-const marks = [
-    {
-      value: 0,
-      label: '0%',
-    },
-    {
-      value: 20,
-      label: '20%',
-    },
-    {
-      value: 40,
-      label: '40%',
-    },
-    {
-      value: 60,
-      label: '60%',
-    },
-    {
-      value: 80,
-      label: '80%',
-    },
-    {
-      value: 100,
-      label: '100%',
-    },
-  ];
 
-function valuetext(value) {
-return `${value}°C`;
-}
 
 function electionCountDown(){
     return null;
 }
 
+function presidentReducer (state, action) {
+    switch(action.type) {
+        case 'S':
+            return {
+                ...state,
+                s: (state.h + state.t + action.commitedV > 100) ? 
+                    100 - state.h - state.t : 
+                    action.commitedV
+            };
+        case 'H':
+            return {
+                ...state,
+                h: (state.s + state.t + action.commitedV > 100) ?
+                    100 - state.s - state.t :
+                    action.commitedV
+            };
+        case 'T':
+            return {
+                ...state,
+                t: (state.s + state.h + action.commitedV > 100) ?
+                    100 - state.s - state.h : 
+                    action.commitedV
+            };
+        default: 
+            return state;
+    }
+}
 
 export default function Landing() {
+
+    const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, {s: 33, h: 33, t: 33});
+
     return(
     <div>
         <section className={styles.window__section}>
@@ -159,35 +160,12 @@ export default function Landing() {
                         </Grid>
                         <Grid item md={12} spacing={8} justify="center" direction="column" alignItems="center" >
                             <div className={styles.section}>
-                                <Typography id="discrete-slider-always" gutterBottom>
-                                    <Box fontSize="h6.fontSize" fontWeight="fontWeightBold" textAlign="left">宋楚瑜</Box>
-                                    <Slider
-                                        defaultValue={50}
-                                        getAriaValueText={valuetext}
-                                        aria-labelledby="discrete-slider-always"
-                                        step={1}
-                                        marks={marks}
-                                        valueLabelDisplay="on"
-                                    />
-                                    <Box fontSize="h6.fontSize" fontWeight="fontWeightBold" textAlign="left">韓國瑜</Box>
-                                    <Slider
-                                        defaultValue={50}
-                                        getAriaValueText={valuetext}
-                                        aria-labelledby="discrete-slider-always"
-                                        step={1}
-                                        marks={marks}
-                                        valueLabelDisplay="on"
-                                    />
-                                    <Box fontSize="h6.fontSize" fontWeight="fontWeightBold" textAlign="left">蔡英文</Box>
-                                    <Slider
-                                        defaultValue={50}
-                                        getAriaValueText={valuetext}
-                                        aria-labelledby="discrete-slider-always"
-                                        step={1}
-                                        marks={marks}
-                                        valueLabelDisplay="on"
-                                    />
-                                </Typography>
+                                <PresidentPredict
+                                    percentages = {presidentPercentages}
+                                    commit = {(k, v)=>{
+                                        dispatchPresidentPercentages({type: k, commitedV: v});
+                                    }}
+                                />
                             </div>    
                         </Grid>
                     </Grid>
