@@ -43,9 +43,24 @@ function presidentReducer (state, action) {
     }
 }
 
-export default function Landing() {
+function legislativeReducer (state, action) {
+    return state;
+}
+
+
+export default function Landing({submitable = true, formContent = null, submitForm = ()=>{}}) {
 
     const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, {s: 33, h: 33, t: 33});
+    const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer()
+
+    const onClickSubmit = (formContentSnapshot)=> {
+        submitForm(
+            formContentContentSnapshot, 
+            {
+                president: presidentPercentages, 
+                legislative: legislativeDistribution
+            });
+    };
 
     return(
     <div>
@@ -235,7 +250,11 @@ export default function Landing() {
             <Grid container>
                 <Grid item md={12}>
                     <Box height="60vh">
-                        <Form/>
+                        <Form 
+                            preloadedContent = {formContent}
+                            submitable = {submitable}
+                            onClickSubmit = {onClickSubmit}
+                        />
                     </Box>
                 </Grid>
             </Grid>
