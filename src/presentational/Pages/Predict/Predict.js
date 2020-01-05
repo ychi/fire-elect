@@ -5,15 +5,9 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
 import Form from './form/form';
-import { positions } from '@material-ui/system';
 import PresidentPredict from '../../Components/PresidentPredict/PresidentPredict';
 
 
-
-
-function electionCountDown(){
-    return null;
-}
 
 function presidentReducer (state, action) {
     switch(action.type) {
@@ -48,14 +42,14 @@ function legislativeReducer (state, action) {
 }
 
 
-export default function Landing({submitable = true, formContent = null, submitForm = ()=>{}}) {
+export default function Predict({submitable = true, formContent = null, submitForm = ()=>{}}) {
 
     const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, {s: 33, h: 33, t: 33});
-    const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer()
+    const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer(legislativeReducer, {})
 
     const onClickSubmit = (formContentSnapshot)=> {
         submitForm(
-            formContentContentSnapshot, 
+            formContentSnapshot, 
             {
                 president: presidentPercentages, 
                 legislative: legislativeDistribution
