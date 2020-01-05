@@ -1,23 +1,15 @@
 .actionbloc {
     background-color: #E9F2F2;
+    .type {
+        * {
+            margin-bottom: 10px;
+        }
+    }
     .textbloc{
         position: relative;
         top:0;
         left: 0;
-        height: 350px;
-        padding: 30px 20px 0px 20px;
-        z-index: 1000 !important;
+        padding: 50px 40px;
         overflow: hidden;
-    }
-    .textbloc:before{
-        content: "";
-        position: absolute;
-        width: 200%;
-        height: 200%;
-        top: 0%;
-        left: 0%;
-        z-index: -1;
-        background: url(./button.svg) 0 0 no-repeat;
-        transform: rotate(30deg);
     }
 }
