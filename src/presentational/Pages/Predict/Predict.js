@@ -42,7 +42,7 @@ function legislativeReducer (state, action) {
 }
 
 
-export default function Predict({submitable = true, formContent = null, submitForm = ()=>{}}) {
+export default function Predict({submittable = true, formContent = null, submitForm = ()=>{}}) {
 
     const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, {s: 33, h: 33, t: 33});
     const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer(legislativeReducer, {})
@@ -246,7 +246,7 @@ export default function Predict({submitable = true, formContent = null, submitFo
                     <Box height="60vh">
                         <Form 
                             preloadedContent = {formContent}
-                            submitable = {submitable}
+                            submittable = {submittable}
                             onClickSubmit = {onClickSubmit}
                         />
                     </Box>
