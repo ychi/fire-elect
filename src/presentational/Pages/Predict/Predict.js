@@ -7,13 +7,9 @@ import { Button } from '@material-ui/core';
 import Form from '../../Components/Form/Form';
 import { positions } from '@material-ui/system';
 import Hidden from '@material-ui/core/Hidden';
+import PresidentPredict from '../../Components/PresidentPredict/PresidentPredict';
 
 
-
-
-function electionCountDown(){
-    return null;
-}
 
 function presidentReducer (state, action) {
     switch(action.type) {
@@ -51,11 +47,11 @@ function legislativeReducer (state, action) {
 export default function Predict({submitable = true, formContent = null, submitForm = ()=>{}}) {
 
     const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, {s: 33, h: 33, t: 33});
-    const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer()
+    const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer(legislativeReducer, {})
 
     const onClickSubmit = (formContentSnapshot)=> {
         submitForm(
-            formContentContentSnapshot, 
+            formContentSnapshot, 
             {
                 president: presidentPercentages, 
                 legislative: legislativeDistribution
