@@ -15,7 +15,6 @@ export default [
     {
         label: '我大膽預測',
         path: '/ipredict',
-        className: 'normalTab',
         render: ()=>(<Predict/>)
     },    
     {
@@ -32,8 +31,7 @@ export default [
     {
         label: '認同請分享',
         path: '/archive',
-        className: 'normalTab',
         render: ()=>(<Dummy text="認同請分享"/>)
     },
 
-];
+]
