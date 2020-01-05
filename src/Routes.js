@@ -1,6 +1,7 @@
 import React from 'react';
 import Landing from "./presentational/Pages/Landing/Landing";
 import Predict from "./presentational/Pages/Predict/Predict";
+import Warroom from "./presentational/Pages/Warroom/Warroom";
 import Dummy from "./presentational/Dummy/Dummy";
 import Armeggeddon from "./presentational/Armeggeddon/Armeggeddon";
 
@@ -26,8 +27,7 @@ export default [
     {
         label: 'AI戰情室',
         path: '/aiwarroom',
-        className: 'normalTab',
-        render: ()=>(<Dummy text="AI戰情室"/>)
+        render: ()=>(<Warroom/>)
     },
     {
         label: '認同請分享',

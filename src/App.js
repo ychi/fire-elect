@@ -5,6 +5,9 @@ import {
   Route
 } from "react-router-dom";
 
+import Firebase, { FirebaseProvider } from './tools/firebase';
+
+
 import routes from './Routes';
 import TopBar from './presentational/TopBar/TopBar';
 import Footer from './presentational/Footer/Footer';
@@ -35,7 +38,7 @@ function App() {
         <Router>
           <TopBar routes={routes}></TopBar>
           <Switch>
-            {routes.map((route)=>(
+            {routes.map((route) => (
               <Route path={route.path} exact>
                 {route.render()}
               </Route>

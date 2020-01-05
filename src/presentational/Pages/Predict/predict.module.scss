@@ -12,3 +12,59 @@
 .section {
   min-width: 30vw;
 }
+
+.window__section{
+  min-height: 90vh;
+}
+
+.frame{
+  border-color:rgb(238, 238, 255); 
+  border-style:solid;
+  border-width: 1px;
+}
+
+
+.predict__title__vertical{
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  font-size: 130px;
+  text-align:right; 
+}
+
+.predict__subtitle__vertical{
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  font-size: 60px;
+  text-align:right; 
+}
+
+.predict__subtitle__verticalRotate{
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  font-size: 50px;
+  text-align:right;
+  text-orientation: sideways;
+}
+
+.cover__text__predict{
+  writing-mode: vertical-rl;
+  margin-left: 100px;
+}
+
+.text__vertical__rl{
+  writing-mode: vertical-rl;
+}
+
+.text__vertical__lr{
+  writing-mode: vertical-lr;
+}
+
+.date{
+  width: 30px;
+  margin-top: 0px;
+  margin-left: 50px;
+}
+
+.checkBox__dir{
+  flex-direction: row;
+}
