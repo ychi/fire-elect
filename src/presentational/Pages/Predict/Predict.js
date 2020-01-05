@@ -4,11 +4,10 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Slider from '@material-ui/core/Slider';
-import Divider from '@material-ui/core/Divider';
 import { Button } from '@material-ui/core';
 import Form from './form'
 
-
+import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
 
 const marks = [
     {
@@ -82,23 +81,7 @@ export default function Landing() {
                     <Box height="90vh"></Box>
                 </Grid>
                 <Grid item className={styles.frame} md={1}>
-                    <Box height="90vh">
-                        <Typography component="div" variant="h5" className={styles.date}>
-                            <Box>貳零貳零</Box>
-                            <hr/>
-                            <Box>壹月拾壹</Box>
-                            <hr/>
-                            <Box>距大選</Box>
-                            <Box>{10}</Box>
-                            <Box>天</Box>
-                            <Box>{10}</Box>
-                            <Box>時</Box>
-                            <Box>{10}</Box>
-                            <Box>分</Box>
-                            <Box>{10}</Box>
-                            <Box>秒</Box>
-                        </Typography>
-                    </Box>
+                  <CoundownTimer />
                 </Grid>
             </Grid>
         </section>
