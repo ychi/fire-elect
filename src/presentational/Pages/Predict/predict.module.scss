@@ -66,6 +66,11 @@
   writing-mode: vertical-lr;
 }
 
+
+.checkBox__dir{
+  flex-direction: row;
+}
+
 .date{
   width: 30px;
   margin-top: 5vh;
@@ -158,5 +163,4 @@
   margin-bottom: 40px;
   padding-left: 20px;
   border-left: 2px solid black;
-  
 }

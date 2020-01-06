@@ -9,7 +9,7 @@ import { positions } from '@material-ui/system';
 import Hidden from '@material-ui/core/Hidden';
 import PresidentPredict from '../../Components/PresidentPredict/PresidentPredict';
 
-
+import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
 
 function presidentReducer (state, action) {
     switch(action.type) {
@@ -100,47 +100,9 @@ export default function Predict({submittable = true, formContent = null, submitF
                 <Grid item xs={0} md={5}>
                     <Box></Box>
                 </Grid>
-                <Grid item xs={3} md={1} alignItems="center" >
-                    <Box >
-                        <Hidden mdUp>
-                            <Typography component="div" variant="h6" className={styles.date__sm}>
-                                <Box>貳零貳零</Box>
-                                <hr/>
-                                <Box>壹月拾壹</Box>
-                                <hr/>
-                                <Box>距大選</Box>
-                                <Box className={styles.date_gold}>   
-                                    <Box>{10}</Box>
-                                    <Box>天</Box>
-                                    <Box>{10}</Box>
-                                    <Box>時</Box>
-                                    <Box>{10}</Box>
-                                    <Box>分</Box>
-                                    <Box>{10}</Box>
-                                    <Box>秒</Box>
-                                </Box>
-                            </Typography>
-                        </Hidden>
-                        <Hidden xsDown>
-                            <Typography component="div" variant="h6" className={styles.date}>
-                                <Box>貳零貳零</Box>
-                                <hr/>
-                                <Box>壹月拾壹</Box>
-                                <hr/>
-                                <Box>距大選</Box>
-                                <Box className={styles.date_gold}>   
-                                    <Box>{10}</Box>
-                                    <Box>天</Box>
-                                    <Box>{10}</Box>
-                                    <Box>時</Box>
-                                    <Box>{10}</Box>
-                                    <Box>分</Box>
-                                    <Box>{10}</Box>
-                                    <Box>秒</Box>
-                                </Box>
-                            </Typography>
-                        </Hidden>
-                    </Box>
+
+                <Grid item className={styles.frame} md={1} xs={3} alignItems="center>
+                  <CoundownTimer />
                 </Grid>
 
                 <Grid item xs={12}>
