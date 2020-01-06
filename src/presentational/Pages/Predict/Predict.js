@@ -5,9 +5,9 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
 import Form from '../../Components/Form/Form';
-import { positions } from '@material-ui/system';
 import Hidden from '@material-ui/core/Hidden';
 import PresidentPredict from '../../Components/PresidentPredict/PresidentPredict';
+import PredictSeats from '../../Components/PredictSeats/PredictSeats';
 
 import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
 
@@ -39,15 +39,25 @@ function presidentReducer (state, action) {
     }
 }
 
+const initialLegislativeDistribution = [];
+
+
 function legislativeReducer (state, action) {
-    return state;
+    let filtered = state.filter((d) => (d.partyId !== action.partyId));
+    let filteredTotal = filtered.reduce((agg, p)=>(agg+p.prediction), 0);
+    let verifiedPrediction = action.prediction > 0 ? Math.min(113 - filteredTotal, action.prediction): 0;
+    return [
+      ...filtered,
+      { partyId: action.partyId, prediction: verifiedPrediction }
+    ].sort((a, b) => (b.prediction - a.prediction));
 }
 
 
 export default function Predict({submittable = true, formContent = null, submitForm = ()=>{}}) {
 
     const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, {s: 33, h: 33, t: 33});
-    const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer(legislativeReducer, {})
+    const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer(legislativeReducer, initialLegislativeDistribution);
+
 
     const onClickSubmit = (formContentSnapshot)=> {
         submitForm(
@@ -241,17 +251,10 @@ export default function Predict({submittable = true, formContent = null, submitF
                     <Box height="10vh"></Box>
                     <Grid container xs={12} height="90vh">
                         <Grid item xs={12} md={12}> 
-                            <Box height="30vh" border={1}>chart1</Box>
-                        </Grid>
-                        <Grid item xs={12} md={12}> 
-                            <Box height="10vh" border={1}>
-                                <Typography>
-                                    <Box><span>113</span><span>議席</span></Box>
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} md={12}> 
-                            <Box height="30vh" border={1}>chart2</Box>
+                        <Typography className={styles.votes__subtitle} align="left">2020立委大選：你的預測</Typography>
+                            <PredictSeats 
+                                distribution = {legislativeDistribution}
+                                dispatch={dispatchLegislativeDistribution}/>
                         </Grid>
                     </Grid>
                 </Grid>
