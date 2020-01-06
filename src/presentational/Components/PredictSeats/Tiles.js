@@ -8,7 +8,7 @@ const Tile = ({colorClass = styles.default}) =>(
 
 const TileMap = ({seats}) => (
     <div className = {styles.tilesContainer}>
-        {seats.map((seat)=>(<Tile colorClass={seat.colorClass}/>))}
+        {seats.map((seat, idx)=>(<Tile key={idx} colorClass={seat.colorClass}/>))}
     </div>
 );
 

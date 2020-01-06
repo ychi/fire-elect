@@ -1,9 +1,10 @@
 import React from 'react';
 
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 import Slider from '@material-ui/core/Slider';
+
+import styles from './PresidentPredict.module.scss';
 
 
 const marks = [
@@ -39,7 +40,7 @@ const marks = [
 
 
 export default ({percentages = {s: 33, h: 33, t: 33}, commit = ()=>{}})=>(
-    <Typography id="discrete-slider-always" gutterBottom>
+    <Box id="discrete-slider-always" className={styles.container}>
         <Box fontSize="h6.fontSize" fontWeight="fontWeightBold" textAlign="left">宋楚瑜</Box>
         <Slider
             value={percentages.s}
@@ -70,5 +71,5 @@ export default ({percentages = {s: 33, h: 33, t: 33}, commit = ()=>{}})=>(
             valueLabelDisplay="on"
             onChange = {(evt, val)=>{commit('T', val)}}
         />
-    </Typography>
+    </Box>
 );

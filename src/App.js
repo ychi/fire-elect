@@ -22,7 +22,7 @@ const theme = createMuiTheme({
       main: '#FF2600',
     },
     text: {
-      color:  '#273A3C',
+      color: '#273A3C',
     }
   },
 });
@@ -32,19 +32,19 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <StylesProvider injectFirst>
-      <div className="App">
-        <Router>
-          <TopBar routes={routes}></TopBar>
-          <Switch>
-            {routes.map((route)=>(
-              <Route path={route.path} exact>
-                {route.render()}
-              </Route>
-            ))}
-          </Switch>
-          <Footer/>
-        </Router>
-      </div>
+        <div className="App">
+          <Router>
+            <TopBar routes={routes}></TopBar>
+            <Switch>
+              {routes.map((route, idx) => (
+                <Route path={route.path} key={idx} exact>
+                  {route.render()}
+                </Route>
+              ))}
+            </Switch>
+            <Footer />
+          </Router>
+        </div>
       </StylesProvider>
     </ThemeProvider>
   );
