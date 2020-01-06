@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
 import Form from './form/form';
 import { positions } from '@material-ui/system';
-import PresidentPredict from '../../Components/PresidentPredict/PresidentPredict';
+import Hidden from '@material-ui/core/Hidden';
 
 
 
@@ -127,9 +127,11 @@ export default function Landing() {
                             <Typography variant="h2" className={styles.predict__subtitle__vertical} display="inline">蒜什麼<br/>總統</Typography>
                         </Box>
                     </Grid>
-                    <Grid item xs={0} md={12}>
-                        <Box height="35vh"></Box>
-                    </Grid>
+                    <Hidden xsDown>
+                        <Grid item xs={0} md={12}>
+                            <Box height="35vh"></Box>
+                        </Grid>
+                    </Hidden>
                     <Grid item xs={12} md={12}>
                         <Box textAlign="left" > 
                             <Typography component="div"  className={styles.section__brief}>
@@ -147,7 +149,9 @@ export default function Landing() {
                 </Grid>
 
                 <Grid item xs={12} md={5}>
-                    <Box height="10vh"></Box>
+                    <Hidden xsDown>
+                        <Box height="10vh"></Box>
+                    </Hidden>
                     <Grid container height="90vh">
                         <Grid item xs={12} md={12}>
                             <Typography className={styles.votes__subtitle}>歷年總統得票率</Typography>
