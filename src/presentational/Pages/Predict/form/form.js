@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import { Grid } from '@material-ui/core';
+import Hidden from '@material-ui/core/Hidden';
 
 
 export default function Form() {
@@ -22,14 +23,18 @@ export default function Form() {
 
     return(
         <Grid container>
-            <Grid item xs={0} md={4}>                
+            <Grid item xs={0} md={6}>                
                 <img src={require('./elipse.svg')} alt=""  width="100%"/>
             </Grid>
-            <Grid item xs={1} sm={0} md={0} lg={0}>
-                <Box bgcolor="#E9F2F2" height="100%"></Box>
-            </Grid>
+            <Hidden mdUp>
+                <Grid item xs={1} md={0}>
+                    <Box bgcolor="#E9F2F2" height="100%"></Box>
+                </Grid>
+            </Hidden>
             <Grid item xs={10} md={6} className={styles.form__inputArea}>
+                
                 <Box height="7vh"></Box>
+
                 <Box textAlign='left' fontSize="12px">
                     <Typography>
                         <Box ml={3}>送出前</Box>
@@ -83,21 +88,24 @@ export default function Form() {
                             <FormControlLabel control={<Checkbox value="$$$$$" />} label="$$$$$" />
                         </FormControl>
                     </Box>
-                    <Box display="inline" mr={28} ml={3} mb={1} align="left">
-                        <FormControlLabel
-                            value="end"
-                            control={<Checkbox color="primary" />}
-                            label="我同意隱私條款"
-                            labelPlacement="end"
-                        />
-                    </Box>
+                    <hr width="90%"/>
                     <Box textAlign="right" width="90%">
+                        <Box display="inline" mr="30px">
+                            <FormControlLabel
+                                value="end"
+                                control={<Checkbox color="primary" />}
+                                label="我同意隱私條款"
+                                labelPlacement="end"
+                            />
+                        </Box>
                         <Button variant="contained" color="#273A3C" className={styles.form__button} width="60px">送出預測</Button>
                     </Box>
                 </Box>
             </Grid>
-            <Grid item xs={1} sm={0} md={0} lg={0}><Box height="100%" bgcolor="#E9F2F2"></Box></Grid>
-            <Grid item xs={12} sm={0}>
+            <Hidden mdUp>
+                <Grid item xs={1} md={0}><Box height="100%" bgcolor="#E9F2F2"></Box></Grid>
+            </Hidden>
+            <Grid item xs={12} md={0}>
                 <Box height="100%" className={styles.form__inputArea}>
                     
                 </Box>
