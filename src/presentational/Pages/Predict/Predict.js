@@ -101,7 +101,7 @@ export default function Predict({submittable = true, formContent = null, submitF
                     <Box></Box>
                 </Grid>
 
-                <Grid item className={styles.frame} md={1} xs={3} alignItems="center>
+                <Grid item className={styles.frame} md={1} xs={3} alignItems="center">
                   <CoundownTimer />
                 </Grid>
 
