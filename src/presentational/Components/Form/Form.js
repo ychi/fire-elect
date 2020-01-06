@@ -1,19 +1,18 @@
-import React from 'react';
+import React from '../../../../node_modules/react';
 import styles from './form.module.scss';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import InputLabel from '@material-ui/core/InputLabel';
-import Input from '@material-ui/core/Input';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
-import { Grid } from '@material-ui/core';
-import Hidden from '@material-ui/core/Hidden';
-
+import FormGroup from '../../../../node_modules/@material-ui/core/FormGroup';
+import FormControl from '../../../../node_modules/@material-ui/core/FormControl';
+import FormControlLabel from '../../../../node_modules/@material-ui/core/FormControlLabel';
+import FormLabel from '../../../../node_modules/@material-ui/core/FormLabel';
+import FormHelperText from '../../../../node_modules/@material-ui/core/FormHelperText';
+import InputLabel from '../../../../node_modules/@material-ui/core/InputLabel';
+import Input from '../../../../node_modules/@material-ui/core/Input';
+import Box from '../../../../node_modules/@material-ui/core/Box';
+import Typography from '../../../../node_modules/@material-ui/core/Typography';
+import Button from '../../../../node_modules/@material-ui/core/Button';
+import Checkbox from '../../../../node_modules/@material-ui/core/Checkbox';
+import { Grid } from '../../../../node_modules/@material-ui/core';
+import Hidden from '../../../../node_modules/@material-ui/core/Hidden';
 
 export default function Form() {
     function handleSubmit(e) {
