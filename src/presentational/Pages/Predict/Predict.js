@@ -8,7 +8,7 @@ import Form from '../../Components/Form/Form';
 import { positions } from '@material-ui/system';
 import Hidden from '@material-ui/core/Hidden';
 import PresidentPredict from '../../Components/PresidentPredict/PresidentPredict';
-
+import PredictSeats from '../../Components/PredictSeats/PredictSeats';
 import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
 
 function presidentReducer (state, action) {
@@ -37,6 +37,7 @@ function presidentReducer (state, action) {
         default: 
             return state;
     }
+
 }
 
 function legislativeReducer (state, action) {
@@ -235,25 +236,27 @@ export default function Predict({submittable = true, formContent = null, submitF
                         </Box>
                     </Grid>
                 </Grid>
-                <Grid item xs={1} md={2}></Grid>
-                <Grid item xs={1} md={0}></Grid>
-                <Grid item xs={10} md={5}>
-                    <Box height="10vh"></Box>
-                    <Grid container xs={12} height="90vh">
-                        <Grid item xs={12} md={12}> 
-                            <Box height="30vh" border={1}>chart1</Box>
-                        </Grid>
-                        <Grid item xs={12} md={12}> 
-                            <Box height="10vh" border={1}>
-                                <Typography>
-                                    <Box><span>113</span><span>議席</span></Box>
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} md={12}> 
-                            <Box height="30vh" border={1}>chart2</Box>
-                        </Grid>
-                    </Grid>
+
+
+                <Grid container height="90vh">
+
+                  <Grid item xs={1} md={2}></Grid>
+                  <Grid item xs={1} md={0}></Grid>
+                  <Grid item xs={10} md={5}>
+                      <Box height="10vh"></Box>
+                      <Grid container xs={12} height="90vh">
+                      </Grid>
+                      <Grid item xs={12} md={12}> 
+                          <Box height="10vh" border={1}>
+                              <Typography>
+                                  <Box><span>113</span><span>議席</span></Box>
+                              </Typography>
+                          </Box>
+                      </Grid>
+                      <Grid item xs={12} md={12}> 
+                          <PredictSeats/>
+                      </Grid>
+                  </Grid>
                 </Grid>
                 <Grid item xs={1} md={0}></Grid>
             </Grid>
