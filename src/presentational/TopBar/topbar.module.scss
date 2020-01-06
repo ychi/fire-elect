@@ -2,17 +2,64 @@
 .topbar {
   background-color: #fff;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  color: #111;
+}
+
+.tabsContainer {
+  width: 100%;
+}
+
+.flexContainer {
+  padding: 0 40px;
 }
 
 .title {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 900;
+
+}
+
+.expander {
+  flex: 1 1 0;
+}
+
+.drawerTab {
+  padding-left: 12px;
+  align-items: flex-start;
+}
+
+.drawerMenu {
+  position: absolute;
+  right: 10px;
+  top: 0;
 }
 
 .normalTab {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 17px;
+  font-weight: 600;
+
+}
+
+.indicator {
+  background-color: #ff2600;
+}
+
+.inherit {
+  color: #273a3c; 
+  text-transform: none;
+  opacity: 1;
+}
+
+.xsInherit {
+  color: #273a3c;
+  text-transform: none;
+  opacity: 0.7;
+}
+
+.menuIcon {
+  color: #273a3c;
+  opacity: 1;
 }

@@ -14,6 +14,20 @@ import Drawer from '@material-ui/core/Drawer';
 import styles from './topbar.module.scss';
 
 
+const toTab = (route)=>(
+    <Tab label={route.label} 
+        value={route.path} 
+        to={route.path}
+        className = {(route.className) ? styles[route.className] : styles.normalTab}
+        classes = {{
+            textColorInherit: styles.inherit,
+        }}
+        component={
+            React.forwardRef((props, ref)=>
+                <RouterLink innerRef={ref} {...props}/>)}/>
+
+    ); 
+
 export default ({routes}) => {
     const location = useLocation();
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -28,31 +42,60 @@ export default ({routes}) => {
         <AppBar position="static" elevation="0" className={styles.topbar}>
 
                 <Hidden smUp>
+                    {toTab(routes[0])}
+                    <div className={styles.expander}/>
                     <IconButton
-                        color="inherit"
                         aria-label="open drawer"
                         onClick={toggleDrawer(true)}
                     >
-                        <MenuIcon />
+                        <MenuIcon 
+                       
+                        classes={{
+                            root: styles.menuIcon}} />
                     </IconButton>
                 </Hidden>
                 <Hidden xsDown>
-                    <Tabs value={location.pathname}>
-                        {routes
+                    <Tabs 
+                        value={location.pathname}
+                        classes={{
+                            root: styles.tabsContainer,
+                            flexContainer: styles.flexContainer,
+                            indicator: styles.indicator
+                        }}
+                    >
+                        {toTab(routes[0])}
+                        <div className={styles.expander}/>
+                        {routes.slice(1)
                         .map((route)=>(
                             <Tab label={route.label} 
                                 value={route.path} 
                                 to={route.path}
-                                className = {(route.className)? styles[route.className] : null}
+                                className = {(route.className) ? styles[route.className] : styles.normalTab}
+                                classes = {{
+                                    textColorInherit: styles.inherit,
+                                }}
                                 component={
                                     React.forwardRef((props, ref)=>
                                         <RouterLink innerRef={ref} {...props}/>)}/>
+                        
                             ))
                         }
                     </Tabs>
                 </Hidden>
                 <Drawer anchor="top" open={drawerOpen} onClose={toggleDrawer(false)}>
+                    <div className={styles.drawerMenu}>
+                    <IconButton
+                        aria-label="close drawer"
+                    >
+                        <MenuIcon 
+                        classes={{
+                            root: styles.menuIcon}} />
+                    </IconButton>
+                    </div>
                     <Tabs 
+                        classes={{
+                            indicator: styles.indicator
+                        }}
                         value={location.pathname} 
                         orientation="vertical"
                         onClick={toggleDrawer(false)}
@@ -62,7 +105,11 @@ export default ({routes}) => {
                                     <Tab label={route.label} 
                                         value={route.path} 
                                         to={route.path}
-                                        className = {(route.className)? styles[route.className] : null}
+                                        className = {(route.className)? styles[route.className] : styles.normalTab}
+                                        classes ={{
+                                            wrapper: styles.drawerTab,
+                                            textColorInherit: styles.xsInherit
+                                        }}
                                         component={
                                             React.forwardRef((props, ref)=>
                                                 <RouterLink innerRef={ref} {...props}/>)}/>
