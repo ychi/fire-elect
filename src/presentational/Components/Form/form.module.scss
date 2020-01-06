@@ -2,13 +2,15 @@
  
   .checkBox__dir{
     flex-direction: row;
+    flex-wrap : wrap;
+    width: 32vw;
   }
   
   .section__brief{
     margin-left: 10px;
     white-space:nowrap;
   }
-  
+
 
   .form__oval_left{
     border-radius: 40vh 0vh 0vh 40vh;
@@ -39,3 +41,17 @@
     background-color:#E9F2F2;
   }
   
+  .form__label{
+    display: inline-block;
+    width:60px;
+    margin-top: 12px;
+  }
+
+  .form__option__label{
+    font-size: 12px;
+  }
+  .form__button{
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+  }

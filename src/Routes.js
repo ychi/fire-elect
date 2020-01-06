@@ -2,6 +2,7 @@ import React from 'react';
 import Landing from "./presentational/Pages/Landing/Landing";
 import Predict from "./presentational/Pages/Predict/Predict";
 import Warroom from "./presentational/Pages/Warroom/Warroom";
+import Prejudice from "./presentational/Pages/Prejudice/Prejudice";
 import Dummy from "./presentational/Dummy/Dummy";
 
 export default [
@@ -14,14 +15,13 @@ export default [
     {
         label: '我大膽預測',
         path: '/ipredict',
-        className: 'normalTab',
         render: ()=>(<Predict/>)
     },    
     {
         label: '庶民ㄟ心聲',
-        path: '/pplvoice',
+        path: '/prejudice',
         className: 'normalTab',
-        render: ()=>(<Dummy text="庶民ㄟ心聲"/>)
+        render: ()=>(<Prejudice text="庶民ㄟ心聲"/>)
     },
     {
         label: 'AI戰情室',
@@ -31,8 +31,7 @@ export default [
     {
         label: '認同請分享',
         path: '/archive',
-        className: 'normalTab',
         render: ()=>(<Dummy text="認同請分享"/>)
     },
 
-];
+]

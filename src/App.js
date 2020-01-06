@@ -14,15 +14,19 @@ import Footer from './presentational/Footer/Footer';
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { StylesProvider } from '@material-ui/core/styles';
+import { dark } from '@material-ui/core/styles/createPalette';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#000000',
+      main: '#273A3C',
     },
     secondary: {
-      main: '#000000',
+      main: '#FF2600',
     },
+    text: {
+      color:  '#273A3C',
+    }
   },
 });
 
