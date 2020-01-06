@@ -61,25 +61,34 @@ export default function Predict({submittable = true, formContent = null, submitF
     return(
     <div>
         <section className={styles.window__section}>
-            <Grid container height="90vh">
+            <Grid container >
                 <Grid item xs={1} md={1} >
-                    <Box height="90vh" textAlign="right">
-                        <Box height="10vh"></Box>
-                        {/* <img src={require('./predict_it.svg')} alt=""/> */}
-                        <Typography variant="h5" className={styles.text__vertical__lr} display="inline">I PREDICT IT</Typography>
-                        <Box borderLeft={2} height="35vw" width="24px" ml="6vw"></Box>
+                    <Box textAlign="right">
+                        <Hidden xsDown>
+                            <Box height="10vh"></Box>
+                            <Typography variant="h5" className={styles.text__vertical__lr} display="inline">I PREDICT IT</Typography>
+                            <Box borderLeft={2} height="35vw" width="24px" ml="6vw"></Box>
+                        </Hidden>
                     </Box>
                 </Grid>
                 
                 <Grid item xs={8} md={5}>
-                        <Grid container alignItems='flex-end'>
-                            <Grid item md={6}>
-                                <img src={require('./index_pattern.svg')} alt="cover page img"/>
-                            </Grid>
-                            <Grid item md={6} >
-                                <Typography variant="h1" component="h1" gutterBottom className={styles.predict__title__vertical}>我大膽<br/>預測</Typography>
-                            </Grid>
+                    <Grid container alignItems='flex-end'>
+                        <Grid item md={6}>
+                            <img src={require('./index_pattern.svg')} alt="cover page img"/>
                         </Grid>
+                        <Grid item md={6} >
+                            <Hidden xsDown>
+                                <Typography variant="h1" component="h1" gutterBottom className={styles.predict__title__vertical}>我大膽<br/>預測</Typography>
+                            </Hidden>
+                            <Hidden mdUp>
+                                <Typography variant="h1" component="h1" gutterBottom className={styles.predict__title__vertical__sm}>我大膽<br/>預測</Typography>
+                            </Hidden>
+                        </Grid>
+                    </Grid>
+                    <Hidden mdUp>
+                        <Box height="10vh"></Box>
+                    </Hidden>
                     <Box>
                         <Typography variant="body3" align="left">
                             <Box>得民調者得痔瘡，</Box>
@@ -89,27 +98,48 @@ export default function Predict({submittable = true, formContent = null, submitF
                     </Box>
                 </Grid>
                 <Grid item xs={0} md={5}>
-                    <Box height="90vh"></Box>
+                    <Box></Box>
                 </Grid>
                 <Grid item xs={3} md={1} alignItems="center" >
-                    <Box height="90vh">
-                        <Typography component="div" variant="h6" className={styles.date}>
-                            <Box>貳零貳零</Box>
-                            <hr/>
-                            <Box>壹月拾壹</Box>
-                            <hr/>
-                            <Box>距大選</Box>
-                            <Box className={styles.date_gold}>   
-                                <Box>{10}</Box>
-                                <Box>天</Box>
-                                <Box>{10}</Box>
-                                <Box>時</Box>
-                                <Box>{10}</Box>
-                                <Box>分</Box>
-                                <Box>{10}</Box>
-                                <Box>秒</Box>
-                            </Box>
-                        </Typography>
+                    <Box >
+                        <Hidden mdUp>
+                            <Typography component="div" variant="h6" className={styles.date__sm}>
+                                <Box>貳零貳零</Box>
+                                <hr/>
+                                <Box>壹月拾壹</Box>
+                                <hr/>
+                                <Box>距大選</Box>
+                                <Box className={styles.date_gold}>   
+                                    <Box>{10}</Box>
+                                    <Box>天</Box>
+                                    <Box>{10}</Box>
+                                    <Box>時</Box>
+                                    <Box>{10}</Box>
+                                    <Box>分</Box>
+                                    <Box>{10}</Box>
+                                    <Box>秒</Box>
+                                </Box>
+                            </Typography>
+                        </Hidden>
+                        <Hidden xsDown>
+                            <Typography component="div" variant="h6" className={styles.date}>
+                                <Box>貳零貳零</Box>
+                                <hr/>
+                                <Box>壹月拾壹</Box>
+                                <hr/>
+                                <Box>距大選</Box>
+                                <Box className={styles.date_gold}>   
+                                    <Box>{10}</Box>
+                                    <Box>天</Box>
+                                    <Box>{10}</Box>
+                                    <Box>時</Box>
+                                    <Box>{10}</Box>
+                                    <Box>分</Box>
+                                    <Box>{10}</Box>
+                                    <Box>秒</Box>
+                                </Box>
+                            </Typography>
+                        </Hidden>
                     </Box>
                 </Grid>
 
@@ -121,15 +151,17 @@ export default function Predict({submittable = true, formContent = null, submitF
         </section>
 
         <section className={styles.window__section}>
-            <Grid container height="90vh">
-                <Grid xs={2} md={1}></Grid>
-                <Grid container xs={10} md={1}>
+            <Grid container >
+                <Grid xs={1} md={1}></Grid>
+                <Grid container xs={10} md={1} >
                     <Grid item xs={12} md={12}>
-                        <Box height="10vh"></Box>
-                        <Box width={50} height={50} display="inline-block" textAlign="center">
+                         <Hidden mdDown>
+                             <Box height="10vh"></Box>
+                         </Hidden>
+                        <Box width={50} display="inline-block" textAlign="center">
                             <Typography variant="h3">1</Typography>
-                            <Box top="-40px" left='-30px' position="relative" zIndex='-1'>
-                                <img src={require('./section_pattern.svg')} alt="" width="200%" />
+                            <Box top="-40px" left='-20px' position="relative" zIndex='-1'>
+                                <img src={require('./section_pattern.svg')} alt="" width="100px" />
                             </Box>
                         </Box>
                     </Grid>
@@ -155,8 +187,9 @@ export default function Predict({submittable = true, formContent = null, submitF
                     </Grid>
                 </Grid>
                 <Grid item xs={0} md={3}>
-                    <Box height="90vh">
-                    </Box>
+                    <Hidden xsDown>
+                        <Box height="90vh"></Box>
+                    </Hidden>
                 </Grid>
 
                 <Grid item xs={12} md={5}>
@@ -164,20 +197,26 @@ export default function Predict({submittable = true, formContent = null, submitF
                         <Box height="10vh"></Box>
                     </Hidden>
                     <Grid container height="90vh">
-                        <Grid item xs={12} md={12}>
+                        <Grid item xs={1} md={0}></Grid>
+
+                        <Grid item xs={10} md={12}>
                             <Typography className={styles.votes__subtitle}>歷年總統得票率</Typography>
                         </Grid>
-
+                        <Grid item xs={1} md={0}></Grid>
                         <Grid item xs={1} md={0}></Grid>
                         <Grid item xs={10} md={12}> 
                             <img src={require('./votesChart.png')} width="100%" alt=""/>
                             {/* <Box height="30vh" border={1}>chart</Box> */}
                         </Grid>
                         <Grid item xs={1} md={0}></Grid>
-                        <Grid item xs={12} md={12}>  
+                        <Grid item xs={1} md={0}></Grid>
+
+                        <Grid item xs={10} md={12}>  
                                 <Typography className={styles.votes__subtitle} align="left">2020總統大選：你的預測</Typography>
                         </Grid>
                         <Grid item xs={1} md={0}></Grid>
+                        <Grid item xs={1} md={0}></Grid>
+
                         <Grid item xs={10} md={12} spacing={8} justify="center" direction="column" alignItems="center" >
                             <div className={styles.section}>
                                 <PresidentPredict
@@ -198,13 +237,15 @@ export default function Predict({submittable = true, formContent = null, submitF
         </section>
         <section className={styles.window__section}>
             <Grid container height="90vh">
-                <Grid item xs={2} md={1}></Grid>
+                <Grid item xs={1} md={1}></Grid>
                 <Grid item xs={10} md={1}>
                     <Grid item xs={12} md={12}>
-                        <Box height="10vh"></Box>
-                        <Box width={50} height={50} display="inline-block" textAlign="center">
+                        <Hidden mdDown>
+                             <Box height="10vh"></Box>
+                         </Hidden>
+                        <Box width={50} display="inline-block" textAlign="center">
                             <Typography variant="h3">2</Typography>
-                            <Box top="-40px" left='-30px' position="relative" zIndex='-1'>
+                            <Box top="-40px" left='-20px' position="relative" zIndex='-1'>
                                 <img src={require('./section_pattern.svg')} alt="" width="200%" />
                             </Box>
                         </Box>
@@ -214,9 +255,14 @@ export default function Predict({submittable = true, formContent = null, submitF
                             <Typography variant="h2" className={styles.predict__subtitle__vertical} display="inline">選個席次<br/>好過年</Typography>
                         </Box>
                     </Grid>
-                    <Grid item xs={0} md={12}>
-                        <Box height="20vh"></Box>
-                    </Grid>
+                    <Hidden xsDown>
+                        <Grid item md={12}>
+                            <Box height="26vh"></Box>
+                        </Grid>
+                    </Hidden>
+                    <Hidden mdUp>
+                        <Box height="10vh"></Box>
+                    </Hidden>
                     <Grid item xs={12} md={12}>
                         <Box textAlign="left" > 
                             <Typography component="div"  className={styles.section__brief}>
@@ -227,7 +273,7 @@ export default function Predict({submittable = true, formContent = null, submitF
                         </Box>
                     </Grid>
                 </Grid>
-                <Grid item xs={0} md={2}></Grid>
+                <Grid item xs={1} md={2}></Grid>
                 <Grid item xs={1} md={0}></Grid>
                 <Grid item xs={10} md={5}>
                     <Box height="10vh"></Box>
