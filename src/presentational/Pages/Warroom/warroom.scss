@@ -1,20 +1,54 @@
-.container{
-  padding-left: 30px;
-  padding-right: 30px;
+.warroom{
+  margin-top: 40px;
+  padding-left: 50px;
+  padding-right: 0px;
+  min-height: 100vh;
+  color: #222;
+  .menu {
+    padding-right: 80px;
+  }
+  .vizbloc{
+    padding-left: 25%;
+  }
+  .fixed {
+    position: fixed;
+
+  }
+  .padding_15{
+    padding: 15px;
+  }
+  .img{
+    width:100%;
+    height: auto;
+  }
+  .bg1 {
+    background-color: #CC9423;
+  }
+  .bg2 {
+    background-color: #E9F2F2;
+  }
+  .bg3 {
+    background-color: #B2ABA1;
+  }
+  .bg4 {
+    background-color: #FF2600;
+  }
+  .nav {
+    border: #CC9423 solid 1px;
+    margin-top: 30px;
+    background-color: #fff;
+  }  
+  .header_bd{
+    border-left: 3px #273A3C solid;
+    padding-left: 10px;
+    margin: 35px 0px 20px 0px;
+  }
+  .ranking {
+    font-size: 2em;
+  }
+  .ranking_s {
+    font-size: 1.4em;
+  }
 }
 
-.bg1 {
-  background-color: #CC9423;
-}
-.bg2 {
-  background-color: #E9F2F2;
-}
-.bg3 {
-  background-color: #B2ABA1;
-}
-.bg4 {
-  background-color: #FF2600;
-}
-.card {
-}
 

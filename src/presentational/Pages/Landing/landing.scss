@@ -1,0 +1,60 @@
+.landing {
+  text-align: center;
+  padding:20px 0px 20px 40px;
+  .header {
+    background-color: #fafafa;
+    min-height: 100vh;
+    font-size: calc(10px + 2vmin);
+    color: #222;
+    flex-grow: 1;
+  }
+  .img {
+    width: 100%;
+    height: 100%;
+  }
+  .height_30 {
+    height: 30%;
+  }
+  .height_70 {
+    height: 70%;
+  }
+  .stripe_1 {
+    background-image: linear-gradient(90deg,#ff2600 0%, #ff2600 10.35%,transparent 10.35%,transparent 17.35%, #273a3c 17.35%, #273a3c 40%, transparent 40%, transparent 47%, #273a3c 47%, #273a3c 60%, transparent 60%, transparent 67%,#273a3c 67%, #273a3c 77%,transparent 77%,transparent 100%,);
+    background-size: auto auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .stripe_2 {
+    background-image: linear-gradient(180deg,#cc9423 10%, transparent 10% 20%, #b2aba1 20% 30%, transparent 30% 40%, #cc9423 40% 50%, transparent 50% 60%, #b2aba1 60% 70%, transparent 70% 80%, #cc9423 80%);
+    background-size: auto auto;
+    background-position: 8px 0px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .stripe_3 {
+    background-image: linear-gradient(90deg,transparent 0% 80%,#cc9423 80% 100%,);
+    background-size: auto auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .stripe_4 {
+    background-image: linear-gradient(90deg,#F2EDE9 0% 80%,#FF2600 80% 100%,);
+    background-size: auto auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .stripe_5 {
+    background-image: linear-gradient(90deg,#FF2600 0% 6%,transparent 6% 12%,#B2ABA1 12% 18%, transparent 18% 24%, #CC9423 24% 30%, transparent 30% 36%, #B2ABA1 36% 42%, transparent 42% 48%, #CC9423 48% 54%, transparent 54% 60%, #B2ABA1 60% 66%, transparent 66% 72%, #CC9423 72% 78%, transparent 78% 84%, #B2ABA1 84%);
+    background-size: auto auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+}
+
+
