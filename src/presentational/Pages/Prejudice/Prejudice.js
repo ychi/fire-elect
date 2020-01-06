@@ -1,52 +1,51 @@
-import React, {useReducer} from 'react';
-import styles from './predict.module.scss';
+import React from 'react';
+import styles from './prejudice.module.scss';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Slider from '@material-ui/core/Slider';
 import { Button } from '@material-ui/core';
-import Form from '../../Components/Form/Form';
 import { positions } from '@material-ui/system';
 import Hidden from '@material-ui/core/Hidden';
+import Form from '../../Components/Form/Form'
 
+const marks = [
+    {
+      value: 0,
+      label: '0%',
+    },
+    {
+      value: 20,
+      label: '20%',
+    },
+    {
+      value: 40,
+      label: '40%',
+    },
+    {
+      value: 60,
+      label: '60%',
+    },
+    {
+      value: 80,
+      label: '80%',
+    },
+    {
+      value: 100,
+      label: '100%',
+    },
+  ];
 
-
+function valuetext(value) {
+return `${value}°C`;
+}
 
 function electionCountDown(){
     return null;
 }
 
-function presidentReducer (state, action) {
-    switch(action.type) {
-        case 'S':
-            return {
-                ...state,
-                s: (state.h + state.t + action.commitedV > 100) ? 
-                    100 - state.h - state.t : 
-                    action.commitedV
-            };
-        case 'H':
-            return {
-                ...state,
-                h: (state.s + state.t + action.commitedV > 100) ?
-                    100 - state.s - state.t :
-                    action.commitedV
-            };
-        case 'T':
-            return {
-                ...state,
-                t: (state.s + state.h + action.commitedV > 100) ?
-                    100 - state.s - state.h : 
-                    action.commitedV
-            };
-        default: 
-            return state;
-    }
-}
 
-export default function Predict() {
-
-    const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, {s: 33, h: 33, t: 33});
-
+export default function PeopleVoice() {
     return(
     <div>
         <section className={styles.window__section}>
@@ -55,7 +54,7 @@ export default function Predict() {
                     <Box height="90vh" textAlign="right">
                         <Box height="10vh"></Box>
                         {/* <img src={require('./predict_it.svg')} alt=""/> */}
-                        <Typography variant="h5" className={styles.text__vertical__lr} display="inline">I PREDICT IT</Typography>
+                        <Typography variant="h5" className={styles.text__vertical__lr} display="inline">VOICE YOUR PREJUDICE</Typography>
                         <Box borderLeft={2} height="35vw" width="24px" ml="6vw"></Box>
                     </Box>
                 </Grid>
@@ -66,14 +65,16 @@ export default function Predict() {
                                 <img src={require('./index_pattern.svg')} alt="cover page img"/>
                             </Grid>
                             <Grid item md={6} >
-                                <Typography variant="h1" component="h1" gutterBottom className={styles.predict__title__vertical}>我大膽<br/>預測</Typography>
+                                <Typography variant="h1" component="h1" gutterBottom className={styles.predict__title__vertical}>庶民ㄟ<br/>心聲</Typography>
                             </Grid>
                         </Grid>
                     <Box>
                         <Typography variant="body3" align="left">
-                            <Box>得民調者得痔瘡，</Box>
-                            <Box>得民心者得天下，</Box>
-                            <Box>是時候由你決定2020誰該屎心了！</Box>
+                            <Box>一碗滷肉飯一瓶礦泉水,</Box>
+                            <Box>一個便當吃不飽可以吃兩個,</Box>
+                            <Box>如果你一生充滿皺摺，</Box>
+                            <Box>如果你是民國認證的庶民庶民給問嗎？</Box>
+                            <Box>來這大聲說出你的心聲！</Box>
                         </Typography>
                     </Box>
                 </Grid>
@@ -116,134 +117,111 @@ export default function Predict() {
                     <Grid item xs={12} md={12}>
                         <Box height="10vh"></Box>
                         <Box width={50} height={50} display="inline-block" textAlign="center">
-                            <Typography variant="h3">1</Typography>
-                            <Box top="-40px" left='-30px' position="relative" zIndex='-1'>
-                                <img src={require('./section_pattern.svg')} alt="" width="200%" />
-                            </Box>
+                            <img src={require('./section_pattern.svg')} alt="" width="200%" />
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={12}>
                         <Box>
-                            <Typography variant="h2" className={styles.predict__subtitle__vertical} display="inline">蒜什麼<br/>總統</Typography>
+                            <Typography variant="h2" className={styles.predict__subtitle__vertical} display="inline">庶民<br/>給問嗎？</Typography>
                         </Box>
                     </Grid>
                     <Hidden xsDown>
                         <Grid item xs={0} md={12}>
-                            <Box height="35vh"></Box>
+                            <Box height="15vh"></Box>
                         </Grid>
                     </Hidden>
                     <Grid item xs={12} md={12}>
                         <Box textAlign="left" > 
                             <Typography component="div"  className={styles.section__brief}>
-                                <Box fontSize="body2.fontSize">台灣政壇瞬息萬變</Box>
-                                <Box fontSize="body2.fontSize">總統候選人誰凍蒜</Box>
-                                <Box fontSize="body2.fontSize">你是神預測還是馬後砲</Box>
-                                <Box fontSize="body2.fontSize">快來拉拉看得票率！</Box>
+                                <Box fontSize="body2.fontSize">不管你是1450、鋼鐵韓粉</Box>
+                                <Box fontSize="body2.fontSize">還是中壢李姓選民</Box>
+                                <Box fontSize="body2.fontSize">又或者以上標籤無法代表你</Box>
+                                <Box fontSize="body2.fontSize">我們好奇你對這次選情的觀察</Box>
+                                <br/>
+                                <Box fontSize="body2.fontSize">右側標籤，各別代表不同族群</Box>
+                                <Box fontSize="body2.fontSize">你覺得哪個族群更傾向支持誰呢？</Box>
+                                <Box fontSize="body2.fontSize">點選標籤分享你的觀察</Box>
+                                <Box fontSize="body2.fontSize" color="#FF2600">每欄最多3個</Box>
                             </Typography>
                         </Box>
                     </Grid>
                 </Grid>
-                <Grid item xs={0} md={3}>
-                    <Box height="90vh">
-                    </Box>
-                </Grid>
+                <Grid container xs={12} md={2}>
 
-                <Grid item xs={12} md={5}>
-                    <Hidden xsDown>
-                        <Box height="10vh"></Box>
-                    </Hidden>
-                    <Grid container height="90vh">
-                        <Grid item xs={12} md={12}>
-                            <Typography className={styles.votes__subtitle}>歷年總統得票率</Typography>
-                        </Grid>
-
-                        <Grid item xs={1} md={0}></Grid>
-                        <Grid item xs={10} md={12}> 
-                            <img src={require('./votesChart.png')} width="100%" alt=""/>
-                            {/* <Box height="30vh" border={1}>chart</Box> */}
-                        </Grid>
-                        <Grid item xs={1} md={0}></Grid>
-                        <Grid item xs={12} md={12}>  
-                                <Typography className={styles.votes__subtitle} align="left">2020總統大選：你的預測</Typography>
-                        </Grid>
-                        <Grid item xs={1} md={0}></Grid>
-                        <Grid item xs={10} md={12} spacing={8} justify="center" direction="column" alignItems="center" >
-                            <div className={styles.section}>
-                                <PresidentPredict
-                                    percentages = {presidentPercentages}
-                                    commit = {(k, v)=>{
-                                        dispatchPresidentPercentages({type: k, commitedV: v});
-                                    }}
-                                />
-                            </div>    
-                        </Grid>
-                        <Grid item xs={1} md={0}></Grid>
-                    </Grid>
                 </Grid>
-                <Grid item md={2}>
-                    <Box height="90vh"></Box>
-                </Grid>
-            </Grid>
-        </section>
-        <section className={styles.window__section}>
-            <Grid container height="90vh">
-                <Grid item xs={2} md={1}></Grid>
-                <Grid item xs={10} md={1}>
-                    <Grid item xs={12} md={12}>
-                        <Box height="10vh"></Box>
-                        <Box width={50} height={50} display="inline-block" textAlign="center">
-                            <Typography variant="h3">2</Typography>
-                            <Box top="-40px" left='-30px' position="relative" zIndex='-1'>
-                                <img src={require('./section_pattern.svg')} alt="" width="200%" />
-                            </Box>
-                        </Box>
+                <Grid container xs={12} md={2}>
+                    <Grid item md={12}>
+                        標籤選擇<br/>
+                        點選標籤後進入指定候選人
                     </Grid>
-                    <Grid item xs={12} md={12}>
+                    <Grid item md={6}>
                         <Box>
-                            <Typography variant="h2" className={styles.predict__subtitle__vertical} display="inline">選個席次<br/>好過年</Typography>
+                            <Button variant="contained">未婚女性</Button>
+                            <Button variant="contained">已婚女性</Button>
+                            <Button variant="contained">未婚男性</Button>
+                            <Button variant="contained">已婚男性</Button>
+                        </Box>
+                        <Box>
+                            <Button variant="contained">博碩學歷</Button>
+                            <Button variant="contained">大學學歷</Button>
+                            <Button variant="contained">高中學歷</Button>
+                            <Button variant="contained">國中學歷</Button>
+                        </Box>
+                        <Box>
+                            <Button variant="contained">銀髮族群</Button>
+                            <Button variant="contained">中年族群</Button>
+                            <Button variant="contained">青年族群</Button>
+                        </Box>
+                        <Box>
+                            <Button variant="contained">高收入</Button>
+                            <Button variant="contained">低收入</Button>
                         </Box>
                     </Grid>
-                    <Grid item xs={0} md={12}>
-                        <Box height="20vh"></Box>
-                    </Grid>
-                    <Grid item xs={12} md={12}>
-                        <Box textAlign="left" > 
-                            <Typography component="div"  className={styles.section__brief}>
-                                <Box fontSize="body2.fontSize">哪個政黨上位</Box>
-                                <Box fontSize="body2.fontSize">哪個又被下架</Box>
-                                <Box fontSize="body2.fontSize">填填看你預測的席次！</Box>
-                            </Typography>
+                    <Grid item md={6}>
+                        <Box>
+                            <Button variant="contained">勞工階級</Button>
+                            <Button variant="contained">農民朋友</Button>
+                            <Button variant="contained">白領階級</Button>
+                            <Button variant="contained">軍公教</Button>
+                        </Box>
+                        <Box>
+                            <Button variant="contained">博碩學歷</Button>
+                            <Button variant="contained">大學學歷</Button>
+                            <Button variant="contained">高中學歷</Button>
+                            <Button variant="contained">國中學歷</Button>
+                        </Box>
+                        <Box>
+                            <Button variant="contained">銀髮族群</Button>
+                            <Button variant="contained">中年族群</Button>
+                            <Button variant="contained">青年族群</Button>
+                        </Box>
+                        <Box>
+                            <Button variant="contained">高收入</Button>
+                            <Button variant="contained">低收入</Button>
                         </Box>
                     </Grid>
                 </Grid>
-                <Grid item xs={0} md={2}></Grid>
-                <Grid item xs={1} md={0}></Grid>
-                <Grid item xs={10} md={5}>
-                    <Box height="10vh"></Box>
-                    <Grid container xs={12} height="90vh">
-                        <Grid item xs={12} md={12}> 
-                            <Box height="30vh" border={1}>chart1</Box>
-                        </Grid>
-                        <Grid item xs={12} md={12}> 
-                            <Box height="10vh" border={1}>
-                                <Typography>
-                                    <Box><span>113</span><span>議席</span></Box>
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} md={12}> 
-                            <Box height="30vh" border={1}>chart2</Box>
-                        </Grid>
+
+                <Grid container xs={12} md={6}>
+                    <Grid item md={4}>
+                        <img width="140px" src={require('./SONG_A_BAY.svg')} alt=""/>
+                        <img width="140px" src={require('./voteBox.svg')} alt=""/>
+                    </Grid>
+                    <Grid item md={4}>
+                        <img width="140px" src={require('./KOREAN_FISH.svg')} alt=""/>
+                        <img width="140px" src={require('./voteBox.svg')} alt=""/>
+                    </Grid>
+                    <Grid item md={4}>
+                        <img width="140px" src={require('./YIN_WEN.svg')} alt=""/>
+                        <img width="140px" src={require('./voteBox.svg')} alt=""/>
                     </Grid>
                 </Grid>
-                <Grid item xs={1} md={0}></Grid>
             </Grid>
         </section>
-
-        <section height="auto">
+        <section>
             <Form/>
         </section>
-        
+
         <section height="60vh">
             <Grid container >
                 <Grid container xs={12} md={6}>
