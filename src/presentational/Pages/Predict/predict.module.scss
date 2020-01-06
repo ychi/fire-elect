@@ -15,6 +15,7 @@
 
 .window__section{
   min-height: 90vh;
+  margin-bottom: 50px;
 }
 
 .predict__title__vertical{
@@ -72,11 +73,14 @@
   white-space:nowrap;
 }
 
-
 .predict__Bottom__subtitle{
   writing-mode: vertical-lr;
   text-orientation: sideways;
-  font-size: 70px;
+  font:{
+    size: 70px;
+    family: Noto Sans; 
+    weight: bold;
+  }
   color: white;
 }
 
@@ -92,15 +96,15 @@
 .bottom__oval__red{
   border-radius: 50%;
   background-color: #FF2600;
-  height: 300px;
-  width: 300px;
+  height: 20vw;
+  width: 20vw;
 }
 
 .bottom__oval__gold{
   border-radius: 50%;
   border-color: #CC9423;
-  height: 100px;
-  width: 100px;
+  height: 6vw;
+  width: 6vw;
 }
 
 .bottom__oval__container{
@@ -115,7 +119,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background: repeating-linear-gradient(to right, white, white 30px, #B2ABA1 30px,  #B2ABA1 60px, white 60px, white 90px, #CC9423 90px, #CC9423 120px);
+  background: repeating-linear-gradient(to right, white, white 20px, #B2ABA1 20px,  #B2ABA1 40px, white 40px, white 60px, #CC9423 60px, #CC9423 80px);
 }
 
 .bottom__button__black{
