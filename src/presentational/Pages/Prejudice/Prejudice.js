@@ -51,11 +51,12 @@ export default function PeopleVoice() {
         <section className={styles.window__section}>
             <Grid container height="90vh">
                 <Grid item xs={1} md={1} >
-                    <Box height="90vh" textAlign="right">
-                        <Box height="10vh"></Box>
-                        {/* <img src={require('./predict_it.svg')} alt=""/> */}
-                        <Typography variant="h5" className={styles.text__vertical__lr} display="inline">VOICE YOUR PREJUDICE</Typography>
-                        <Box borderLeft={2} height="35vw" width="24px" ml="6vw"></Box>
+                    <Box textAlign="right">
+                        <Hidden xsDown>
+                            <Box height="10vh"></Box>
+                            <Typography variant="h5" className={styles.text__vertical__lr} display="inline">VOICE YOUR PREJUDICE</Typography>
+                            <Box borderLeft={2} height="35vw" width="24px" ml="6vw"></Box>
+                        </Hidden>
                     </Box>
                 </Grid>
                 
@@ -64,10 +65,21 @@ export default function PeopleVoice() {
                             <Grid item md={6}>
                                 <img src={require('./index_pattern.svg')} alt="cover page img"/>
                             </Grid>
-                            <Grid item md={6} >
-                                <Typography variant="h1" component="h1" gutterBottom className={styles.predict__title__vertical}>庶民ㄟ<br/>心聲</Typography>
+                            <Grid item md={6}>
+                                <Hidden xsDown>
+                                    <Typography variant="h1" component="h1" gutterBottom className={styles.predict__title__vertical}>庶民欸<br />心聲</Typography>
+                                </Hidden>
+                                <Hidden mdUp>
+                                    <Typography variant="h1" component="h1" gutterBottom className={styles.predict__title__vertical__sm}>庶民欸<br />心聲</Typography>
+                                </Hidden>
                             </Grid>
                         </Grid>
+                        <Hidden mdUp>
+                            <Typography variant="h5" display="inline">VOICE YOUR PREJUDICE</Typography>
+                        </Hidden>
+                        <Hidden mdUp>
+                            <Box height="10vh"></Box>
+                        </Hidden>
                     <Box>
                         <Typography variant="body3" align="left">
                             <Box>一碗滷肉飯一瓶礦泉水,</Box>
@@ -111,11 +123,10 @@ export default function PeopleVoice() {
         </section>
 
         <section className={styles.window__section}>
-            <Grid container height="90vh">
-                <Grid xs={2} md={1}></Grid>
+            <Grid container>
+                <Grid xs={1} md={1}></Grid>
                 <Grid container xs={10} md={1}>
                     <Grid item xs={12} md={12}>
-                        <Box height="10vh"></Box>
                         <Box width={50} height={50} display="inline-block" textAlign="center">
                             <img src={require('./section_pattern.svg')} alt="" width="200%" />
                         </Box>
@@ -126,7 +137,7 @@ export default function PeopleVoice() {
                         </Box>
                     </Grid>
                     <Hidden xsDown>
-                        <Grid item xs={0} md={12}>
+                        <Grid item md={12}>
                             <Box height="15vh"></Box>
                         </Grid>
                     </Hidden>
@@ -146,75 +157,149 @@ export default function PeopleVoice() {
                         </Box>
                     </Grid>
                 </Grid>
-                <Grid container xs={12} md={2}>
+                <Grid container xs={12} md={2}></Grid>
+                <Grid container xs={12} md={8}>
+                    <Grid xs={1} md={12}></Grid>
+                    <Grid xs={10} md={12}>
+                        <Box height="10vh"></Box>
+                        <Box className={styles.select__subtitle}>標籤選擇：村里屬性</Box>
+                        <Box className={styles.select__subtitle__sup}>點選標籤後進入指定候選人</Box>
+                    </Grid>
+                    <Grid xs={1} md={12}></Grid>
 
-                </Grid>
-                <Grid container xs={12} md={2}>
-                    <Grid item md={12}>
-                        標籤選擇<br/>
-                        點選標籤後進入指定候選人
+                    <Grid md={12}>
+                        <Box height="3vh"></Box>
                     </Grid>
-                    <Grid item md={6}>
-                        <Box>
-                            <Button variant="contained">未婚女性</Button>
-                            <Button variant="contained">已婚女性</Button>
-                            <Button variant="contained">未婚男性</Button>
-                            <Button variant="contained">已婚男性</Button>
-                        </Box>
-                        <Box>
-                            <Button variant="contained">博碩學歷</Button>
-                            <Button variant="contained">大學學歷</Button>
-                            <Button variant="contained">高中學歷</Button>
-                            <Button variant="contained">國中學歷</Button>
-                        </Box>
-                        <Box>
-                            <Button variant="contained">銀髮族群</Button>
-                            <Button variant="contained">中年族群</Button>
-                            <Button variant="contained">青年族群</Button>
-                        </Box>
-                        <Box>
-                            <Button variant="contained">高收入</Button>
-                            <Button variant="contained">低收入</Button>
-                        </Box>
+                    
+                    <Grid xs={1} md={12}></Grid>
+                    <Grid container xs={10} md={3}>
+                        <Hidden xsDown>
+                            <Grid md={12}>
+                                <Box textAlign="center">
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">未婚女性</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">已婚女性</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">未婚男性</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">已婚男性</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">高中學歷</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">國中學歷</Button>
+                                </Box>
+                                <Box>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">博碩學歷</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">大學學歷</Button>
+                                </Box>
+                                <Box>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">銀髮族群</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">中年族群</Button>
+                                </Box>
+                                <Box>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">高收入</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">低收入</Button>
+                                </Box>
+                                <Box>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">高收入</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">低收入</Button>
+                                </Box>
+                            </Grid>
+                        </Hidden>
+                        <Hidden mdUp>
+                            <Grid xs={6}>
+                                <Box>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">未婚女性</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">已婚女性</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">未婚男性</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">已婚男性</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">高中學歷</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">國中學歷</Button>
+                                </Box>
+                            </Grid>
+                            <Grid xs={6}>
+                                <Box>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">博碩學歷</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">大學學歷</Button>
+                                </Box>
+                                <Box>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">銀髮族群</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">中年族群</Button>
+                                </Box>
+                                <Box>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">高收入</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">低收入</Button>
+                                </Box>
+                                <Box>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">高收入</Button>
+                                    <Button className={styles.voice__dropDownMenu} variant="contained">低收入</Button>
+                                </Box>
+                            </Grid>
+                        </Hidden>
                     </Grid>
-                    <Grid item md={6}>
-                        <Box>
-                            <Button variant="contained">勞工階級</Button>
-                            <Button variant="contained">農民朋友</Button>
-                            <Button variant="contained">白領階級</Button>
-                            <Button variant="contained">軍公教</Button>
-                        </Box>
-                        <Box>
-                            <Button variant="contained">博碩學歷</Button>
-                            <Button variant="contained">大學學歷</Button>
-                            <Button variant="contained">高中學歷</Button>
-                            <Button variant="contained">國中學歷</Button>
-                        </Box>
-                        <Box>
-                            <Button variant="contained">銀髮族群</Button>
-                            <Button variant="contained">中年族群</Button>
-                            <Button variant="contained">青年族群</Button>
-                        </Box>
-                        <Box>
-                            <Button variant="contained">高收入</Button>
-                            <Button variant="contained">低收入</Button>
-                        </Box>
-                    </Grid>
-                </Grid>
+                    <Hidden mdUp>
+                        <Grid xs={1}></Grid>
+                    </Hidden>
+                    <Hidden mdUp>
+                        <Grid xs={12}>
+                            <Box height="4vh"></Box>
+                        </Grid>
+                    </Hidden>
+                    <Hidden mdUp>
+                        <Grid xs={1}></Grid>
+                    </Hidden>
 
-                <Grid container xs={12} md={6}>
-                    <Grid item md={4}>
-                        <img width="140px" src={require('./SONG_A_BAY.svg')} alt=""/>
-                        <img width="140px" src={require('./voteBox.svg')} alt=""/>
+                    <Grid container xs={10} md={8}>
+                        <Grid container xs={12} md={4}>
+                            <Hidden smDown>
+                                <Typography variant="body2.fontSize" className={styles.graphic__candidateName}>宋楚瑜</Typography>
+                                 <img width="140px" src={require('./SONG_A_BAY.svg')} alt=""/>
+                                <img width="140px" src={require('./voteBox.svg')} alt=""/>
+                            </Hidden>
+
+                            <Hidden mdUp>
+                                <Grid xs={6}>
+                                    <img width="140px" src={require('./SONG_A_BAY.svg')} alt=""/>
+                                </Grid>
+                                <Grid xs={6}>
+                                    <Typography variant="body2.fontSize" className={styles.graphic__candidateName}>宋楚瑜</Typography>
+                                </Grid>
+                            </Hidden> 
+                        </Grid>
+
+                        <Grid container xs={12} md={4}>
+                            <Hidden smDown>
+                                <Typography variant="body2.fontSize" className={styles.graphic__candidateName}>韓國瑜</Typography>
+                                 <img width="140px" src={require('./KOREAN_FISH.svg')} alt=""/>
+                                <img width="140px" src={require('./voteBox.svg')} alt=""/>
+                            </Hidden>
+
+                            <Hidden mdUp>
+                                <Grid xs={6}>
+                                    <img width="140px" src={require('./KOREAN_FISH.svg')} alt=""/>
+                                </Grid>
+                                <Grid xs={6}>
+                                    <Typography variant="body2.fontSize" className={styles.graphic__candidateName}>韓國瑜</Typography>
+                                </Grid>
+                            </Hidden> 
+                        </Grid>
+
+                        <Grid container xs={12} md={4}>
+                            <Hidden smDown>
+                                <Typography variant="body2.fontSize" className={styles.graphic__candidateName}>蔡英文</Typography>
+                                <img width="140px" src={require('./YIN_WEN.svg')} alt=""/>
+                                <img width="140px" src={require('./voteBox.svg')} alt=""/>
+                            </Hidden>
+
+                            <Hidden mdUp>
+                                <Grid xs={6}>
+                                    <img width="140px" src={require('./YIN_WEN.svg')} alt=""/>
+                                </Grid>
+                                <Grid xs={6}>
+                                    <Typography variant="body2.fontSize" className={styles.graphic__candidateName}>蔡英文</Typography>
+                                </Grid>
+                            </Hidden> 
+                        </Grid>
                     </Grid>
-                    <Grid item md={4}>
-                        <img width="140px" src={require('./KOREAN_FISH.svg')} alt=""/>
-                        <img width="140px" src={require('./voteBox.svg')} alt=""/>
-                    </Grid>
-                    <Grid item md={4}>
-                        <img width="140px" src={require('./YIN_WEN.svg')} alt=""/>
-                        <img width="140px" src={require('./voteBox.svg')} alt=""/>
-                    </Grid>
+                    <Hidden mdUp>
+                        <Grid xs={1}></Grid>
+                    </Hidden>
+                    <Grid md={1}></Grid>
                 </Grid>
             </Grid>
         </section>
@@ -222,7 +307,7 @@ export default function PeopleVoice() {
             <Form/>
         </section>
 
-        <section height="60vh">
+        <section>
             <Grid container >
                 <Grid container xs={12} md={6}>
                     <Grid item xs={1} md={2}>
@@ -232,20 +317,21 @@ export default function PeopleVoice() {
                         <Box bgcolor="#FF2600" height="60vh" textAlign="left">
                             <Box height="30%"></Box>
                             <Typography className={styles.bottom__linkIntro__text} fontSize="body2.fontSize">
-                                <Box>身為一介庶民</Box>
-                                <Box>除了用選票教訓政黨</Box>
-                                <Box>你的心聲你的苦</Box>
-                                <Box>現在踹共</Box>
-                                <Box marginTop="12px" marginBottom="24px">讓大家一起同甘共苦</Box>
+                                <Box>局勢怎麼走</Box>
+                                <Box>是當局者迷還是旁觀者清</Box>
+                                <br/>   
+                                <Box>選前預測不封關</Box>
+                                <Box>把握倒數幾天</Box>
+                                <Box marginTop="12px" marginBottom="24px">看看你能否鐵口直斷</Box>
                             </Typography>
                             <Button variant="contained" className={styles.bottom__button__black}>
-                                我要發聲
+                                我要預測
                             </Button>
                         </Box>
                     </Grid>
                     <Grid item xs={3} md={2}>
-                        <Box height="60vh" borderRight={21} className={styles.bottom__graphic__goldLine}>
-                            <img src={require('./ppl_voice.svg')} alt="" height="100%"/>
+                        <Box height="60vh" borderRigsht={21} className={styles.bottom__graphic__goldLine}>
+                            <img src={require('./predict.svg')} alt="" height="90%"/>
                             {/* <Typography className={styles.predict__Bottom__subtitle}>庶民的心聲</Typography> */}
                         </Box>
                     </Grid>

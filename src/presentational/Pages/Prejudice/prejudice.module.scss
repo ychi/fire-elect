@@ -29,6 +29,19 @@
     }
      text-shadow: 6px -8px white, 4px -8px #CC9423,8px -8px #CC9423, 6px -6px #CC9423, 6px -10px #CC9423, 8px -10px #CC9423;
   }
+
+  .predict__title__vertical__sm{
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    text-align:right;
+    margin-top: 30px;
+    font:{
+      size: 100px;
+      family: Noto Sans; 
+      weight: bold;
+    }
+     text-shadow: 6px -8px white, 4px -8px #CC9423,8px -8px #CC9423, 6px -6px #CC9423, 6px -10px #CC9423, 8px -10px #CC9423;
+  }
   
   .predict__subtitle__vertical{
     writing-mode: vertical-lr;
@@ -135,7 +148,36 @@
     margin-top: 40px;
     margin-bottom: 40px;
     padding-left: 20px;
-    border-left: 2px solid black;
-    
+    border-left: 2px solid black;  
   }
-  
+
+  .voice__dropDownMenu{
+    display: block;
+    width: 100px;
+    height: 24px;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  .select__subtitle{
+    position: relative;
+    left:-20px;
+    margin-top: 40px;
+    padding-left: 18px;
+    border-left: 2px solid black;
+  }
+
+  .select__subtitle__sup{
+    font-size: 12px;
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  .graphic__candidateName{
+    margin-left: 10px;
+    display: block;
+    padding-bottom: 16px;
+    width: 100%;
+  }

@@ -73,13 +73,13 @@ export default function Predict({ submittable = true, formContent = null, submit
             <section className={styles.window__section}>
                 <Grid container >
                     <Grid item xs={1} md={1} >
-                        <Box textAlign="right">
-                            <Hidden xsDown>
+                        <Hidden xsDown>
+                            <Box textAlign="right">
                                 <Box height="10vh"></Box>
                                 <Typography variant="h5" className={styles.text__vertical__lr} display="inline">I PREDICT IT</Typography>
                                 <Box borderLeft={2} height="35vw" width="24px" ml="6vw"></Box>
-                            </Hidden>
-                        </Box>
+                            </Box>
+                        </Hidden>
                     </Grid>
 
                     <Grid item xs={8} md={5}>
@@ -97,14 +97,15 @@ export default function Predict({ submittable = true, formContent = null, submit
                             </Grid>
                         </Grid>
                         <Hidden mdUp>
+                            <Typography variant="h5" display="inline">I PREDICT IT</Typography>
+                        </Hidden>
+                        <Hidden mdUp>
                             <Box height="10vh"></Box>
                         </Hidden>
                         <Box>
-                            
                                 <Box><Typography variant="body2" align="left">得民調者得痔瘡，</Typography></Box>
                                 <Box><Typography variant="body2" align="left">得民心者得天下，</Typography></Box>
                                 <Box><Typography variant="body2" align="left">是時候由你決定2020誰該屎心了！</Typography></Box>
-                            
                         </Box>
                     </Grid>
                     <Grid item xs={false} md={5}>
@@ -188,7 +189,6 @@ export default function Predict({ submittable = true, formContent = null, submit
                             </Grid>
                             <Grid item xs={1} md={false}></Grid>
                             <Grid item xs={1} md={false}></Grid>
-
                             <Grid item xs={10} md={12} spacing={8} justify="center" direction="column" container alignItems="center" >
                                 <div className={styles.section}>
                                     <PresidentPredict
