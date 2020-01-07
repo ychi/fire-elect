@@ -164,17 +164,15 @@ export default function Predict({ submittable = true, formContent = null, submit
                             <Box height="30vh"></Box>
                         </Hidden>
                         <Box>
-                            <Typography variant="body3" align="left">
-                                <Box>得民調者得痔瘡，</Box>
-                                <Box>得民心者得天下，</Box>
-                                <Box>是時候由你決定2020誰該屎心了！</Box>
-                            </Typography>
+                                <Box><Typography variant="body2" align="left">得民調者得痔瘡，</Typography></Box>
+                                <Box><Typography variant="body2" align="left">得民心者得天下，</Typography></Box>
+                                <Box><Typography variant="body2" align="left">是時候由你決定2020誰該屎心了！</Typography></Box>
                         </Box>
                     </Grid>
                     
                     <Grid item xs={false} md={5}></Grid>
 
-                    <Grid item xs={1} md={1}  alignItems="center">
+                    <Grid item container xs={1} md={1}  alignItems="center">
                         <Box height="30px"></Box>
                         <Hidden mdUp>
                             <CoundownTimer  fontSize="h6" clockHeight="80vh"/>
