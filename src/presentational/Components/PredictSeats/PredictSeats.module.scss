@@ -1,0 +1,53 @@
+.tilesContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.tile {
+    height: 24px;
+    width: 24px;
+    border-radius: 1px;
+    margin: 3px;
+}
+
+.kmt {
+    background-color: #7986CB;
+}
+
+.dpp {
+    background-color: #81c784;
+}
+
+.pfp {
+    background-color: #ffb74d;
+}
+
+.tpp {
+    background-color: #4db6ac;
+}
+
+.npp {
+    background-color: #fff176;
+}
+
+.tsp {
+    background-color: #a1887f;
+}
+
+.np {
+    background-color: #4dd0e1;
+}
+
+.gp {
+    background-color: #dce775;
+}
+
+.others {
+    background-color: #90a4ae;
+}
+
+.default {
+    background-color: #e9f2f2;
+}
