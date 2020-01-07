@@ -77,18 +77,18 @@ export default function Predict({ submittable = true, formContent = null, submit
                             <Box textAlign="right">
                                 <Box height="10vh"></Box>
                                 <Typography variant="h5" className={styles.text__vertical__lr} display="inline">I PREDICT IT</Typography>
-                                <Box borderLeft={2} height="35vw" width="24px" ml="6vw"></Box>
+                                <Box borderLeft={2} height="33vh" width="24px" ml="6vw"></Box>
                             </Box>
                         </Hidden>
                     </Grid>
 
-                    <Grid item xs={8} md={5}>
+                    <Grid item xs={10} md={5}>
                         <Grid container alignItems='flex-end'>
                             <Grid item md={6}>
                                 <img src={require('./index_pattern.svg')} alt="cover page img" />
                             </Grid>
                             <Grid item md={6} >
-                                <Hidden xsDown>
+                                <Hidden smDown>
                                     <Typography variant="h1" component="h1" gutterBottom className={styles.predict__title__vertical}>我大膽<br />預測</Typography>
                                 </Hidden>
                                 <Hidden mdUp>
@@ -96,24 +96,31 @@ export default function Predict({ submittable = true, formContent = null, submit
                                 </Hidden>
                             </Grid>
                         </Grid>
-                        <Hidden mdUp>
+                        <Hidden smUp>
                             <Typography variant="h5" display="inline">I PREDICT IT</Typography>
                         </Hidden>
                         <Hidden mdUp>
-                            <Box height="10vh"></Box>
+                            <Box height="30vh"></Box>
                         </Hidden>
                         <Box>
-                                <Box><Typography variant="body2" align="left">得民調者得痔瘡，</Typography></Box>
-                                <Box><Typography variant="body2" align="left">得民心者得天下，</Typography></Box>
-                                <Box><Typography variant="body2" align="left">是時候由你決定2020誰該屎心了！</Typography></Box>
+                            <Typography variant="body3" align="left">
+                                <Box>得民調者得痔瘡，</Box>
+                                <Box>得民心者得天下，</Box>
+                                <Box>是時候由你決定2020誰該屎心了！</Box>
+                            </Typography>
                         </Box>
                     </Grid>
-                    <Grid item xs={false} md={5}>
-                        <Box></Box>
-                    </Grid>
+                    
+                    <Grid item xs={false} md={5}></Grid>
 
-                    <Grid item className={styles.frame} md={1} xs={3} alignItems="center" container>
-                        <CoundownTimer />
+                    <Grid item xs={1} md={1}  alignItems="center">
+                        <Box height="30px"></Box>
+                        <Hidden mdUp>
+                            <CoundownTimer  fontSize="h6" clockHeight="80vh"/>
+                        </Hidden>
+                        <Hidden smDown>   
+                            <CoundownTimer  fontSize="h5" clockHeight="90vh"/>
+                        </Hidden>
                     </Grid>
 
                     <Grid item xs={12}>
@@ -144,8 +151,13 @@ export default function Predict({ submittable = true, formContent = null, submit
                             </Box>
                         </Grid>
                         <Hidden xsDown>
-                            <Grid item xs={0} md={12}>
+                            <Grid item md={12}>
                                 <Box height="35vh"></Box>
+                            </Grid>
+                        </Hidden>
+                        <Hidden mdUp>
+                            <Grid item xs={12}>
+                                <Box height="8vh"></Box>
                             </Grid>
                         </Hidden>
                         <Grid item xs={12} md={12}>
@@ -170,36 +182,40 @@ export default function Predict({ submittable = true, formContent = null, submit
                             <Box height="10vh"></Box>
                         </Hidden>
                         <Grid container height="90vh">
-                            <Grid item xs={1} md={false}></Grid>
 
+                            <Grid item xs={1} md={false}></Grid>
                             <Grid item xs={10} md={12}>
                                 <Typography className={styles.votes__subtitle}>歷年總統得票率</Typography>
                             </Grid>
                             <Grid item xs={1} md={false}></Grid>
+
                             <Grid item xs={1} md={false}></Grid>
                             <Grid item xs={10} md={12}>
                                 <img src={require('./votesChart.png')} width="100%" alt="" />
                                 {/* <Box height="30vh" border={1}>chart</Box> */}
                             </Grid>
                             <Grid item xs={1} md={false}></Grid>
-                            <Grid item xs={1} md={false}></Grid>
 
+                            <Grid item xs={1} md={false}></Grid>
                             <Grid item xs={10} md={12}>
                                 <Typography className={styles.votes__subtitle} align="left">2020總統大選：你的預測</Typography>
                             </Grid>
                             <Grid item xs={1} md={false}></Grid>
-                            <Grid item xs={1} md={false}></Grid>
-                            <Grid item xs={10} md={12} spacing={8} justify="center" direction="column" container alignItems="center" >
-                                <div className={styles.section}>
+
+                            <Grid item xs={2} md={false}></Grid>
+                            <Grid item xs={9} md={12} spacing={8} justify="center" direction="column" container alignItems="center" >
+                                <Box className={styles.section}>
                                     <PresidentPredict
                                         percentages={presidentPercentages}
                                         commit={(k, v) => {
                                             dispatchPresidentPercentages({ type: k, commitedV: v });
                                         }}
                                     />
-                                </div>
+                                </Box>
+
                             </Grid>
                             <Grid item xs={1} md={false}></Grid>
+
                         </Grid>
                     </Grid>
                     <Grid item md={2}>
@@ -233,7 +249,7 @@ export default function Predict({ submittable = true, formContent = null, submit
                             </Grid>
                         </Hidden>
                         <Hidden mdUp>
-                            <Box height="10vh"></Box>
+                            <Box height="8vh"></Box>
                         </Hidden>
                         <Grid item xs={12} md={12}>
                             <Box textAlign="left" >

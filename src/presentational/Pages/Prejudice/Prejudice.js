@@ -8,6 +8,8 @@ import { Button } from '@material-ui/core';
 import { positions } from '@material-ui/system';
 import Hidden from '@material-ui/core/Hidden';
 import Form from '../../Components/Form/Form'
+import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
+
 
 const marks = [
     {
@@ -40,46 +42,41 @@ function valuetext(value) {
 return `${value}°C`;
 }
 
-function electionCountDown(){
-    return null;
-}
-
-
 export default function PeopleVoice() {
     return(
     <div>
         <section className={styles.window__section}>
-            <Grid container height="90vh">
+            <Grid container >
                 <Grid item xs={1} md={1} >
-                    <Box textAlign="right">
-                        <Hidden xsDown>
+                    <Hidden smDown>
+                        <Box textAlign="right">
                             <Box height="10vh"></Box>
                             <Typography variant="h5" className={styles.text__vertical__lr} display="inline">VOICE YOUR PREJUDICE</Typography>
-                            <Box borderLeft={2} height="35vw" width="24px" ml="6vw"></Box>
-                        </Hidden>
-                    </Box>
+                            <Box borderLeft={2} height="25vw" width="24px" ml="6vw"></Box>
+                        </Box>
+                    </Hidden>
                 </Grid>
                 
-                <Grid item xs={8} md={5}>
-                        <Grid container alignItems='flex-end'>
-                            <Grid item md={6}>
-                                <img src={require('./index_pattern.svg')} alt="cover page img"/>
-                            </Grid>
-                            <Grid item md={6}>
-                                <Hidden xsDown>
-                                    <Typography variant="h1" component="h1" gutterBottom className={styles.predict__title__vertical}>庶民欸<br />心聲</Typography>
-                                </Hidden>
-                                <Hidden mdUp>
-                                    <Typography variant="h1" component="h1" gutterBottom className={styles.predict__title__vertical__sm}>庶民欸<br />心聲</Typography>
-                                </Hidden>
-                            </Grid>
+                <Grid item xs={10} md={5}>
+                    <Grid container alignItems='flex-end'>
+                        <Grid item md={6}>
+                            <img src={require('./index_pattern.svg')} alt="cover page img"/>
                         </Grid>
-                        <Hidden mdUp>
-                            <Typography variant="h5" display="inline">VOICE YOUR PREJUDICE</Typography>
-                        </Hidden>
-                        <Hidden mdUp>
-                            <Box height="10vh"></Box>
-                        </Hidden>
+                        <Grid item md={6}>
+                            <Hidden smDown>
+                                <Typography variant="h1" component="h1" gutterBottom className={styles.predict__title__vertical}>庶民欸<br />心聲</Typography>
+                            </Hidden>
+                            <Hidden mdUp>
+                                <Typography variant="h1" component="h1" gutterBottom className={styles.predict__title__vertical__sm}>庶民欸<br />心聲</Typography>
+                            </Hidden>
+                        </Grid>
+                    </Grid>
+                    <Hidden mdUp>
+                        <Typography variant="h5" display="inline">VOICE YOUR PREJUDICE</Typography>
+                    </Hidden>
+                    <Hidden mdUp>
+                        <Box height="25vh"></Box>
+                    </Hidden>
                     <Box>
                         <Typography variant="body3" align="left">
                             <Box>一碗滷肉飯一瓶礦泉水,</Box>
@@ -90,29 +87,17 @@ export default function PeopleVoice() {
                         </Typography>
                     </Box>
                 </Grid>
-                <Grid item xs={0} md={5}>
-                    <Box height="90vh"></Box>
-                </Grid>
-                <Grid item xs={3} md={1} alignItems="center" >
-                    <Box height="90vh">
-                        <Typography component="div" variant="h6" className={styles.date}>
-                            <Box>貳零貳零</Box>
-                            <hr/>
-                            <Box>壹月拾壹</Box>
-                            <hr/>
-                            <Box>距大選</Box>
-                            <Box className={styles.date_gold}>   
-                                <Box>{10}</Box>
-                                <Box>天</Box>
-                                <Box>{10}</Box>
-                                <Box>時</Box>
-                                <Box>{10}</Box>
-                                <Box>分</Box>
-                                <Box>{10}</Box>
-                                <Box>秒</Box>
-                            </Box>
-                        </Typography>
-                    </Box>
+
+                <Grid item xs={false} md={5}></Grid>
+
+                <Grid item xs={1} md={1} alignItems="center">
+                    <Box height="30px"></Box>
+                    <Hidden mdUp>
+                        <CoundownTimer  fontSize="h6" clockHeight="80vh"/>
+                    </Hidden>
+                    <Hidden smDown>   
+                        <CoundownTimer  fontSize="h5" clockHeight="90vh"/>
+                    </Hidden>
                 </Grid>
 
                 <Grid item xs={12}>
@@ -136,11 +121,10 @@ export default function PeopleVoice() {
                             <Typography variant="h2" className={styles.predict__subtitle__vertical} display="inline">庶民<br/>給問嗎？</Typography>
                         </Box>
                     </Grid>
-                    <Hidden xsDown>
-                        <Grid item md={12}>
-                            <Box height="15vh"></Box>
-                        </Grid>
-                    </Hidden>
+                    <Grid item xs={12} md={12}>
+                        <Box height="8vh"></Box>
+                    </Grid>
+                    
                     <Grid item xs={12} md={12}>
                         <Box textAlign="left" > 
                             <Typography component="div"  className={styles.section__brief}>
@@ -235,15 +219,16 @@ export default function PeopleVoice() {
                     <Hidden mdUp>
                         <Grid xs={1}></Grid>
                     </Hidden>
+
                     <Hidden mdUp>
                         <Grid xs={12}>
-                            <Box height="4vh"></Box>
+                            <Box height="10vh"></Box>
                         </Grid>
                     </Hidden>
+
                     <Hidden mdUp>
                         <Grid xs={1}></Grid>
                     </Hidden>
-
                     <Grid container xs={10} md={8}>
                         <Grid container xs={12} md={4}>
                             <Hidden smDown>
