@@ -11,8 +11,9 @@ import Box from '../../../../node_modules/@material-ui/core/Box';
 import Typography from '../../../../node_modules/@material-ui/core/Typography';
 import Button from '../../../../node_modules/@material-ui/core/Button';
 import Checkbox from '../../../../node_modules/@material-ui/core/Checkbox';
-import { Grid } from '../../../../node_modules/@material-ui/core';
+import { Grid, Select, MenuItem } from '../../../../node_modules/@material-ui/core';
 import Hidden from '../../../../node_modules/@material-ui/core/Hidden';
+import TextField from '@material-ui/core/TextField';
 
 export default function Form() {
   
@@ -21,7 +22,13 @@ export default function Form() {
     age: '',
     education: '',
     marriage: '',
-    income: ''
+    income: '',
+    inhabitCity: '臺北市',
+    registerCity: '臺北市',
+    chineseImpact: '',
+    socioeconomic: '',
+    legislatorKnowledge: '',
+    legislatorName: ''
   })
 
   function handleSubmit(e) {
@@ -50,11 +57,30 @@ export default function Form() {
       case 'income':
         s.income = s.income ? s.income === event.target.value ? '' : event.target.value : event.target.value      
         break;
+      case 'inhabit-city-select':
+        s.inhabitCity = event.target.value
+        break;
+      case 'register-city-select':
+        s.registerCity = event.target.value
+        break;
+      case 'chinese-impact':
+        s.chineseImpact = s.chineseImpact ? s.chineseImpact === event.target.value ? '' : event.target.value : event.target.value 
+        break;
+      case 'socioeconomic':
+        s.socioeconomic = s.socioeconomic ? s.socioeconomic === event.target.value ? '' : event.target.value : event.target.value 
+        break;
+      case 'legislator-knowledge':
+        s.legislatorKnowledge = s.legislatorKnowledge? s.legislatorKnowledge === event.target.value ? '' : event.target.value : event.target.value 
+        break;
+      case 'legislator-name':
+        s.legislatorName = event.target.value 
+        break;
       default:
     }
     console.log(s)
     setState(s)
   }
+
   const formOptions = {
     gender: [
       {value: 'm', label: '男'},
@@ -84,7 +110,29 @@ export default function Form() {
       {value: '$$$', label: '$$$'},
       {value: '$$$$', label: '$$$$'},
       {value: '$$$$$', label: '$$$$$'},
+    ],
+    inhabitCity: ["臺北市","新北市","桃園市","臺中市","臺南市","高雄市","新竹縣","苗栗縣","彰化縣","南投縣","雲林縣","嘉義縣","屏東縣","宜蘭縣","花蓮縣","臺東縣","澎湖縣","金門縣","連江縣","基隆市","新竹市","嘉義市"],
+    chineseImpact: [
+      {value: 'strong-disagree', label: '非常不同意'},
+      {value: 'disagree', label: '不同意'},
+      {value: 'neutral', label: '普通'},
+      {value: 'agree', label: '同意'},
+      {value: 'strong-agree', label: '非常同意'},
+      {value: 'no-opinion', label: '沒意見'}
+    ],
+    socioeconomic: [
+      {value: 'very-traditional', label: '非常傳統'},
+      {value: 'traditional', label: '傳統'},
+      {value: 'neutral', label: '普通'},
+      {value: 'free', label: '自由'},
+      {value: 'very-free', label: '非常自由'},
+      {value: 'no-opinion', label: '沒意見'} 
+    ],
+    legislator: [
+      {value:'no', label:'否'},
+      {value:'yes', label:'知道'}
     ]
+
   }
     return(
         <Grid container>
@@ -168,7 +216,87 @@ export default function Form() {
                             <FormControlLabel control={<Checkbox value="$$$$$" />} label="$$$$$" /> */}
                         </FormControl>
                     </Box>
+                    <hr width="90%" />
+                    
+                    <Box display="flex" flexDirection="row">
+                      <Box ml={3} mb={1}>
+                        <FormControl className={styles.checkBox__dir}>
+                          <label for="inhabit" className={styles.form__label}>居住縣市</label>
+                          {/* <InputLabel id="inhabit-city">{formOptions.inhabitCity[0]}</InputLabel> */}
+                          <Select
+                            labelId="inhabit-city-select-label"
+                            name="inhabit-city-select"
+                            value={state.inhabitCity}
+                            onChange={handleChange}
+                          >
+                            {formOptions.inhabitCity.map(opt => 
+                              <MenuItem value={opt}>{opt}</MenuItem>
+                            )}
+                          </Select>
+                        </FormControl>
+                      </Box>
+                      <Box ml={3} mb={1}>
+                        <FormControl className={styles.checkBox__dir}>
+                          <label for="register" className={styles.form__label}>戶籍縣市</label>
+                          {/* <InputLabel id="inhabit-city">{formOptions.inhabitCity[0]}</InputLabel> */}
+                          <Select
+                            labelId="register-city-select-label"
+                            name="register-city-select"
+                            value={state.registerCity}
+                            onChange={handleChange}
+                          >
+                            {formOptions.inhabitCity.map(opt => 
+                              <MenuItem value={opt}>{opt}</MenuItem>
+                            )}
+                          </Select>
+                        </FormControl>
+                      </Box>
+                    </Box>
+
                     <hr width="90%"/>
+                    <Box textAlign='left'>
+                      <Typography>
+                        <Box ml={3}>對於「中國對台灣社會的影響整體而言是好的」這敘述，我的看法是：</Box>
+                      </Typography>
+                    </Box>
+                    <Box ml={3} mb={1}>
+
+                    <FormControl className={styles.checkBox__dir}>
+                      {formOptions.chineseImpact.map(opt =>
+                        <FormControlLabel control={<Checkbox name='chinese-impact' value={opt.value} checked={state.chineseImpact === opt.value } onChange={handleChange} />} label={opt.label} />
+                      )}
+                    </FormControl>
+                    </Box>
+                    <hr width="90%"/>
+                    
+                    <Box textAlign='left'>
+                      <Typography>
+                        <Box ml={3}>我認為我對經濟、社會議題的態度偏向：</Box>
+                      </Typography>
+                    </Box>
+                    <Box ml={3} mb={1}>
+                    <FormControl className={styles.checkBox__dir}>
+                      {formOptions.socioeconomic.map(opt =>
+                        <FormControlLabel control={<Checkbox name='socioeconomic' value={opt.value} checked={state.socioeconomic === opt.value } onChange={handleChange} />} label={opt.label} />
+                        )}
+                    </FormControl>
+                    </Box>
+                  
+                    <hr width="90%"/>
+                    <Box textAlign='left'>
+                      <Typography>
+                        <Box ml={3}>您知道您所屬選區現任立委是誰嗎？</Box>
+                      </Typography>
+                    </Box>
+                    <Box ml={3} mb={1}>
+                    <FormControl className={styles.checkBox__dir}>
+                      {formOptions.legislator.map(opt =>
+                        <FormControlLabel control={<Checkbox name='legislator-knowledge' value={opt.value} checked={state.legislatorKnowledge === opt.value } onChange={handleChange} />} label={opt.label} />
+                      )}
+                      <TextField name="legislator-name" id="standard-basic" label="請輸入立委名" />
+                    </FormControl>
+                    </Box>
+                    <hr width="90%" />
                     <Box textAlign="right" width="90%">
                         <Box display="inline" mr="30px">
                             <FormControlLabel
