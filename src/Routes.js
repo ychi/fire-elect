@@ -1,6 +1,6 @@
 import React from 'react';
 import Landing from "./presentational/Pages/Landing/Landing";
-import Predict from "./presentational/Pages/Predict/Predict";
+import PredictContainer from "./container/PredictContainer";
 import Warroom from "./presentational/Pages/Warroom/Warroom";
 import Prejudice from "./presentational/Pages/Prejudice/Prejudice";
 import Dummy from "./presentational/Dummy/Dummy";
@@ -15,7 +15,7 @@ export default [
     {
         label: '我大膽預測',
         path: '/ipredict',
-        render: ()=>(<Predict/>)
+        render: ()=>(<PredictContainer/>)
     },    
     {
         label: '庶民ㄟ心聲',

@@ -8,11 +8,12 @@ import Predict from '../presentational/Pages/Predict/Predict';
 export default ({formContent=null})=>{
     
     const firebase = useContext(FireBaseContext);
-    const [submitted, setSubmited] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
 
     const submitForm = (formContent, prediction)=>{
         const s = window.localStorage.getItem('i') || false;
         const i = JSON.parse(s);
+        setSubmitted(true);
         Promise.all([
             firebase.db.collection('PresidentPrediction').add({
                 // firebase supports querying nested data structure in a document
@@ -30,15 +31,13 @@ export default ({formContent=null})=>{
             })
         ])
         .then(()=>{
-            setSubmited(true);
             if(!i) {window.localStorage.setItem('i', JSON.stringify(formContent))}
         }).catch((r)=>{
             //TODO: add crash-lytics; later
         });
     };
-
     return(<Predict 
-        submitable={!submitted} 
+        submittable={!submitted} 
         formContent={formContent}
         submitForm={submitForm}>
     </Predict>);
