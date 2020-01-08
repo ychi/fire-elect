@@ -3,9 +3,7 @@ import styles from './prejudice.module.scss';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Slider from '@material-ui/core/Slider';
 import { Button } from '@material-ui/core';
-import { positions } from '@material-ui/system';
 import Hidden from '@material-ui/core/Hidden';
 import Form from '../../Components/Form/Form'
 import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
@@ -113,36 +111,7 @@ const blankFormState = {
 
 
 
-const marks = [
-    {
-      value: 0,
-      label: '0%',
-    },
-    {
-      value: 20,
-      label: '20%',
-    },
-    {
-      value: 40,
-      label: '40%',
-    },
-    {
-      value: 60,
-      label: '60%',
-    },
-    {
-      value: 80,
-      label: '80%',
-    },
-    {
-      value: 100,
-      label: '100%',
-    },
-  ];
 
-function valuetext(value) {
-return `${value}°C`;
-}
 
 export default function PeopleVoice({ submittable = true, formContent = null, submitForm = (i, p) => { console.log({i: i, p:p})} }) {
     const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, { s: 33, h: 33, t: 33 });
