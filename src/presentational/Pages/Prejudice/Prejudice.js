@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import styles from './prejudice.module.scss';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -10,6 +10,64 @@ import Hidden from '@material-ui/core/Hidden';
 import Form from '../../Components/Form/Form'
 import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
 
+const blankFormState = {
+  gender: '',
+  age: '',
+  education: '',
+  marriage: '',
+  income: '',
+  inhabitCity: '臺北市',
+  registerCity: '臺北市',
+  chineseImpact: '',
+  socioeconomic: '',
+  legislatorKnowledge: '',
+  legislatorName: '',
+  agreeTerms: false
+};
+
+function formStateReducer(state, event) {
+  let s = Object.assign({}, state);
+  switch (event.target.name) {
+    case 'gender':
+      s.gender = s.gender ? s.gender === event.target.value ? '' : event.target.value : event.target.value
+      break;
+    case 'age':
+      s.age = s.age ? s.age === event.target.value ? '' : event.target.value : event.target.value
+      break;
+    case 'education':
+      s.education = s.education ? s.education === event.target.value ? '' : event.target.value : event.target.value
+      break;
+    case 'marriage':
+      s.marriage = s.marriage ? s.marriage === event.target.value ? '' : event.target.value : event.target.value
+      break;
+    case 'income':
+      s.income = s.income ? s.income === event.target.value ? '' : event.target.value : event.target.value
+      break;
+    case 'inhabit-city-select':
+      s.inhabitCity = event.target.value
+      break;
+    case 'register-city-select':
+      s.registerCity = event.target.value
+      break;
+    case 'chinese-impact':
+      s.chineseImpact = s.chineseImpact ? s.chineseImpact === event.target.value ? '' : event.target.value : event.target.value
+      break;
+    case 'socioeconomic':
+      s.socioeconomic = s.socioeconomic ? s.socioeconomic === event.target.value ? '' : event.target.value : event.target.value
+      break;
+    case 'legislator-knowledge':
+      s.legislatorKnowledge = s.legislatorKnowledge ? s.legislatorKnowledge === event.target.value ? '' : event.target.value : event.target.value
+      break;
+    case 'legislator-name':
+      s.legislatorName = event.target.value
+      break;
+    case 'agree-terms':
+        s.agreeTerms = event.target.checked;
+        break;
+    default:
+  }
+  return s;
+}
 
 const marks = [
     {
@@ -42,7 +100,16 @@ function valuetext(value) {
 return `${value}°C`;
 }
 
-export default function PeopleVoice() {
+export default function PeopleVoice({ submittable = true, formContent = null, submitForm = (i, p) => {console.log({i: i, p: p})} }) {
+  
+    const [formState, dispatchFormChange] = useReducer(formStateReducer, formContent||blankFormState);
+    
+    const onClickSubmit = () => {
+      submitForm(
+        formState,
+        {}
+      );
+    }
     return(
     <div>
         <section className={styles.window__section}>
@@ -289,7 +356,12 @@ export default function PeopleVoice() {
             </Grid>
         </section>
         <section>
-            <Form/>
+            <Form
+              data={formState}
+              submittable={submittable}
+              handleChange={dispatchFormChange}
+              handleSubmit={onClickSubmit}
+            />
         </section>
 
         <section>
