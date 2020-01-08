@@ -13,6 +13,7 @@ import Container from '@material-ui/core/Container';
 
 
 
+
 export default function Landing() {
     return(
     <Container maxWidth="false" className="landing">  
@@ -27,7 +28,7 @@ export default function Landing() {
             <Grid container item xs={12} sm={4} md={3} spacing={2}>
                 <Grid item xs={12}>
                     <div  className="stripe_1">
-                    <ActionBloc title={"AI戰情室"} subtitle={"人工智慧跟鄉民智慧，一起實況預測開票"} desc={"2020.01.11 17:00 開放"}/>   
+                        <ActionBloc link={"/aiwarroom"} title={"AI戰情室"} subtitle={"人工智慧跟鄉民智慧，一起實況預測開票"} desc={"2020.01.11 17:00 開放"} call2act={"進入戰場"}/>   
                     </div>                
                 </Grid>     
                 <Hidden smDown>      
@@ -53,7 +54,7 @@ export default function Landing() {
                 <Grid container item xs={12} spacing={2} className="height_70">
                     <Grid item xs={12} sm={6} md={5}>
                         <div  className="stripe_5">
-                        <ActionBloc title={"我大膽預測"} subtitle={"選前預測不封關，把握選前倒數，看看你能否鐵口直斷"} desc={"2020.01.11 17:00 開放"}/>     
+                        <ActionBloc link={"/ipredict"} title={"我大膽預測"} subtitle={"選前預測不封關，把握選前倒數，看看你能否鐵口直斷"} desc={"2020.01.11 17:00 開放"} call2act={"前往預測"}/>     
                         </div>              
                     </Grid>
                     <Hidden smDown> 
@@ -65,7 +66,7 @@ export default function Landing() {
                     </Hidden>
                     <Grid item xs={12} sm={6} md={5}>
                         <div  className="stripe_4">
-                        <ActionBloc title={"庶民欸心聲"} subtitle={"不同陣營的支持者有什麼樣貌？又老又窮到底是不是刻板印象？來八卦一下，村里間的選民屬性吧"} desc={"2020.01.11 17:00 開放"}/>
+                        <ActionBloc link={"/prejudice"} title={"庶民欸心聲"} subtitle={"不同陣營的支持者有什麼樣貌？又老又窮到底是不是刻板印象？來八卦一下，村里間的選民屬性吧"} desc={"2020.01.11 17:00 開放"} call2act={"訴說心聲"}/>
                         </div>                   
                     </Grid>
                 </Grid>
