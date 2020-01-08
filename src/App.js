@@ -11,7 +11,6 @@ import Footer from './presentational/Footer/Footer';
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { StylesProvider } from '@material-ui/core/styles';
-import { dark } from '@material-ui/core/styles/createPalette';
 
 const theme = createMuiTheme({
   palette: {

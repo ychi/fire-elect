@@ -49,13 +49,17 @@
     color: black;
   }
 
-  
-
   .form__label__long{
     display: block;
-    margin-top: 12px;
-    margin-left: 8px;
+    margin-left: 32px;
+  }
 
+  .form__label__reside{
+    display: inline-block;
+    width:70px;
+    margin-top: 12px;
+    margin-left: 0px;
+    color: black;
   }
 
   .form__option__label{
@@ -82,3 +86,4 @@
   .menuItem{
     width:80px;
   }
+

@@ -52,16 +52,77 @@ function legislativeReducer(state, action) {
     ].sort((a, b) => (b.prediction - a.prediction));
 }
 
+const blankFormState = {
+    gender: '',
+    age: '',
+    education: '',
+    marriage: '',
+    income: '',
+    inhabitCity: '臺北市',
+    registerCity: '臺北市',
+    chineseImpact: '',
+    socioeconomic: '',
+    legislatorKnowledge: '',
+    legislatorName: '',
+    agreeTerms: false
+  };
 
-export default function Predict({ submittable = true, formContent = null, submitForm = () => { } }) {
+  function formStateReducer(state, event) {
+    let s = Object.assign({}, state);
+    switch (event.target.name) {
+        case 'gender':
+          s.gender = s.gender ? s.gender === event.target.value ? '' : event.target.value : event.target.value
+          break;
+        case 'age':
+          s.age = s.age ? s.age === event.target.value ? '' : event.target.value : event.target.value
+          break;
+        case 'education':
+          s.education = s.education ? s.education === event.target.value ? '' : event.target.value : event.target.value
+          break;
+        case 'marriage':
+          s.marriage = s.marriage ? s.marriage === event.target.value ? '' : event.target.value : event.target.value
+          break;
+        case 'income':
+          s.income = s.income ? s.income === event.target.value ? '' : event.target.value : event.target.value
+          break;
+        case 'inhabit-city-select':
+          s.inhabitCity = event.target.value
+          break;
+        case 'register-city-select':
+          s.registerCity = event.target.value
+          break;
+        case 'chinese-impact':
+          s.chineseImpact = s.chineseImpact ? s.chineseImpact === event.target.value ? '' : event.target.value : event.target.value
+          break;
+        case 'socioeconomic':
+          s.socioeconomic = s.socioeconomic ? s.socioeconomic === event.target.value ? '' : event.target.value : event.target.value
+          break;
+        case 'legislator-knowledge':
+          s.legislatorKnowledge = s.legislatorKnowledge ? s.legislatorKnowledge === event.target.value ? '' : event.target.value : event.target.value
+          break;
+        case 'legislator-name':
+          s.legislatorName = event.target.value
+          break;
+        case 'agree-terms':
+            s.agreeTerms = event.target.checked;
+            break;
+        default:
+      }
+
+      return s;
+  }
+
+
+export default function Predict({ submittable = true, formContent = null, submitForm = (i, p) => { console.log({i: i, p:p})} }) {
 
     const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, { s: 33, h: 33, t: 33 });
     const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer(legislativeReducer, initialLegislativeDistribution);
+    const [formState, dispatchFormChange] = useReducer(formStateReducer, formContent||blankFormState);
 
 
-    const onClickSubmit = (formContentSnapshot) => {
+    const onClickSubmit = () => {
         submitForm(
-            formContentSnapshot,
+            formState,
             {
                 president: presidentPercentages,
                 legislative: legislativeDistribution
@@ -103,17 +164,15 @@ export default function Predict({ submittable = true, formContent = null, submit
                             <Box height="30vh"></Box>
                         </Hidden>
                         <Box>
-                            <Typography variant="body3" align="left">
-                                <Box>得民調者得痔瘡，</Box>
-                                <Box>得民心者得天下，</Box>
-                                <Box>是時候由你決定2020誰該屎心了！</Box>
-                            </Typography>
+                                <Box><Typography variant="body2" align="left">得民調者得痔瘡，</Typography></Box>
+                                <Box><Typography variant="body2" align="left">得民心者得天下，</Typography></Box>
+                                <Box><Typography variant="body2" align="left">是時候由你決定2020誰該屎心了！</Typography></Box>
                         </Box>
                     </Grid>
                     
                     <Grid item xs={false} md={5}></Grid>
 
-                    <Grid item xs={1} md={1}  alignItems="center">
+                    <Grid item container xs={1} md={1}  alignItems="center">
                         <Box height="30px"></Box>
                         <Hidden mdUp>
                             <CoundownTimer  fontSize="h6" clockHeight="80vh"/>
@@ -280,9 +339,10 @@ export default function Predict({ submittable = true, formContent = null, submit
 
             <section height="auto">
                 <Form
-                    preloadedContent={formContent}
+                    data = {formState}
                     submittable={submittable}
-                    onClickSubmit={onClickSubmit}
+                    handleChange={dispatchFormChange}
+                    handleSubmit={onClickSubmit}
                 />
                 {/* <section>
             <Grid container>

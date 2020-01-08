@@ -6,6 +6,7 @@ import Hidden from '@material-ui/core/Hidden';
 import './footer.scss';
 import bgteam from './bg_team.svg';
 import bgfooter from './bg_footer.svg';
+import { Link } from '@material-ui/core';
 
 
 function Footer(props) {
@@ -40,15 +41,15 @@ function Footer(props) {
           <Grid item xs={6}>
             <Typography component="div" align="left">
               <Box fontSize="caption.fontSize" lineHeight={1.6}>前端工程</Box>
-              <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}>Ansin, Kai</Box>
+              <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}>Ansin, Kai, Elfie</Box>
               <Box fontSize="caption.fontSize" lineHeight={1.6}>後端工程</Box>
-              <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}>Bonich, Kn</Box>
+              <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}>Bonich, <Link color="textPrimary" href="https://twitter.com/ychichen">Kn</Link></Box>
               <Box fontSize="caption.fontSize" lineHeight={1.6}>即時選情預測</Box>
               <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}>Ponan</Box>
               <Box fontSize="caption.fontSize" lineHeight={1.6}>開放資料</Box>
               <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}>Claire Tsao</Box>
               <Box fontSize="caption.fontSize" lineHeight={1.6}>測試整合</Box>
-              <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}>Kn</Box>
+              <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}><Link color="textPrimary" href="https://twitter.com/ychichen">Kn</Link></Box>
             </Typography>
           </Grid>
         </Grid>
