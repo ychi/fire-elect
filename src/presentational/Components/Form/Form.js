@@ -1,4 +1,4 @@
-import React from '../../../../node_modules/react';
+import React, {useReducer} from '../../../../node_modules/react';
 import styles from './form.module.scss';
 import FormControl from '../../../../node_modules/@material-ui/core/FormControl';
 import FormControlLabel from '../../../../node_modules/@material-ui/core/FormControlLabel';
@@ -66,8 +66,68 @@ const formOptions = {
 
 };
 
-export default function Form({data, handleChange, submittable, handleSubmit}) {
-  /*TODO: return submittable ? (資料送出) : form */
+const blankFormState = {
+  gender: '',
+  age: '',
+  education: '',
+  marriage: '',
+  income: '',
+  inhabitCity: '臺北市',
+  registerCity: '臺北市',
+  chineseImpact: '',
+  socioeconomic: '',
+  legislatorKnowledge: '',
+  legislatorName: '',
+  agreeTerms: false
+};
+
+function formStateReducer(state, event) {
+  let s = Object.assign({}, state);
+  switch (event.target.name) {
+      case 'gender':
+        s.gender = s.gender ? s.gender === event.target.value ? '' : event.target.value : event.target.value
+        break;
+      case 'age':
+        s.age = s.age ? s.age === event.target.value ? '' : event.target.value : event.target.value
+        break;
+      case 'education':
+        s.education = s.education ? s.education === event.target.value ? '' : event.target.value : event.target.value
+        break;
+      case 'marriage':
+        s.marriage = s.marriage ? s.marriage === event.target.value ? '' : event.target.value : event.target.value
+        break;
+      case 'income':
+        s.income = s.income ? s.income === event.target.value ? '' : event.target.value : event.target.value
+        break;
+      case 'inhabit-city-select':
+        s.inhabitCity = event.target.value
+        break;
+      case 'register-city-select':
+        s.registerCity = event.target.value
+        break;
+      case 'chinese-impact':
+        s.chineseImpact = s.chineseImpact ? s.chineseImpact === event.target.value ? '' : event.target.value : event.target.value
+        break;
+      case 'socioeconomic':
+        s.socioeconomic = s.socioeconomic ? s.socioeconomic === event.target.value ? '' : event.target.value : event.target.value
+        break;
+      case 'legislator-knowledge':
+        s.legislatorKnowledge = s.legislatorKnowledge ? s.legislatorKnowledge === event.target.value ? '' : event.target.value : event.target.value
+        break;
+      case 'legislator-name':
+        s.legislatorName = event.target.value
+        break;
+      case 'agree-terms':
+          s.agreeTerms = event.target.checked;
+          break;
+      default:
+    }
+
+    return s;
+}
+
+export default function Form({formContent, submittable, handleSubmit}) {
+  const [data, handleChange] = useReducer(formStateReducer, formContent||blankFormState);
   return submittable ? (
     <Grid container>
       <Hidden xsDown>
@@ -221,7 +281,7 @@ export default function Form({data, handleChange, submittable, handleSubmit}) {
               disabled={(!submittable) || (!data.agreeTerms)} 
               className={styles.form__button} 
               width="60px"
-              onClick={handleSubmit}>送出預測</Button>
+              onClick={()=>{handleSubmit(data)}}>送出預測</Button>
           </Box>
         </Box>
       </Grid>
