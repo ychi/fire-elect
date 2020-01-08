@@ -67,36 +67,7 @@ function formStateReducer(state, event) {
   return s;
 }
 
-const marks = [
-    {
-      value: 0,
-      label: '0%',
-    },
-    {
-      value: 20,
-      label: '20%',
-    },
-    {
-      value: 40,
-      label: '40%',
-    },
-    {
-      value: 60,
-      label: '60%',
-    },
-    {
-      value: 80,
-      label: '80%',
-    },
-    {
-      value: 100,
-      label: '100%',
-    },
-  ];
 
-function valuetext(value) {
-return `${value}°C`;
-}
 
 export default function PeopleVoice({ submittable = true, formContent = null, submitForm = (i, p) => {console.log({i: i, p: p})} }) {
   
