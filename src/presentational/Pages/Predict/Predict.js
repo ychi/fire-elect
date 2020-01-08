@@ -338,26 +338,19 @@ export default function Predict({ submittable = true, formContent = null, submit
                 </Grid>
             </section>
 
-            <section height="auto">
-                <Form
+            <section height="auto" id='form'>
+                <Form 
                     data = {formState}
                     submittable={submittable}
                     handleChange={dispatchFormChange}
                     handleSubmit={onClickSubmit}
                 />
-                {/* <section>
-            <Grid container>
-                <Grid item md={12}>
-                    <Box height="60vh">
-                        <Form 
-                            preloadedContent = {formContent}
-                            submittable = {submittable}
-                            onClickSubmit = {onClickSubmit}
-                        />
-                    </Box>
-                </Grid>
-            </Grid> */}
             </section>
+            
+            {/* //submitted form display
+            <section height="60vh" id='formComplete'>
+                <FormComplete />
+            </section> */}
 
             <section height="60vh">
                 <Grid container >

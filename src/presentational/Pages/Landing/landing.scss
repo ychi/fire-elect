@@ -1,12 +1,13 @@
 .landing {
   text-align: center;
-  padding:20px 0px 20px 40px;
+  padding:20px 20px 0px 0px;
+  background-color: #dddddd;
   .header {
-    background-color: #fafafa;
     min-height: 100vh;
     font-size: calc(10px + 2vmin);
     color: #222;
     flex-grow: 1;
+    padding-left: 4vw;
   }
   .img {
     width: 100%;

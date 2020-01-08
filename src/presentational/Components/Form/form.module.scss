@@ -3,7 +3,7 @@
   .checkBox__dir{
     flex-direction: row;
     flex-wrap : wrap;
-    width: 32vw;
+    margin-left: 8px;
   }
   
   .section__brief{
@@ -43,15 +43,47 @@
   
   .form__label{
     display: inline-block;
-    width:60px;
+    width:70px;
     margin-top: 12px;
+    margin-left: 8px;
+    color: black;
+  }
+
+  .form__label__long{
+    display: block;
+    margin-left: 32px;
+  }
+
+  .form__label__reside{
+    display: inline-block;
+    width:70px;
+    margin-top: 12px;
+    margin-left: 0px;
+    color: black;
   }
 
   .form__option__label{
-    font-size: 12px;
+    font-size: 12 px;
   }
   .form__button{
     margin-bottom: 30px;
     margin-top: 30px;
-
   }
+
+  .form__hr{
+    width:90%;
+    border: none;
+    height: 1px;
+    color: #333;
+    background-color: #333;
+  }
+
+  .formControl{
+   width: 160px;
+   margin-left: 8px;
+  }
+
+  .menuItem{
+    width:80px;
+  }
+
