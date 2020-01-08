@@ -10,6 +10,8 @@ import { Grid, Select, MenuItem } from '../../../../node_modules/@material-ui/co
 import Hidden from '../../../../node_modules/@material-ui/core/Hidden';
 import TextField from '@material-ui/core/TextField';
 
+import FormComplete from '../../Components/FormComplete/FormComplete';
+
 const formOptions = {
   gender: [
     { value: 'm', label: '男' },
@@ -66,7 +68,7 @@ const formOptions = {
 
 export default function Form({data, handleChange, submittable, handleSubmit}) {
   /*TODO: return submittable ? (資料送出) : form */
-  return (
+  return submittable ? (
     <Grid container>
       <Hidden xsDown>
         <Grid item xs={false} md={6}>
@@ -233,7 +235,7 @@ export default function Form({data, handleChange, submittable, handleSubmit}) {
       </Grid>
 
     </Grid>
-  )
+  ) : <FormComplete/>
 }
 
 

@@ -1,6 +1,5 @@
 import React from '../../../../node_modules/react';
 import styles from './formComplete.module.scss';
-import Typography from '../../../../node_modules/@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Hidden from '@material-ui/core/Hidden';
