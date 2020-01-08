@@ -5,15 +5,17 @@ import Typography from '@material-ui/core/Typography';
 
 import styles from "./CountdownTimer.module.scss";
 
+import useInterval from "../../../../hooks/useInterval";
+
 function CoundownTimer(props) {
 
-  const [difference, setDifference] = useState(new Date("2020-01-11") - new Date());
+  const [difference, setDifference] = useState(new Date("2020-01-11T08:00:00") - new Date());
 
   function tickTock() {
     setDifference(new Date("2020-01-11") - new Date());
   }
 
-  setInterval(tickTock, 1000);
+  useInterval(tickTock, 1000);
 
   return (
     <Box

@@ -1,0 +1,30 @@
+.distparliament {
+    padding: 50px 0;    
+    .predict_bar{
+        background-color: #dddddd;
+        margin: 5px 0;
+        padding: 10px 0;
+    }
+    .winner, .wincount, .loser, .losecount{
+        padding: 0 5px;
+    } 
+    .winner, .wincount {
+        font-size: 1.1em;
+        color: #273A3C;
+        font-weight: 700;
+    }
+    .loser, .losecount {
+        font-size: 0.9em;
+        color: #B2ABA1;
+        font-weight: 500;
+    }
+    .winner, .loser {
+        border-left: 5px solid;
+    }
+    .winner {
+        border-color: #CC9423;
+    }
+    .loser{
+        border-color: transparent;
+    }
+}
