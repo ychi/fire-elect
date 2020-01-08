@@ -91,8 +91,6 @@ export default function Form({data, handleChange, submittable, handleSubmit}) {
               {formOptions.gender.map((opt, idx) =>
                 <FormControlLabel key={idx} control={<Checkbox name='gender' disabled={!submittable} value={opt.value} checked={data.gender === opt.value} onChange={handleChange} />} label={opt.label} display='inline' />
               )}
-              {/* <FormControlLabel control={<Checkbox value="m" />} label="男" display='inline' />
-                            <FormControlLabel control={<Checkbox value="f" />} label="女" display='inline' /> */}
             </FormControl>
           </Box>
           <Box ml={3} mb={1}>
@@ -101,12 +99,6 @@ export default function Form({data, handleChange, submittable, handleSubmit}) {
               {formOptions.age.map((opt, idx) =>
                 <FormControlLabel key={idx} control={<Checkbox disabled={!submittable} name='age' value={opt.value} checked={data.age === opt.value} onChange={handleChange} />} label={opt.label} />
               )}
-              {/* <FormControlLabel control={<Checkbox value="20" />} label="20以下" />
-                            <FormControlLabel control={<Checkbox value="29" />} label="20-29" />
-                            <FormControlLabel control={<Checkbox value="39" />} label="30-39" />
-                            <FormControlLabel control={<Checkbox value="49" />} label="40-49" />
-                            <FormControlLabel control={<Checkbox value="59" />} label="50-59" />
-                            <FormControlLabel control={<Checkbox value="60" />} label="60以上" /> */}
             </FormControl>
           </Box>
           <Box ml={3} mb={1}>
@@ -115,23 +107,14 @@ export default function Form({data, handleChange, submittable, handleSubmit}) {
               {formOptions.education.map((opt, idx) =>
                 <FormControlLabel key={idx} control={<Checkbox name='education' disabled={!submittable} value={opt.value} checked={data.education === opt.value} onChange={handleChange} />} label={opt.label} />
               )}
-              {/* <FormControlLabel control={<Checkbox value="elementary school" />} label="小學" />
-                            <FormControlLabel control={<Checkbox value="mid-high school" />} label="國中" />
-                            <FormControlLabel control={<Checkbox value="high school" />} label="高中" />
-                            <FormControlLabel control={<Checkbox value="bachelor" />} label="大學" />
-                            <FormControlLabel control={<Checkbox value="master" />} label="碩士" />
-                            <FormControlLabel control={<Checkbox value="doctor" />} label="博士" /> */}
             </FormControl>
           </Box>
-          <Box ml={3} mb={1}>
+          {/* <Box ml={3} mb={1}>
             <label htmlFor="marriage" className={styles.form__label}>婚姻狀況:</label>
             <FormControl className={styles.checkBox__dir}>
               {formOptions.marriage.map((opt, idx) =>
                 <FormControlLabel key={idx} control={<Checkbox name='marriage' disabled={!submittable} value={opt.value} checked={data.marriage === opt.value} onChange={handleChange} />} label={opt.label} />
               )}
-              {/* <FormControlLabel control={<Checkbox value="married" />} label="已婚" />
-                            <FormControlLabel control={<Checkbox value="single" />} label="未婚" />
-                            <FormControlLabel control={<Checkbox value="others" />} label="其他" /> */}
             </FormControl>
           </Box>
           <Box ml={3} mb={1}>
@@ -140,20 +123,14 @@ export default function Form({data, handleChange, submittable, handleSubmit}) {
               {formOptions.income.map((opt, idx) =>
                 <FormControlLabel key={idx} control={<Checkbox name='income' disabled={!submittable} value={opt.value} checked={data.income === opt.value} onChange={handleChange} />} label={opt.label} />
               )}
-              {/* <FormControlLabel control={<Checkbox value="$" />} label="$" />
-                            <FormControlLabel control={<Checkbox value="$$" />} label="$$" />
-                            <FormControlLabel control={<Checkbox value="$$$" />} label="$$$" />
-                            <FormControlLabel control={<Checkbox value="$$$$" />} label="$$$$" />
-                            <FormControlLabel control={<Checkbox value="$$$$$" />} label="$$$$$" /> */}
             </FormControl>
           </Box>
-          <hr width="90%" />
+          <hr width="90%" /> */}
 
           <Box display="flex" flexDirection="row">
             <Box ml={3} mb={1}>
               <FormControl className={styles.checkBox__dir}>
                 <label htmlFor="inhabit" className={styles.form__label}>居住縣市</label>
-                {/* <InputLabel id="inhabit-city">{formOptions.inhabitCity[0]}</InputLabel> */}
                 <Select
                   labelId="inhabit-city-select-label"
                   name="inhabit-city-select"
@@ -170,7 +147,6 @@ export default function Form({data, handleChange, submittable, handleSubmit}) {
             <Box ml={3} mb={1}>
               <FormControl className={styles.checkBox__dir}>
                 <label htmlFor="register" className={styles.form__label}>戶籍縣市</label>
-                {/* <InputLabel id="inhabit-city">{formOptions.inhabitCity[0]}</InputLabel> */}
                 <Select
                   labelId="register-city-select-label"
                   name="register-city-select"
