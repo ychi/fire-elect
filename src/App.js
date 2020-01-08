@@ -7,7 +7,6 @@ import {
 
 import Firebase, { FirebaseProvider } from './tools/firebase';
 
-
 import routes from './Routes';
 import TopBar from './presentational/TopBar/TopBar';
 
@@ -44,7 +43,6 @@ function App() {
                   </Route>
                 ))}
               </Switch>
-              <Footer />
             </Router>
           </div>
         </StylesProvider>
