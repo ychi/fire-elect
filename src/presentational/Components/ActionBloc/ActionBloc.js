@@ -16,7 +16,9 @@ function ActionBloc(props) {
             <Box fontSize="h4.fontSize" fontWeight="fontWeightBold" lineHeight={1.3}>{props.title}</Box>
             <Box fontSize="caption.fontSize " lineHeight={1.8}>{props.subtitle}</Box>
           </Typography>
+          
         </Box> 
+        <div className="call2act">進入</div>
       </CardActionArea>
     </Box>
   );

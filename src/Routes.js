@@ -7,7 +7,7 @@ import Dummy from "./presentational/Dummy/Dummy";
 
 export default [
     {
-        label: 'Fire Elect',
+        label: '隔日作廢',
         path: '/',
         render: ()=>(<Landing/>),
         className: 'title'
