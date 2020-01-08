@@ -10,6 +10,8 @@ export default ({formContent=null})=>{
     const firebase = useContext(FireBaseContext);
     const [submitted, setSubmitted] = useState(false);
 
+    firebase.analytics.logEvent("view_item", {items: 'iPredict'});
+
     const submitForm = (formContent, prediction)=>{
         const s = window.localStorage.getItem('i') || false;
         const i = JSON.parse(s);

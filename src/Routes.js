@@ -1,5 +1,5 @@
 import React from 'react';
-import Landing from "./presentational/Pages/Landing/Landing";
+import Landing from "./container/Home";
 import PredictContainer from "./container/PredictContainer";
 import Warroom from "./presentational/Pages/Warroom/Warroom";
 import Prejudice from "./presentational/Pages/Prejudice/Prejudice";
