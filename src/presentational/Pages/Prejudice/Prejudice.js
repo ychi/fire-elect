@@ -87,7 +87,7 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                         <Box textAlign="right">
                             <Box height="10vh"></Box>
                             <Typography variant="h5" className={styles.text__vertical__lr} display="inline">VOICE YOUR PREJUDICE</Typography>
-                            <Box borderLeft={2} height="25vw" width="24px" ml="6vw"></Box>
+                            <Box borderLeft={2} height="25vw" width="24px" ml="7vw"></Box>
                         </Box>
                     </Hidden>
                 </Grid>
@@ -112,14 +112,12 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                     <Hidden mdUp>
                         <Box height="25vh"></Box>
                     </Hidden>
-                    <Box>
-                        <Typography variant="body3" align="left">
-                            <Box>一碗滷肉飯一瓶礦泉水,</Box>
-                            <Box>一個便當吃不飽可以吃兩個,</Box>
-                            <Box>如果你一生充滿皺摺，</Box>
-                            <Box>如果你是民國認證的庶民庶民給問嗎？</Box>
-                            <Box>來這大聲說出你的心聲！</Box>
-                        </Typography>
+                    <Box>                     
+                        <Box><Typography variant="body2" align="left">一碗滷肉飯一瓶礦泉水,</Typography></Box>
+                        <Box><Typography variant="body2" align="left">一個便當吃不飽可以吃兩個,</Typography></Box>
+                        <Box><Typography variant="body2" align="left">如果你一生充滿皺摺，</Typography></Box>
+                        <Box><Typography variant="body2" align="left">如果你是民國認證的庶民庶民給問嗎？</Typography></Box>
+                        <Box><Typography variant="body2" align="left">來這大聲說出你的心聲！</Typography></Box>
                     </Box>
                 </Grid>
 

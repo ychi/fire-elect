@@ -8,8 +8,9 @@ import Form from '../../Components/Form/Form';
 import Hidden from '@material-ui/core/Hidden';
 import PresidentPredict from '../../Components/PresidentPredict/PresidentPredict';
 import PredictSeats from '../../Components/PredictSeats/PredictSeats';
-
 import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
+
+import {Link} from 'react-router-dom';
 
 function presidentReducer(state, action) {
     switch (action.type) {
@@ -80,7 +81,7 @@ export default function Predict({ submittable = true, formContent = null, submit
                             <Box textAlign="right">
                                 <Box height="10vh"></Box>
                                 <Typography variant="h5" className={styles.text__vertical__lr} display="inline">I PREDICT IT</Typography>
-                                <Box borderLeft={2} height="33vh" width="24px" ml="6vw"></Box>
+                                <Box borderLeft={2} height="50vh" width="24px" ml="7vw"></Box>
                             </Box>
                         </Hidden>
                     </Grid>
@@ -106,9 +107,9 @@ export default function Predict({ submittable = true, formContent = null, submit
                             <Box height="30vh"></Box>
                         </Hidden>
                         <Box>
-                                <Box><Typography variant="body2" align="left">得民調者得痔瘡，</Typography></Box>
-                                <Box><Typography variant="body2" align="left">得民心者得天下，</Typography></Box>
-                                <Box><Typography variant="body2" align="left">是時候由你決定2020誰該屎心了！</Typography></Box>
+                            <Box><Typography variant="body2" align="left">得民調者得痔瘡，</Typography></Box>
+                            <Box><Typography variant="body2" align="left">得民心者得天下，</Typography></Box>
+                            <Box><Typography variant="body2" align="left">是時候由你決定2020誰該屎心了！</Typography></Box>
                         </Box>
                     </Grid>
                     
@@ -288,9 +289,9 @@ export default function Predict({ submittable = true, formContent = null, submit
             </section>
             
             {/* //submitted form display */}
-            <section height="60vh" id='formComplete'>
+            {/* <section height="60vh" id='formComplete'>
                 <FormComplete />
-            </section>
+            </section> */}
 
             <section height="60vh">
                 <Grid container >
