@@ -3,11 +3,12 @@ import Landing from "./presentational/Pages/Landing/Landing";
 import Predict from "./presentational/Pages/Predict/Predict";
 import Warroom from "./presentational/Pages/Warroom/Warroom";
 import Prejudice from "./presentational/Pages/Prejudice/Prejudice";
+import Spread from "./presentational/Pages/Spread/Spread";
 import Dummy from "./presentational/Dummy/Dummy";
 
 export default [
     {
-        label: 'Fire Elect',
+        label: '隔日作廢',
         path: '/',
         render: ()=>(<Landing/>),
         className: 'title'
@@ -31,8 +32,8 @@ export default [
     },
     {
         label: '認同請分享',
-        path: '/archive',
-        render: ()=>(<Dummy text="認同請分享"/>)
+        path: '/spreadword',
+        render: ()=>(<Spread/>)
     },
 
 ]

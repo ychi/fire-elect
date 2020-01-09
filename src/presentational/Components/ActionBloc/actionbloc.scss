@@ -1,15 +1,25 @@
 .actionbloc {
     background-color: #E9F2F2;
-    .type {
-        * {
-            margin-bottom: 10px;
-        }
-    }
     .textbloc{
         position: relative;
+        margin: 10px;
         top:0;
         left: 0;
+        bottom:0;
+        right:0;
         padding: 50px 40px;
         overflow: hidden;
+        .type {
+            * {
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .call2act{
+        bottom: 0;
+        background-image: linear-gradient(180deg,#273A3C 0% 85%, transparent 85% 100%,);
+        padding: 10px 0 15px 0;
+        color: white;
+        border-bottom: #273A3C 5px solid;
     }
 }

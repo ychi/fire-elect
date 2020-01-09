@@ -2,9 +2,7 @@ import React,{ useReducer } from 'react';
 import styles from './prejudice.module.scss';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Slider from '@material-ui/core/Slider';
 import { Button } from '@material-ui/core';
-import { positions } from '@material-ui/system';
 import Hidden from '@material-ui/core/Hidden';
 import Form from '../../Components/Form/Form'
 import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
@@ -54,98 +52,11 @@ function legislativeReducer(state, action) {
     ].sort((a, b) => (b.prediction - a.prediction));
 }
 
-const blankFormState = {
-    gender: '',
-    age: '',
-    education: '',
-    marriage: '',
-    income: '',
-    inhabitCity: '臺北市',
-    registerCity: '臺北市',
-    chineseImpact: '',
-    socioeconomic: '',
-    legislatorKnowledge: '',
-    legislatorName: '',
-    agreeTerms: false
-  };
-
-  function formStateReducer(state, event) {
-    let s = Object.assign({}, state);
-    switch (event.target.name) {
-        case 'gender':
-          s.gender = s.gender ? s.gender === event.target.value ? '' : event.target.value : event.target.value
-          break;
-        case 'age':
-          s.age = s.age ? s.age === event.target.value ? '' : event.target.value : event.target.value
-          break;
-        case 'education':
-          s.education = s.education ? s.education === event.target.value ? '' : event.target.value : event.target.value
-          break;
-        case 'marriage':
-          s.marriage = s.marriage ? s.marriage === event.target.value ? '' : event.target.value : event.target.value
-          break;
-        case 'income':
-          s.income = s.income ? s.income === event.target.value ? '' : event.target.value : event.target.value
-          break;
-        case 'inhabit-city-select':
-          s.inhabitCity = event.target.value
-          break;
-        case 'register-city-select':
-          s.registerCity = event.target.value
-          break;
-        case 'chinese-impact':
-          s.chineseImpact = s.chineseImpact ? s.chineseImpact === event.target.value ? '' : event.target.value : event.target.value
-          break;
-        case 'socioeconomic':
-          s.socioeconomic = s.socioeconomic ? s.socioeconomic === event.target.value ? '' : event.target.value : event.target.value
-          break;
-        case 'legislator-knowledge':
-          s.legislatorKnowledge = s.legislatorKnowledge ? s.legislatorKnowledge === event.target.value ? '' : event.target.value : event.target.value
-          break;
-        case 'legislator-name':
-          s.legislatorName = event.target.value
-          break;
-        case 'agree-terms':
-            s.agreeTerms = event.target.checked;
-            break;
-        default:
-      }
-
-      return s;
-  }
+  
 
 
 
-const marks = [
-    {
-      value: 0,
-      label: '0%',
-    },
-    {
-      value: 20,
-      label: '20%',
-    },
-    {
-      value: 40,
-      label: '40%',
-    },
-    {
-      value: 60,
-      label: '60%',
-    },
-    {
-      value: 80,
-      label: '80%',
-    },
-    {
-      value: 100,
-      label: '100%',
-    },
-  ];
 
-function valuetext(value) {
-return `${value}°C`;
-}
 
  const candidates = ['宋楚瑜','韓國瑜','蔡英文'];
  const dropdownMenus = [['20歲以下人口多','20-29歲人口多','30-39歲人口多','40-49歲人口多','50-59歲人口多','60歲以上人口多'],
@@ -155,10 +66,8 @@ return `${value}°C`;
 export default function PeopleVoice({ submittable = true, formContent = null, submitForm = (i, p) => { console.log({i: i, p:p})} }) {
     const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, { s: 33, h: 33, t: 33 });
     const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer(legislativeReducer, initialLegislativeDistribution);
-    const [formState, dispatchFormChange] = useReducer(formStateReducer, formContent||blankFormState);
 
-
-    const onClickSubmit = () => {
+    const onClickSubmit = (formState) => {
         submitForm(
             formState,
             {
@@ -427,9 +336,8 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
         </section>
         <section>
             <Form
-                data = {formState}
+                formContent = {formContent}
                 submittable={submittable}
-                handleChange={dispatchFormChange}
                 handleSubmit={onClickSubmit}
             />
         </section>

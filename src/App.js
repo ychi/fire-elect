@@ -7,7 +7,6 @@ import {
 
 import routes from './Routes';
 import TopBar from './presentational/TopBar/TopBar';
-import Footer from './presentational/Footer/Footer';
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { StylesProvider } from '@material-ui/core/styles';
@@ -31,7 +30,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <StylesProvider injectFirst>
-        <div className="App">
+        <div className="">
           <Router>
             <TopBar routes={routes}></TopBar>
             <Switch>
@@ -41,7 +40,6 @@ function App() {
                 </Route>
               ))}
             </Switch>
-            <Footer />
           </Router>
         </div>
       </StylesProvider>
