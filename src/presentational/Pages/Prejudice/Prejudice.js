@@ -10,6 +10,7 @@ import FormControl from '../../../../node_modules/@material-ui/core/FormControl'
 import { Grid, Select, MenuItem } from '../../../../node_modules/@material-ui/core';
 import FormControlLabel from '../../../../node_modules/@material-ui/core/FormControlLabel';
 import InputLabel from '@material-ui/core/InputLabel';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function presidentReducer(state, action) {
     switch (action.type) {
@@ -357,9 +358,11 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                                 <Box>把握倒數幾天</Box>
                                 <Box marginTop="12px" marginBottom="24px">看看你能否鐵口直斷</Box>
                             </Typography>
-                            <Button variant="contained" className={styles.bottom__button__black}>
-                                我要預測
-                            </Button>
+                            <Link to='/ipredict'>
+                                <Button variant="contained" className={styles.bottom__button__black}>
+                                    我要預測
+                                </Button>
+                            </Link>
                         </Box>
                     </Grid>
                     <Grid item xs={3} md={2}>

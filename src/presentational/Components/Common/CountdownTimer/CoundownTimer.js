@@ -7,6 +7,10 @@ import styles from "./CountdownTimer.module.scss";
 
 import useInterval from "../../../../hooks/useInterval";
 
+const formatNum = (input) => {
+  return input > 10 ? input.toString() : '0'+ input.toString();
+};
+
 function CoundownTimer(props) {
 
   const [difference, setDifference] = useState(new Date("2020-01-11T08:00:00") - new Date());
@@ -39,19 +43,19 @@ function CoundownTimer(props) {
           className={styles.countdownTimer}
         >
           <Box fontWeight="fontWeightBold">
-            {Math.floor(difference / (1000 * 60 * 60 * 24))}
+            {formatNum(Math.floor(difference / (1000 * 60 * 60 * 24)))}
           </Box>
           <Box fontWeight="fontWeightBold">天</Box>
           <Box fontWeight="fontWeightBold">
-            {Math.floor((difference / (1000 * 60 * 60)) % 24)}
+            {formatNum(Math.floor((difference / (1000 * 60 * 60)) % 24))}
           </Box>
           <Box fontWeight="fontWeightBold">時</Box>
           <Box fontWeight="fontWeightBold">
-            {Math.floor((difference / 1000 / 60) % 60)}
+            {formatNum(Math.floor((difference / 1000 / 60) % 60))}
           </Box>
           <Box fontWeight="fontWeightBold">分</Box>
           <Box fontWeight="fontWeightBold">
-            {Math.floor((difference / 1000) % 60)}
+            {formatNum(Math.floor((difference / 1000) % 60))}
           </Box>
           <Box fontWeight="fontWeightBold">秒</Box>
         </Typography>
