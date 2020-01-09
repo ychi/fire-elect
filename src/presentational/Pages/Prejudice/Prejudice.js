@@ -1,12 +1,15 @@
 import React,{ useReducer } from 'react';
 import styles from './prejudice.module.scss';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
 import Hidden from '@material-ui/core/Hidden';
 import Form from '../../Components/Form/Form'
 import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
+import FormControl from '../../../../node_modules/@material-ui/core/FormControl';
+import { Grid, Select, MenuItem } from '../../../../node_modules/@material-ui/core';
+import FormControlLabel from '../../../../node_modules/@material-ui/core/FormControlLabel';
+import InputLabel from '@material-ui/core/InputLabel';
 
 function presidentReducer(state, action) {
     switch (action.type) {
@@ -55,6 +58,11 @@ function legislativeReducer(state, action) {
 
 
 
+ const candidates = ['宋楚瑜','韓國瑜','蔡英文'];
+ const dropdownMenus = [['20歲以下人口多','20-29歲人口多','30-39歲人口多','40-49歲人口多','50-59歲人口多','60歲以上人口多'],
+                       ['男性大學畢業多','女性大學畢業多'],['貧富差距高','貧富差距低'],['高所得地區','低所得地區'],['上次投票率高','上次投票率低']]
+
+
 export default function PeopleVoice({ submittable = true, formContent = null, submitForm = (i, p) => { console.log({i: i, p:p})} }) {
     const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, { s: 33, h: 33, t: 33 });
     const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer(legislativeReducer, initialLegislativeDistribution);
@@ -79,7 +87,7 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                         <Box textAlign="right">
                             <Box height="10vh"></Box>
                             <Typography variant="h5" className={styles.text__vertical__lr} display="inline">VOICE YOUR PREJUDICE</Typography>
-                            <Box borderLeft={2} height="25vw" width="24px" ml="6vw"></Box>
+                            <Box borderLeft={2} height="25vw" width="24px" ml="7vw"></Box>
                         </Box>
                     </Hidden>
                 </Grid>
@@ -104,14 +112,12 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                     <Hidden mdUp>
                         <Box height="25vh"></Box>
                     </Hidden>
-                    <Box>
-                        <Typography variant="body3" align="left">
-                            <Box>一碗滷肉飯一瓶礦泉水,</Box>
-                            <Box>一個便當吃不飽可以吃兩個,</Box>
-                            <Box>如果你一生充滿皺摺，</Box>
-                            <Box>如果你是民國認證的庶民庶民給問嗎？</Box>
-                            <Box>來這大聲說出你的心聲！</Box>
-                        </Typography>
+                    <Box>                     
+                        <Box><Typography variant="body2" align="left">一碗滷肉飯一瓶礦泉水,</Typography></Box>
+                        <Box><Typography variant="body2" align="left">一個便當吃不飽可以吃兩個,</Typography></Box>
+                        <Box><Typography variant="body2" align="left">如果你一生充滿皺摺，</Typography></Box>
+                        <Box><Typography variant="body2" align="left">如果你是民國認證的庶民庶民給問嗎？</Typography></Box>
+                        <Box><Typography variant="body2" align="left">來這大聲說出你的心聲！</Typography></Box>
                     </Box>
                 </Grid>
 
@@ -186,30 +192,41 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                     <Grid container xs={10} md={3}>
                         <Hidden xsDown>
                             <Grid md={12}>
-                                <Box textAlign="center">
-                                    <Button className={styles.voice__dropDownMenu} variant="contained">未婚女性</Button>
-                                    <Button className={styles.voice__dropDownMenu} variant="contained">已婚女性</Button>
-                                    <Button className={styles.voice__dropDownMenu} variant="contained">未婚男性</Button>
-                                    <Button className={styles.voice__dropDownMenu} variant="contained">已婚男性</Button>
-                                    <Button className={styles.voice__dropDownMenu} variant="contained">高中學歷</Button>
-                                    <Button className={styles.voice__dropDownMenu} variant="contained">國中學歷</Button>
-                                </Box>
-                                <Box>
-                                    <Button className={styles.voice__dropDownMenu} variant="contained">博碩學歷</Button>
-                                    <Button className={styles.voice__dropDownMenu} variant="contained">大學學歷</Button>
-                                </Box>
-                                <Box>
-                                    <Button className={styles.voice__dropDownMenu} variant="contained">銀髮族群</Button>
-                                    <Button className={styles.voice__dropDownMenu} variant="contained">中年族群</Button>
-                                </Box>
-                                <Box>
-                                    <Button className={styles.voice__dropDownMenu} variant="contained">高收入</Button>
-                                    <Button className={styles.voice__dropDownMenu} variant="contained">低收入</Button>
-                                </Box>
-                                <Box>
-                                    <Button className={styles.voice__dropDownMenu} variant="contained">高收入</Button>
-                                    <Button className={styles.voice__dropDownMenu} variant="contained">低收入</Button>
-                                </Box>
+
+                                {
+                                    dropdownMenus.map((menuGroup)=>{
+                                        return (
+                                            <Box textAlign='center'>
+                                                {menuGroup.map((tag,id)=>{
+                                                    return (
+                                                    <Box display="block"> 
+                                                    <FormControl className={styles.formControl}>
+                                                        <InputLabel id={`${tag}_label`}>{tag}</InputLabel>
+                                                        <Select
+                                                        labelId="register-city-select-label"
+                                                        name="register-city-select"
+                                                        //value={data.registerCity}
+                                                        //onChange={handleChange}
+                                                        value={null}
+                                                        onChange={null}
+                                                        disabled={!submittable}                                                  
+                                                        >
+                                                            {candidates.map((candidate)=>{
+                                                                return (
+                                                                    
+                                                                    <MenuItem key={id} value={candidate}>{candidate}</MenuItem>
+                                                                )
+                                                            })}
+                                                        </Select>
+                                                    </FormControl>
+                                                    </Box>
+                                                    )
+                                                })}
+                                            </Box>
+                                        )}
+                                    )
+                                }
+                                
                             </Grid>
                         </Hidden>
                         <Hidden mdUp>

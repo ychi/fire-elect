@@ -5,15 +5,16 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
 import Form from '../../Components/Form/Form';
+import FormComplete from '../../Components/FormComplete/FormComplete';
 import Hidden from '@material-ui/core/Hidden';
 import PresidentPredict from '../../Components/PresidentPredict/PresidentPredict';
 import PredictSeats from '../../Components/PredictSeats/PredictSeats';
-
 import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
 
+import {Link} from 'react-router-dom';
 
-function presidentReducer (state, action) {
-    switch(action.type) {
+function presidentReducer(state, action) {
+    switch (action.type) {
         case 'S':
             return {
                 ...state,
@@ -60,7 +61,7 @@ export default function Predict({ submittable = true, formContent = null, submit
 
     const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, { s: 33, h: 33, t: 33 });
     const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer(legislativeReducer, initialLegislativeDistribution);
-    
+
 
 
     const onClickSubmit = (formState) => {
@@ -81,7 +82,7 @@ export default function Predict({ submittable = true, formContent = null, submit
                             <Box textAlign="right">
                                 <Box height="10vh"></Box>
                                 <Typography variant="h5" className={styles.text__vertical__lr} display="inline">I PREDICT IT</Typography>
-                                <Box borderLeft={2} height="33vh" width="24px" ml="6vw"></Box>
+                                <Box borderLeft={2} height="50vh" width="24px" ml="7vw"></Box>
                             </Box>
                         </Hidden>
                     </Grid>
@@ -107,12 +108,12 @@ export default function Predict({ submittable = true, formContent = null, submit
                             <Box height="30vh"></Box>
                         </Hidden>
                         <Box>
-                                <Box><Typography variant="body2" align="left">得民調者得痔瘡，</Typography></Box>
-                                <Box><Typography variant="body2" align="left">得民心者得天下，</Typography></Box>
-                                <Box><Typography variant="body2" align="left">是時候由你決定2020誰該屎心了！</Typography></Box>
+                            <Box><Typography variant="body2" align="left">得民調者得痔瘡，</Typography></Box>
+                            <Box><Typography variant="body2" align="left">得民心者得天下，</Typography></Box>
+                            <Box><Typography variant="body2" align="left">是時候由你決定2020誰該屎心了！</Typography></Box>
                         </Box>
                     </Grid>
-                    
+
                     <Grid item xs={false} md={5}></Grid>
 
                     <Grid item container xs={1} md={1}  alignItems="center">
@@ -120,7 +121,7 @@ export default function Predict({ submittable = true, formContent = null, submit
                         <Hidden mdUp>
                             <CoundownTimer  fontSize="h6" clockHeight="80vh"/>
                         </Hidden>
-                        <Hidden smDown>   
+                        <Hidden smDown>
                             <CoundownTimer  fontSize="h5" clockHeight="90vh"/>
                         </Hidden>
                     </Grid>
@@ -281,15 +282,15 @@ export default function Predict({ submittable = true, formContent = null, submit
             </section>
 
             <section height="auto" id='form'>
-                <Form 
+                <Form
                     formContent = {formContent}
                     submittable={submittable}
                     handleSubmit={onClickSubmit}
                 />
             </section>
-            
-            {/* //submitted form display
-            <section height="60vh" id='formComplete'>
+
+            {/* //submitted form display */}
+            {/* <section height="60vh" id='formComplete'>
                 <FormComplete />
             </section> */}
 
@@ -302,7 +303,6 @@ export default function Predict({ submittable = true, formContent = null, submit
                         <Grid item xs={8} md={8}>
                             <Box bgcolor="#FF2600" height="60vh" textAlign="left">
                                 <Box height="30%"></Box>
-                                
                                     <Box><Typography className={styles.bottom__linkIntro__text} fontSize="body2.fontSize">身為一介庶民</Typography></Box>
                                     <Box><Typography className={styles.bottom__linkIntro__text} fontSize="body2.fontSize">除了用選票教訓政黨</Typography></Box>
                                     <Box><Typography className={styles.bottom__linkIntro__text} fontSize="body2.fontSize">你的心聲你的苦</Typography></Box>

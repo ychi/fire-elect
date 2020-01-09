@@ -21,6 +21,7 @@ export default function FormComplete(){
                 <Hidden xsDown>
                     <Box bgcolor="#E9F2F2" height="80vh" textAlign="center">
                         <img src={require('./formCompleteGraph.svg')} alt="" width="80%" className={styles.graph}/>
+
                     </Box>
                 </Hidden>
                 <Hidden smUp>

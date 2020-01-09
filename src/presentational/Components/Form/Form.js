@@ -133,12 +133,15 @@ export default function Form({formContent, submittable, handleSubmit}) {
       <Hidden xsDown>
         <Grid item xs={false} md={6}>
           <img src={require('./elipse.svg')} alt="" width="100%" />
+          {/* <img src={require('./web_use-01.svg')} alt="" width="100%" /> */}
+
         </Grid>
       </Hidden>
 
       <Hidden smUp>
         <Grid item xs={12}>
           <img src={require('./elipse_sm.svg')} alt="" width="100%" />
+          {/* <img src={require('./mobile_use-01.svg')} alt="" width="100%" /> */}
         </Grid>
         <Grid item xs={1} md={false}>
           <Box bgcolor="#E9F2F2" height="100%"></Box>
