@@ -15,7 +15,7 @@ function Footer(props) {
       <Grid container>
         <Grid item container sm={12} md={5} className="teambloc">
           <Grid item xs={12}>
-            <Typography component="div" align="left">
+            <Typography component="div" align="left" style={{color: '#e9f2f2'}}>
               <Box fontSize="body1.fontSize" fontWeight="700" lineHeight={1.6}>
                 身為一介庶民<br/>
                 除了用選票教訓政黨<br/>
@@ -25,7 +25,7 @@ function Footer(props) {
             </Typography>
           </Grid>
           <Grid item xs={6}>
-            <Typography component="div" align="left">
+            <Typography component="div" align="left" style={{color: '#e9f2f2'}}>
               <Box fontSize="caption.fontSize" lineHeight={1.6}>文案撰寫</Box>
               <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}>Chiung Shen</Box>
               <Box fontSize="caption.fontSize" lineHeight={1.6}>資訊圖表</Box>
@@ -39,17 +39,17 @@ function Footer(props) {
             </Typography>
           </Grid>
           <Grid item xs={6}>
-            <Typography component="div" align="left">
+            <Typography component="div" align="left" style={{color: '#e9f2f2'}}>
               <Box fontSize="caption.fontSize" lineHeight={1.6}>前端工程</Box>
               <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}>Ansin, Kai, Elfie</Box>
               <Box fontSize="caption.fontSize" lineHeight={1.6}>後端工程</Box>
-              <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}>Bonich, <Link color="textPrimary" href="https://twitter.com/ychichen">Kn</Link></Box>
+              <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}>Bonich, <Link style={{color: '#e9f2f2'}} href="https://twitter.com/ychichen">Kn</Link></Box>
               <Box fontSize="caption.fontSize" lineHeight={1.6}>即時選情預測</Box>
-              <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}>Ponan</Box>
+              <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}>Po-Nan Li</Box>
               <Box fontSize="caption.fontSize" lineHeight={1.6}>開放資料</Box>
               <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}>Claire Tsao</Box>
               <Box fontSize="caption.fontSize" lineHeight={1.6}>測試整合</Box>
-              <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}><Link color="textPrimary" href="https://twitter.com/ychichen">Kn</Link></Box>
+              <Box fontSize="body1.fontSize" fontWeight="fontWeightBold" lineHeight={2}><Link style={{color: '#e9f2f2'}} href="https://twitter.com/ychichen">Kn</Link></Box>
             </Typography>
           </Grid>
         </Grid>
