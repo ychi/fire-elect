@@ -7,22 +7,22 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
   }
-  
+
   .section {
     min-width: 30vw;
   }
-  
+
   .window__section{
     margin-bottom: 50px;
   }
-  
+
   .predict__title__vertical{
     writing-mode: vertical-lr;
     text-orientation: upright;
     text-align:right;
     font:{
       size: 130px;
-      family: Noto Sans; 
+      family: Noto Sans;
       weight: bold;
     }
      text-shadow: 6px -8px white, 4px -8px #CC9423,8px -8px #CC9423, 6px -6px #CC9423, 6px -10px #CC9423, 8px -10px #CC9423;
@@ -35,95 +35,95 @@
     margin-top: 30px;
     font:{
       size: 100px;
-      family: Noto Sans; 
+      family: Noto Sans;
       weight: bold;
     }
      text-shadow: 6px -8px white, 4px -8px #CC9423,8px -8px #CC9423, 6px -6px #CC9423, 6px -10px #CC9423, 8px -10px #CC9423;
   }
-  
+
   .predict__subtitle__vertical{
     writing-mode: vertical-lr;
     text-orientation: upright;
     font:{
       size: 60px;
-      family: Noto Sans; 
+      family: Noto Sans;
       weight: bold;
     }
   }
-  
+
   .cover__text__predict{
     writing-mode: vertical-rl;
     margin-left: 100px;
   }
-  
+
   .text__vertical__rl{
     writing-mode: vertical-rl;
   }
-  
+
   .text__vertical__lr{
     writing-mode: vertical-lr;
   }
-  
+
   .date{
     width: 30px;
     margin-top: 5vh;
     margin-left: 50px;
     font:{
-      family: Noto Sans; 
+      family: Noto Sans;
       weight: bold;
     }
   }
-  
+
   .date_gold{
     color:#CC9423;
   }
-  
+
   .section__brief{
     margin-left: 10px;
     white-space:nowrap;
   }
-  
+
   .predict__Bottom__subtitle{
     writing-mode: vertical-lr;
     text-orientation: sideways;
     font:{
       size: 70px;
-      family: Noto Sans; 
+      family: Noto Sans;
       weight: bold;
     }
     color: white;
   }
-  
+
   .bottom__graphic__goldLine{
     border-color: #CC9423;
-    background-color: #273A3C; 
+    background-color: #273A3C;
   }
-  
+
   .bottom__graphic__whiteLine{
     border-color:white;
   }
-  
+
   .bottom__oval__red{
     border-radius: 50%;
     background-color: #FF2600;
     height: 20vw;
     width: 20vw;
   }
-  
+
   .bottom__oval__gold{
     border-radius: 50%;
     border-color: #CC9423;
     height: 6vw;
     width: 6vw;
   }
-  
+
   .bottom__oval__container{
     display:flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
   }
-  
+
   .bottom__redOval__container{
     display:flex;
     flex-direction: column;
@@ -131,21 +131,21 @@
     align-items: center;
     background: repeating-linear-gradient(to right, white, white 20px, #B2ABA1 20px,  #B2ABA1 40px, white 40px, white 60px, #CC9423 60px, #CC9423 80px);
   }
-  
+
   .bottom__button__black{
     background-color: #273A3C;
-    color:white; 
+    color:white;
   }
-  
+
   .bottom__linkIntro__text{
     color:white;
   }
-  
-  .votes__subtitle{
+
+  .spread__subtitle{
     margin-top: 40px;
     margin-bottom: 40px;
     padding-left: 20px;
-    border-left: 2px solid black;  
+    border-left: 2px solid black;
   }
 
   .voice__dropDownMenu{
