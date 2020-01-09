@@ -150,7 +150,7 @@
 
   .voice__dropDownMenu{
     display: block;
-    width: 100px;
+    width: 124px;
     height: 24px;
     border-radius: 0px;
     margin-bottom: 10px;
@@ -177,4 +177,9 @@
     display: block;
     padding-bottom: 16px;
     width: 100%;
+  }
+
+  .formControl{
+    width: 150px;
+    margin-right: 70px;
   }

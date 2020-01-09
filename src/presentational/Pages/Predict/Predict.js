@@ -347,10 +347,10 @@ export default function Predict({ submittable = true, formContent = null, submit
                 />
             </section>
             
-            {/* //submitted form display
+            {/* //submitted form display */}
             <section height="60vh" id='formComplete'>
                 <FormComplete />
-            </section> */}
+            </section>
 
             <section height="60vh">
                 <Grid container >
@@ -361,7 +361,6 @@ export default function Predict({ submittable = true, formContent = null, submit
                         <Grid item xs={8} md={8}>
                             <Box bgcolor="#FF2600" height="60vh" textAlign="left">
                                 <Box height="30%"></Box>
-                                
                                     <Box><Typography className={styles.bottom__linkIntro__text} fontSize="body2.fontSize">身為一介庶民</Typography></Box>
                                     <Box><Typography className={styles.bottom__linkIntro__text} fontSize="body2.fontSize">除了用選票教訓政黨</Typography></Box>
                                     <Box><Typography className={styles.bottom__linkIntro__text} fontSize="body2.fontSize">你的心聲你的苦</Typography></Box>
