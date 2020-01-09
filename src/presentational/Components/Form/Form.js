@@ -277,6 +277,7 @@ export default function Form({formContent, submittable, handleSubmit}) {
                 control={<Checkbox disabled={!submittable} name="agree-terms" color="primary" onChange={handleChange} />}
                 label="我同意隱私條款"
                 labelPlacement="end"
+                onClick={()=>{window.open('terms.html', '_blank');}}
               />
             </Box>
             <Button 
