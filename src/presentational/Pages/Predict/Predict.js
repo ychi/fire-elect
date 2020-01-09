@@ -308,9 +308,11 @@ export default function Predict({ submittable = true, formContent = null, submit
                                     <Box><Typography className={styles.bottom__linkIntro__text} fontSize="body2.fontSize">你的心聲你的苦</Typography></Box>
                                     <Box><Typography className={styles.bottom__linkIntro__text} fontSize="body2.fontSize">現在踹共</Typography></Box>
                                     <Box marginTop="12px" marginBottom="24px"><Typography className={styles.bottom__linkIntro__text} fontSize="body2.fontSize">讓大家一起同甘共苦</Typography></Box>
-                                <Button variant="contained" className={styles.bottom__button__black}>
-                                    我要發聲
-                            </Button>
+                                <Link to='/prejudice'>
+                                    <Button variant="contained" className={styles.bottom__button__black}>
+                                        我要發聲
+                                    </Button>
+                                </Link>
                             </Box>
                         </Grid>
                         <Grid item xs={3} md={2}>
