@@ -285,13 +285,7 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                     <Grid container xs={10} md={3}>
                         <Hidden xsDown>
                             <Grid md={12}>
-                                {/* {dropdowMenus.map((menuGroup)=>{
-                                    return(<Box textAlign="center">
-                                        {menuGroup.map((tag)=>{
-                                            return(<Button className={styles.voice__dropDownMenu} variant="contained">{tag}</Button>)
-                                        })}
-                                    </Box>)
-                                })} */}
+
                                 {
                                     dropdownMenus.map((menuGroup)=>{
                                         return (
