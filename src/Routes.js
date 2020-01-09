@@ -4,6 +4,7 @@ import Predict from "./presentational/Pages/Predict/Predict";
 import Warroom from "./presentational/Pages/Warroom/Warroom";
 import Prejudice from "./presentational/Pages/Prejudice/Prejudice";
 import Spread from "./presentational/Pages/Spread/Spread";
+import CommingSoonWrapper from "./presentational/Pages/CommingSoon/CommingSoonWrapper";
 import Dummy from "./presentational/Dummy/Dummy";
 
 export default [
@@ -22,13 +23,18 @@ export default [
         label: '庶民ㄟ心聲',
         path: '/prejudice',
         className: 'normalTab',
-        render: ()=>(<Prejudice text="庶民ㄟ心聲"/>)
+        render: ()=>(<CommingSoonWrapper 
+            ready={false} 
+            renderComp={()=>(<Prejudice text="庶民ㄟ心聲"/>)}/>)
 
     },
     {
         label: 'AI戰情室',
         path: '/aiwarroom',
-        render: ()=>(<Warroom/>)
+        render: ()=>(<CommingSoonWrapper
+            ready={false}
+            renderComp={()=>(<Warroom/>)}/>
+            )
     },
     {
         label: '認同請分享',
