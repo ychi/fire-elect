@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
 import Form from '../../Components/Form/Form';
+import FormComplete from '../../Components/FormComplete/FormComplete';
 import Hidden from '@material-ui/core/Hidden';
 import PresidentPredict from '../../Components/PresidentPredict/PresidentPredict';
 import PredictSeats from '../../Components/PredictSeats/PredictSeats';
@@ -59,7 +60,7 @@ export default function Predict({ submittable = true, formContent = null, submit
 
     const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, { s: 33, h: 33, t: 33 });
     const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer(legislativeReducer, initialLegislativeDistribution);
-    
+
 
 
     const onClickSubmit = (formState) => {
@@ -111,7 +112,7 @@ export default function Predict({ submittable = true, formContent = null, submit
                                 <Box><Typography variant="body2" align="left">是時候由你決定2020誰該屎心了！</Typography></Box>
                         </Box>
                     </Grid>
-                    
+
                     <Grid item xs={false} md={5}></Grid>
 
                     <Grid item container xs={1} md={1}  alignItems="center">
@@ -119,7 +120,7 @@ export default function Predict({ submittable = true, formContent = null, submit
                         <Hidden mdUp>
                             <CoundownTimer  fontSize="h6" clockHeight="80vh"/>
                         </Hidden>
-                        <Hidden smDown>   
+                        <Hidden smDown>
                             <CoundownTimer  fontSize="h5" clockHeight="90vh"/>
                         </Hidden>
                     </Grid>
@@ -280,13 +281,13 @@ export default function Predict({ submittable = true, formContent = null, submit
             </section>
 
             <section height="auto" id='form'>
-                <Form 
+                <Form
                     formContent = {formContent}
                     submittable={submittable}
                     handleSubmit={onClickSubmit}
                 />
             </section>
-            
+
             {/* //submitted form display */}
             <section height="60vh" id='formComplete'>
                 <FormComplete />
