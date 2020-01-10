@@ -18,8 +18,23 @@ import sung from './img/sung.svg';
 import han from './img/han.svg';
 import tsai_head from './img/tsai_head.png';
 
+
 import FireBaseContext from '../../../tools/firebase/Context';
 
+const headImages = require.context('./img', true);
+
+function namePicSelector(name) {
+  switch (name){
+    case 'sonng':
+      return sung;
+    case 'han':
+      return han;
+    case 'tsai':
+    default:
+      return tsai;
+
+  }
+}
 export default function Landing() {
     const firebase = useContext(FireBaseContext);
     const [president, setPresident] = useState([]);
@@ -28,11 +43,12 @@ export default function Landing() {
       const unsub = firebase.db.collection('summary_president').orderBy('counts', 'desc')
         .onSnapshot( snapshot => {
           const results = snapshot.docs.map( d => ({id: d.id, ...d.data()}));
+          console.log(results)
           setPresident(results)
         })
       return () => unsub()
     },[firebase]);
-    
+
     const [swing, setSwing] = useState([]);
     useEffect(() => {
       const unsub = firebase.db.collection('summary_swing')
@@ -99,7 +115,7 @@ export default function Landing() {
                             <Box fontSize="substitle.fontSize"><span className="ranking">1</span><span>st</span></Box>
                         </Grid>
                         <Grid item xs={12}>
-                            <img src={tsai} className="img" alt="tsai" />
+                            <img src={president[0] ? namePicSelector(president[0]["id"]) : tsai} className="img" alt="tsai" />
                         </Grid>
                     </Grid>
                     <Grid item xs>
@@ -119,7 +135,7 @@ export default function Landing() {
                         </Typography>
                     </Grid>
                     <Grid item xs>
-                        <img src={tsai_head} className="img" alt="tsai" />
+                        <img src={president[0]? headImages(`./${president[0]["id"]}_head.svg`): headImages("./han_head.svg")} className="img" alt="tsai" />
                     </Grid>
                 </Grid>
                 <Divider/>
@@ -130,7 +146,7 @@ export default function Landing() {
                                 <Box fontSize="substitle.fontSize"><span className="ranking_s">2</span><span>nd</span></Box>
                             </Grid>
                             <Grid item xs={12}>
-                            <img src={han} className="img" alt="han" />
+                            <img src={president[1] ? namePicSelector(president[1]["id"]) : han} className="img" alt="han" />
                             </Grid>
                         </Grid>
                         <Grid item xs>
@@ -151,7 +167,7 @@ export default function Landing() {
                                 <Box fontSize="substitle.fontSize"><span className="ranking_s">3</span><span>rd</span></Box>
                             </Grid>
                             <Grid item xs={12}>
-                                <img src={sung} className="img" alt="sung" />
+                                <img src={president[2] ? namePicSelector(president[2]["id"]) : sung} className="img" alt="sung" />
                             </Grid>
                         </Grid>
                         <Grid item xs>
