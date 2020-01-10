@@ -200,7 +200,7 @@ export default function Predict({ submittable = true, formContent = null, submit
 
                             <Grid item xs={1} md={false}></Grid>
                             <Grid item xs={10} md={12}>
-                                <img src={require('./votesChart.png')} width="100%" alt="" />
+                                <img src={require('./president_previous_years.svg')} width="100%" alt="" />
                                 {/* <Box height="30vh" border={1}>chart</Box> */}
                             </Grid>
                             <Grid item xs={1} md={false}></Grid>
