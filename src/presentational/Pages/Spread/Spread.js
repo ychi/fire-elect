@@ -13,7 +13,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 
 const countyImages = require.context('.', true);
 
-const countySelectMenus = ["臺北市", "新北市", "基隆市","宜蘭縣","桃園市","新竹縣","新竹市","苗栗縣","臺中市","彰化縣","南投縣","嘉義市","嘉義縣","臺南市","屏東縣","花蓮縣","臺東縣"]
+const countySelectMenus = ["臺北市", "新北市", "基隆市","宜蘭縣","桃園市","新竹縣","新竹市","苗栗縣","臺中市","彰化縣","南投縣","嘉義市","嘉義縣","臺南市","高雄市","屏東縣","花蓮縣","臺東縣"]
 
 const counties = {
   "臺北市": {
@@ -38,11 +38,11 @@ const counties = {
   },
   "新竹縣": {
     "left": "./img/set1/hsinchucounty_map_margin_10y.png",
-    "right": "./img/set1/hsinchucounty_map_margin_10y.png"
+    "right": "./img/set1/hualian_map_margin_10y.png"
   },
   "新竹市": {
     "left": "./img/set1/hsinchucity_map_margin_10y.png",
-    "right": "./img/set1/hsinchucity_map_margin_10y.png"
+    "right": "./img/set1/hsinchucity__margin_10y.png"
   },
   "苗栗縣": {
     "left": "./img/set1/miaoli_map_margin_10y.png",
@@ -83,6 +83,10 @@ const counties = {
   "臺東縣": {
     "left": "./img/set1/taitung_map_margin_10y.png",
     "right": "./img/set1/taitung_margin_10y.png"
+  },
+  "高雄市": {
+    "left": "./img/set1/kaohsiung_map_margin_10y.png",
+    "right": "./img/set1/kaohsiung_margin_10y.png" 
   }
 }
 
