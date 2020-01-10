@@ -43,10 +43,9 @@ export default function Landing() {
       const unsub = firebase.db.collection('summary_president').orderBy('counts', 'desc')
         .onSnapshot( snapshot => {
           const results = snapshot.docs.map( d => ({id: d.id, ...d.data()}));
-          console.log(results)
-          setPresident(results)
+          setPresident(results);
         })
-      return () => unsub()
+      return unsub;
     },[firebase]);
 
     const [swing, setSwing] = useState([]);
@@ -54,9 +53,9 @@ export default function Landing() {
       const unsub = firebase.db.collection('summary_swing')
         .onSnapshot( snapshot => {
           const results = snapshot.docs.map( d => ({...d.data()}));
-          setSwing(results)
+          setSwing(results);
         })
-      return () => unsub()
+      return unsub;
     },[firebase]);
 
     return(
@@ -115,7 +114,7 @@ export default function Landing() {
                             <Box fontSize="substitle.fontSize"><span className="ranking">1</span><span>st</span></Box>
                         </Grid>
                         <Grid item xs={12}>
-                            <img src={president[0] ? namePicSelector(president[0]["id"]) : tsai} className="img" alt="tsai" />
+                            <img src={president[0] ? namePicSelector(president[0]["id"]) : tsai} className="img" alt={president[0]?president[0].name: "蔡英文"} />
                         </Grid>
                     </Grid>
                     <Grid item xs>
@@ -213,7 +212,7 @@ export default function Landing() {
                     <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={3}>拉鋸選區勝選率AI預測</Box> 
                     <Grid item xs container spacing={2}>
                       {swing.map( (dist, idx) => 
-                        <DistParliament id={idx} dist={dist.name} winner={dist.data[0].name} wincount={dist.data[0].counts} loser={dist.data[1].name} losecount={dist.data[1].counts} />
+                        <DistParliament key={idx} id={idx} dist={dist.name} winner={dist.data[0].name} wincount={dist.data[0].counts} loser={dist.data[1].name} losecount={dist.data[1].counts} />
                       )}
                     </Grid>
                 </Grid>
