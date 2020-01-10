@@ -9,6 +9,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CongressSummaryContainer from '../../../container/CongressSummaryContainer';
 import DistParliament from '../../Components/DistParliament/DistParliament';
+import LineGraph from '../../Components/LineGraph/LineGraph';
 import Footer from '../../Footer/Footer';
 import title from './img/title.svg';
 import tsai from './img/tsai.svg';
@@ -143,7 +144,9 @@ export default function Landing({congressDist=[]}) {
                 </Grid>
                 <Divider/>
                 <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={1.3} className="header_bd">實際開票走勢/AI預測走勢</Box>
-                <Grid container item xs></Grid>
+                <Grid container item xs>
+                    <LineGraph/>
+                </Grid>
             </Grid>
             
 {/* 立委 */}
