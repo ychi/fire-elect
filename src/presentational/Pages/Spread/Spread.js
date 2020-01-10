@@ -219,7 +219,7 @@ export default function Spread() {
                             <Box item>
                                 <Typography className={styles.spread__subtitle}>十年平均藍綠得票率差異</Typography>
                                 <Box><img src={countyImages(counties[county]['left'])} width="100%" alt="" /></Box>
-                                <Box mt={1}><img src={require('./img/set1/map_who_win.svg')} width="100%" alt="" /></Box>
+                                <Box align="center"><img src={require('./img/set1/map_who_win.svg')} width="75%" alt="" /></Box>
                             </Box>
                         </Grid>
                         <Grid md={6}>
