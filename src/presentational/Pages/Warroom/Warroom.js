@@ -7,11 +7,11 @@ import Box from '@material-ui/core/Box';
 import Hidden from '@material-ui/core/Hidden';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
-import Chip from '@material-ui/core/Chip';
 
 import DistParliament from '../../Components/DistParliament/DistParliament';
 import Footer from '../../Footer/Footer';
-
+import {TileMap, TileStyles} from '../../Components/PredictSeats/Tiles';
+import {PartyInfos, distributionToSeats} from '../../../logicUtils/PartyUtil';
 import title from './img/title.svg';
 import tsai from './img/tsai.svg';
 import sung from './img/sung.svg';
@@ -19,7 +19,9 @@ import han from './img/han.svg';
 import tsai_head from './img/tsai_head.png';
 
 
-export default function Landing() {
+export default function Landing({congressDist=[]}) {
+    const seats = distributionToSeats(congressDist);
+    
     return(
     <div className="warroom">
 {/* ------------- 固定位置選單 */}
@@ -57,8 +59,9 @@ export default function Landing() {
                     <CardActionArea>
                         <CardContent>
                             <Box fontSize="h6.fontSize" fontWeight={700} lineHeight={1.3}>立法委員開票</Box>
-                        <Typography variant="body2" color="textSecondary">
-                        </Typography>
+                            <div style={{padding: '5px 0'}}>
+                                <TileMap seats={seats} tileClass={TileStyles.xs}/>
+                            </div>
                         </CardContent>
                     </CardActionArea>
                 </Box>
