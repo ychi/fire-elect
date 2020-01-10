@@ -30,10 +30,7 @@ export default [
     {
         label: 'AI戰情室',
         path: '/aiwarroom',
-        render: ()=>(<CommingSoonWrapper
-            ready={false}
-            renderComp={()=>(<Warroom/>)}/>
-            )
+        render: ()=>(<Warroom/>)
     },
     {
         label: '認同請分享',
