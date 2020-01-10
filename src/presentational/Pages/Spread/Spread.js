@@ -239,30 +239,31 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                             </Typography>
                         </Box>
                     </Grid>
-                    <Hidden smUp>
-                        <Grid item xs={1}></Grid>
-                    </Hidden>               
+
+                <Grid item xs={1} md={1}></Grid>
                 <Hidden smUp>
                     <Grid item xs={1}></Grid>
                 </Hidden>
                 <Grid container xs={10} md={12} direction="row">
-                    <Box item mt={3}>
-                      <FormControl className={styles.formControl}>
-                        {/* <InputLabel id={tag}>{tag}</InputLabel> */}
-                        <Select
-                          labelId="spread-county-select-label"
-                          name="spread-country-select"
-                          value={county}
-                          onChange={ (e) => {setCounty(e.target.value)}}
-                        >
-                          {countySelectMenus.map( (county, idx) => {
-                            return (<MenuItem key={idx} value={county}>{county}</MenuItem>)
-                          })}
-                        </Select>
-                      </FormControl>
-                    </Box>
-                    
-                    <Grid container xs={12} md={12} direction="row">
+                    <Grid xs={12} md={12}>  
+                        <Box item mt={3}>
+                        <FormControl className={styles.formControl}>
+                            {/* <InputLabel id={tag}>{tag}</InputLabel> */}
+                            <Select
+                            labelId="spread-county-select-label"
+                            name="spread-country-select"
+                            value={county}
+                            onChange={ (e) => {setCounty(e.target.value)}}
+                            >
+                            {countySelectMenus.map( (county, idx) => {
+                                return (<MenuItem key={idx} value={county}>{county}</MenuItem>)
+                            })}
+                            </Select>
+                        </FormControl>
+                        </Box>
+                    </Grid>
+
+                    <Grid container xs={12} md={10} direction="row">
                         <Box item>
                             <Typography className={styles.spread__subtitle}>十年平均藍綠得票率差異</Typography>
                             <Box><img src={countyImages(counties[county]['left'])} width="100%" alt="" /></Box>
@@ -281,6 +282,7 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                 <Hidden smUp>
                         <Grid item xs={1}></Grid>
                 </Hidden>
+
                 <Grid item xs={10} md={8} lg={10}>
                     <Box>
                         <Typography variant="body1" align="left">
@@ -302,14 +304,14 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                         </Typography>
                     </Box>
                 </Grid>
-                <Hidden smUp>
+
+                <Hidden smDown>
                         <Grid item xs={1}></Grid>
                 </Hidden>
-
-                    <Hidden mdUp>
-                        <Grid xs={1}></Grid>
-                    </Hidden>
-                    <Grid md={1}></Grid>
+                <Hidden mdUp>
+                    <Grid xs={1}></Grid>
+                </Hidden>
+                <Grid md={1}></Grid>
                 </Grid>
             </Grid>
         </section>
@@ -355,7 +357,7 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                         </Box>
                         <Box item height="150px">
                             <Box height="120px"><img src={require('./img/set1/taipei_map_margin_10y.png')} width="150px" alt="" /></Box>
-                            <Typography variant="body4" align="left"><Box>臺北市</Box></Typography>
+                            <Typography variant="body4" align="left"><Box>臺中市</Box></Typography>
                         </Box>
                         <Box item height="150px">
                             <Box height="120px"><img src={require('./img/set1/yilan_map_margin_10y.png')} width="150px" alt="" /></Box>
@@ -418,7 +420,7 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                             <Typography variant="body4" align="left"><Box>臺東縣</Box></Typography>
                         </Box>
                     </Grid>
-
+                    <Grid item md={1}></Grid>
                     <Grid item xs={12} md={8} lg={10}>
                         <Typography className={styles.spread__subtitle}>齁，我的鄰居都是 X 粉啦</Typography>
                         <Typography variant="body3" align="left">
