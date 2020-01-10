@@ -8,7 +8,7 @@ import Hidden from '@material-ui/core/Hidden';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CongressSummaryContainer from '../../../container/CongressSummaryContainer';
-import DistParliament from '../../Components/DistParliament/DistParliament';
+import TieContainer from '../../../container/TieContainer';
 import LineGraph from '../../Components/LineGraph/LineGraph';
 import Footer from '../../Footer/Footer';
 import title from './img/title.svg';
@@ -296,9 +296,11 @@ export default function Landing() {
                 <Grid container item xs direction="column">
                     <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={3}>拉鋸選區勝選率AI預測</Box> 
                     <Grid item xs container spacing={2}>
-                      {swing.map( (dist, idx) => 
-                        <DistParliament key={idx} id={idx} dist={dist.name} winner={dist.data[0].name} wincount={dist.data[0].counts} loser={dist.data[1].name} losecount={dist.data[1].counts} />
-                      )}
+                        {['dist 1', 'dist 2', 'dist 3', 'dist 4', 'dist 5', 'dist 6']
+                        .map((d, idx)=>(
+                            <TieContainer key={idx} dist={d}/>
+                        ))}
+                        
                     </Grid>
                 </Grid>
             </Grid> 
