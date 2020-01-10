@@ -296,11 +296,10 @@ export default function Landing() {
                 <Grid container item xs direction="column">
                     <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={3}>拉鋸選區勝選率AI預測</Box> 
                     <Grid item xs container spacing={2}>
-                        {['dist 1', 'dist 2', 'dist 3', 'dist 4', 'dist 5', 'dist 6']
+                        {['台中 3', '台北 3', '台北 4', '台北 5', '新北 12', '花蓮']
                         .map((d, idx)=>(
                             <TieContainer key={idx} dist={d}/>
                         ))}
-                        
                     </Grid>
                 </Grid>
             </Grid> 
