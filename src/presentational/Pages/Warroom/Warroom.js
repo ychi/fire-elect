@@ -9,12 +9,14 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CongressSummaryContainer from '../../../container/CongressSummaryContainer';
 import DistParliament from '../../Components/DistParliament/DistParliament';
+import LineGraph from '../../Components/LineGraph/LineGraph';
 import Footer from '../../Footer/Footer';
 import title from './img/title.svg';
 import tsai from './img/tsai.svg';
 import sung from './img/sung.svg';
 import han from './img/han.svg';
 import tsai_head from './img/tsai_head.png';
+import PresidentSummaryContainer from '../../../container/PresidentSummaryContainer';
 
 
 import FireBaseContext from '../../../tools/firebase/Context';
@@ -85,8 +87,7 @@ export default function Landing() {
                     <CardActionArea>
                         <CardContent>
                             <Box fontSize="h6.fontSize" fontWeight={700} lineHeight={1.3}>總統大選開票</Box>
-                        <Typography variant="body2" color="textSecondary">
-                        </Typography>
+                            <PresidentSummaryContainer/>
                         </CardContent>
                     </CardActionArea>
                     <Divider/>
@@ -180,7 +181,9 @@ export default function Landing() {
                 </Grid>
                 <Divider/>
                 <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={1.3} className="header_bd">實際開票走勢/AI預測走勢</Box>
-                <Grid container item xs></Grid>
+                <Grid container item xs>
+                    <LineGraph/>
+                </Grid>
             </Grid>
             
 {/* 立委 */}
