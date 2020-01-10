@@ -152,7 +152,7 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                         <Box textAlign="right">
                             <Box height="10vh"></Box>
                             <Typography variant="h5" className={styles.text__vertical__lr} display="inline">SPREAD THE WORD</Typography>
-                            <Box borderLeft={2} height="25vw" width="24px" ml="6vw"></Box>
+                            <Box borderLeft={2} height="25vw" width="24px" ml="7vw"></Box>
                         </Box>
                     </Hidden>
                 </Grid>
