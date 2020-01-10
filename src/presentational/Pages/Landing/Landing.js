@@ -16,7 +16,7 @@ import Container from '@material-ui/core/Container';
 
 export default function Landing() {
     return(
-    <Container maxWidth="false" className="landing">  
+    <Container maxWidth="false" className="landing">
         <header className="header">
         <Grid container spacing={3}>
             <Hidden smDown>
@@ -28,17 +28,17 @@ export default function Landing() {
             <Grid container item xs={12} sm={4} md={3} spacing={2}>
                 <Grid item xs={12}>
                     <div  className="stripe_1">
-                        <ActionBloc link={"/aiwarroom"} title={"AI戰情室"} subtitle={"人工智慧跟鄉民智慧，一起實況預測開票"} desc={"2020.01.11 17:00 開放"} call2act={"進入戰場"}/>   
-                    </div>                
-                </Grid>     
-                <Hidden smDown>      
+                        <ActionBloc link={"/aiwarroom"} title={"AI戰情室"} subtitle={"人工智慧跟鄉民智慧，一起實況預測開票"} desc={"2020.01.11 17:00 開放"} call2act={"進入戰場"}/>
+                    </div>
+                </Grid>
+                <Hidden smDown>
                 <Grid item xs={12}>
                     <img src={landingbg3} className="img" alt="logo" />
                 </Grid>
-                </Hidden>  
+                </Hidden>
             </Grid>
             <Grid container item xs={12} sm={8} md={7} spacing={2}>
-                <Hidden smDown> 
+                <Hidden smDown>
                 <Grid container item xs={12} spacing={2} className="height_30">
                     <Grid item xs={3}>
                         <div  className="stripe_1"></div>
@@ -49,15 +49,15 @@ export default function Landing() {
                     <Grid item xs={5}>
                         <div  className="stripe_2"></div>
                     </Grid>
-                </Grid> 
-                </Hidden>  
+                </Grid>
+                </Hidden>
                 <Grid container item xs={12} spacing={2} className="height_70">
                     <Grid item xs={12} sm={6} md={5}>
                         <div  className="stripe_5">
-                        <ActionBloc link={"/ipredict"} title={"我大膽預測"} subtitle={"選前預測不封關，把握選前倒數，看看你能否鐵口直斷"} desc={"2020.01.11 17:00 開放"} call2act={"前往預測"}/>     
-                        </div>              
+                        <ActionBloc link={"/ipredict"} title={"我大膽預測"} subtitle={"選前預測不封關，把握選前倒數，看看你能否鐵口直斷"} call2act={"前往預測"}/>     
+                        </div>
                     </Grid>
-                    <Hidden smDown> 
+                    <Hidden smDown>
                     <Grid item xs={2}>
                         <div className="stripe_3">
                             <img src={landingbg8} className="img" alt="logo" />
@@ -67,7 +67,7 @@ export default function Landing() {
                     <Grid item xs={12} sm={6} md={5}>
                         <div  className="stripe_4">
                         <ActionBloc link={"/prejudice"} title={"庶民欸心聲"} subtitle={"不同陣營的支持者有什麼樣貌？又老又窮到底是不是刻板印象？來八卦一下，村里間的選民屬性吧"} desc={"2020.01.11 17:00 開放"} call2act={"訴說心聲"}/>
-                        </div>                   
+                        </div>
                     </Grid>
                 </Grid>
             </Grid>
@@ -75,6 +75,6 @@ export default function Landing() {
         </header>
 
     <Footer/>
-    </Container>  
+    </Container>
     );
 }
