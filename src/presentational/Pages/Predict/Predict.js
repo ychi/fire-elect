@@ -47,7 +47,7 @@ const initialLegislativeDistribution = [];
 function legislativeReducer(state, action) {
     let filtered = state.filter((d) => (d.partyId !== action.partyId));
     let filteredTotal = filtered.reduce((agg, p) => (agg + p.prediction), 0);
-    let verifiedPrediction = action.prediction > 0 ? Math.min(113 - filteredTotal, action.prediction) : 0;
+    let verifiedPrediction = action.prediction > 0 ? Math.min(113 - filteredTotal, Math.floor(action.prediction)) : 0;
     return [
         ...filtered,
         { partyId: action.partyId, prediction: verifiedPrediction }

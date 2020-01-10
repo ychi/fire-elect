@@ -125,13 +125,13 @@ export default function PredictSeats({distribution, dispatch}) {
                 <Grid item md={3} sm={8} xs={10}>
                   {party.label}
                 </Grid>
-                <Grid item md={8}>
+                <Grid item md={9} sm={10}>
                   <TextField
                     value = {existing?existing.prediction:''}
                     onChange= {(e)=>{dispatch({partyId: partyId, prediction: e.currentTarget.value})}}
                     variant="outlined"
                     type="number"
-                    placeholder={`上次得票席次: ${party.lastTerm}`}
+                    placeholder={`前屆: ${party.lastTerm}`}
                     inputProps={{max: unusedSeats}}
                   />
                 </Grid>

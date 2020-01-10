@@ -9,6 +9,10 @@ import Checkbox from '../../../../node_modules/@material-ui/core/Checkbox';
 import { Grid, Select, MenuItem } from '../../../../node_modules/@material-ui/core';
 import Hidden from '../../../../node_modules/@material-ui/core/Hidden';
 import TextField from '@material-ui/core/TextField';
+import Link from '@material-ui/core/Link';
+import HelpIcon from '@material-ui/icons/Help';
+import { InputLabel } from '@material-ui/core';
+
 
 import FormComplete from '../../Components/FormComplete/FormComplete';
 
@@ -283,8 +287,8 @@ export default function Form({formContent, submittable, handleSubmit}) {
                 control={<Checkbox disabled={!submittable} name="agree-terms" color="primary" onChange={handleChange} />}
                 label="我同意隱私條款"
                 labelPlacement="end"
-                onClick={()=>{window.open('terms.html', '_blank');}}
               />
+              <Link href="/terms"><HelpIcon fontSize="small"/></Link>
             </Box>
             <Button 
               variant="contained" 
