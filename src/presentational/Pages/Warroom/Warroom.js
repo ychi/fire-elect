@@ -16,6 +16,7 @@ import tsai from './img/tsai.svg';
 import sung from './img/sung.svg';
 import han from './img/han.svg';
 import tsai_head from './img/tsai_head.png';
+import PresidentSummaryContainer from '../../../container/PresidentSummaryContainer';
 
 
 export default function Landing({congressDist=[]}) {
@@ -49,8 +50,7 @@ export default function Landing({congressDist=[]}) {
                     <CardActionArea>
                         <CardContent>
                             <Box fontSize="h6.fontSize" fontWeight={700} lineHeight={1.3}>總統大選開票</Box>
-                        <Typography variant="body2" color="textSecondary">
-                        </Typography>
+                            <PresidentSummaryContainer/>
                         </CardContent>
                     </CardActionArea>
                     <Divider/>
