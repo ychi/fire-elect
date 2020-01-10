@@ -32,7 +32,8 @@ export default [
         path: '/aiwarroom',
         render: ()=>(<CommingSoonWrapper
             ready={true}
-            renderComp={()=>(<Warroom/>)}/>)
+            renderComp={()=>(<Warroom/>)}/>
+            )
     },
     {
         label: '認同請分享',
