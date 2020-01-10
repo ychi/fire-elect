@@ -66,7 +66,7 @@ export default function Landing() {
                     </Hidden>
                     <Grid item xs={12} sm={6} md={5}>
                         <div  className="stripe_4">
-                        <ActionBloc link={"/prejudice"} title={"庶民欸心聲"} subtitle={"不同陣營的支持者有什麼樣貌？又老又窮到底是不是刻板印象？來八卦一下，村里間的選民屬性吧"} desc={"2020.01.11 17:00 開放"} call2act={"訴說心聲"}/>
+                        <ActionBloc link={"/spreadword"} title={"認同請分享"} subtitle={"藍綠版圖大探索！來看看過去十年，你鄰居投給誰？"} call2act={"快長知識"}/>
                         </div>
                     </Grid>
                 </Grid>
