@@ -1,5 +1,4 @@
-import React, { useState, useReducer } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
 import styles from './spread.module.scss';
 import Grid from '@material-ui/core/Grid';
 import { Select, MenuItem } from '@material-ui/core'
@@ -7,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
 import Hidden from '@material-ui/core/Hidden';
-import Form from '../../Components/Form/Form'
 import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
 
 import FormControl from '../../../../node_modules/@material-ui/core/FormControl';
@@ -88,60 +86,8 @@ const counties = {
   }
 }
 
-function presidentReducer(state, action) {
-    switch (action.type) {
-        case 'S':
-            return {
-                ...state,
-                s: (state.h + state.t + action.commitedV > 100) ?
-                    100 - state.h - state.t :
-                    action.commitedV
-            };
-        case 'H':
-            return {
-                ...state,
-                h: (state.s + state.t + action.commitedV > 100) ?
-                    100 - state.s - state.t :
-                    action.commitedV
-            };
-        case 'T':
-            return {
-                ...state,
-                t: (state.s + state.h + action.commitedV > 100) ?
-                    100 - state.s - state.h :
-                    action.commitedV
-            };
-        default:
-            return state;
-    }
-}
-
-const initialLegislativeDistribution = [];
-
-
-function legislativeReducer(state, action) {
-    let filtered = state.filter((d) => (d.partyId !== action.partyId));
-    let filteredTotal = filtered.reduce((agg, p) => (agg + p.prediction), 0);
-    let verifiedPrediction = action.prediction > 0 ? Math.min(113 - filteredTotal, action.prediction) : 0;
-    return [
-        ...filtered,
-        { partyId: action.partyId, prediction: verifiedPrediction }
-    ].sort((a, b) => (b.prediction - a.prediction));
-}
-
-export default function PeopleVoice({ submittable = true, formContent = null, submitForm = (i, p) => { console.log({i: i, p:p})} }) {
-    const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, { s: 33, h: 33, t: 33 });
-    const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer(legislativeReducer, initialLegislativeDistribution);
+export default function Spread() {
     const [county, setCounty] = useState('臺北市');
-
-    const onClickSubmit = (formState) => {
-        submitForm(
-            formState,
-            {
-                president: presidentPercentages,
-                legislative: legislativeDistribution
-            });
-    };
 
     return(
     <div>
