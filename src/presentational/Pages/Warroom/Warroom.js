@@ -186,6 +186,7 @@ export default function Landing() {
 
 {/* ------------------- 火熱開票中 */}
 {/* ------------------- 總統 */}
+{/*
             <Grid container item xs={12} spacing={4} className="hotresult divider_heavy"> 
                 <Grid container item xs={12} sm={7}>
                     <Grid item xs={12} direction="colomn">
@@ -229,7 +230,7 @@ export default function Landing() {
                     </Grid>
                 </Grid>
             </Grid>
-{/* ------------------- 立委 */}
+
             <Grid container item xs={12} spacing={4} className="hotresult divider_heavy"> 
                 <Grid container item xs={12} direction="column">
                     <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={1.3} className="header_bd">立委選舉火熱開票中</Box>
@@ -285,7 +286,7 @@ export default function Landing() {
                         <Box fontSize="caption.fontSize" fontWeight={500} lineHeight={1.3} className="m_t_2">最不接近</Box>
                     </Grid>
             </Grid>
-
+        */}
         </Grid> 
         <Footer/>
 
