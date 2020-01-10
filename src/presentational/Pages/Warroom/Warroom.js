@@ -153,18 +153,103 @@ export default function Landing() {
                 <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={1.3} className="header_bd">決戰立法院</Box>
                 {/* 立委ＡＩ預測 */}
                 <Grid container item xs>
-                    <Box fontSize="substitle2.fontSize" fontWeight={500} lineHeight={1.3}>AI預測政黨立委總席次</Box>
                     <Grid container item xs={12}>
-                        <Grid container item xs direction="column">
+                        <Box fontSize="substitle2.fontSize" fontWeight={500} my={1}>AI預測政黨立委總席次</Box>
+                    </Grid>
+                    <Grid container item xs={12}>
+                        <Grid container item xs={12}>
                             <Grid item xs>
-                                <Box fontSize="overline.fontSize" fontWeight={500} lineHeight={1.3}>不分區 AI 預估</Box>
+                                <Box fontSize="overline.fontSize" fontWeight={500} my={1}>不分區 AI 預估</Box>
                             </Grid>
                             <Grid item xs>
-                            <Box fontSize="overline.fontSize" fontWeight={500} lineHeight={1.3}>原住民立委 AI 預估</Box> 
+                            <Box fontSize="overline.fontSize" fontWeight={500} my={1}>原住民立委 AI 預估</Box> 
+                            </Grid>
                         </Grid>
-                        </Grid>
-                        <Grid item xs>
-                            <Box fontSize="overline.fontSize" fontWeight={500} lineHeight={1.3}>區域 AI 預估</Box>
+                        <Grid item container xs={12}>
+                            <Grid item container xs={12}>
+                                <Box fontSize="overline.fontSize" fontWeight={500} my={1}>區域 AI 預估</Box>
+                            </Grid>
+                            <Grid item container xs={12} sm={6}>
+                                <Grid item container xs={12}>
+                                    <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>台北市</Box><Box display="inline" ml={2}></Box>                                     
+                                </Grid>
+                                <Grid item container xs={12}>
+                                    <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>新北市</Box><Box display="inline" ml={2}></Box>                                     
+                                </Grid>
+                                <Grid item container xs={12}>
+                                    <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>桃園市</Box><Box display="inline" ml={2}></Box>                                     
+                                </Grid>
+                                <Grid item container xs={12}>
+                                    <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>台中市</Box><Box display="inline" ml={2}></Box>                                     
+                                </Grid>
+                                <Grid item container xs={12}>
+                                    <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>台南市</Box><Box display="inline" ml={2}></Box>                                     
+                                </Grid>
+                                <Grid item container xs={12}>
+                                    <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>高雄市</Box><Box display="inline" ml={2}></Box>                                     
+                                </Grid>
+                            </Grid>
+                            <Grid item container xs={12} sm={6}>
+                                <Grid item container xs={12}>
+                                    <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>基隆市</Box><Box display="inline" ml={2}></Box>                                     
+                                </Grid>
+                                <Grid item container xs={12}>
+                                    <Grid item container xs={6}>
+                                        <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>新竹縣</Box><Box display="inline" ml={2}></Box>                                     
+                                    </Grid>
+                                    <Grid item container xs={6}>
+                                        <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>新竹市</Box><Box display="inline" ml={2}></Box>                                     
+                                    </Grid>
+                                </Grid>
+                                <Grid item container xs={12}>
+                                    <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>苗栗縣</Box><Box display="inline" ml={2}></Box>                                     
+                                </Grid>
+                                <Grid item container xs={12}>
+                                    <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>彰化縣</Box><Box display="inline" ml={2}></Box>                                     
+                                </Grid>
+                                <Grid item container xs={12}>
+                                    <Grid item container xs={6}>
+                                        <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>雲林縣</Box><Box display="inline" ml={2}></Box>                                     
+                                    </Grid>
+                                    <Grid item container xs={6}>
+                                        <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>南投縣</Box><Box display="inline" ml={2}></Box>                                     
+                                    </Grid>                                     
+                                </Grid>
+                                <Grid item container xs={12}>
+                                    <Grid item container xs={6}>
+                                        <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>嘉義縣</Box><Box display="inline" ml={2}></Box>                                     
+                                    </Grid>
+                                    <Grid item container xs={6}>
+                                        <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>嘉義市</Box><Box display="inline" ml={2}></Box>                                     
+                                    </Grid>                                 
+                                </Grid>
+                                <Grid item container xs={12}>
+                                    <Grid item container xs={4}>
+                                        <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>宜蘭縣</Box><Box display="inline" ml={2}></Box>                                     
+                                    </Grid>
+                                    <Grid item container xs={4}>
+                                        <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>花蓮縣</Box><Box display="inline" ml={2}></Box>                                     
+                                    </Grid> 
+                                    <Grid item container xs={4}>
+                                        <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>台東縣</Box><Box display="inline" ml={2}></Box>                                     
+                                    </Grid>                                 
+                                </Grid>
+                                <Grid item container xs={12}>
+                                    <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>屏東縣</Box><Box display="inline" ml={2}></Box>                                     
+                                </Grid>
+                                <Grid item container xs={12}>
+                                    <Grid item container xs={4}>
+                                        <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>金門縣</Box><Box display="inline" ml={2}></Box>                                     
+                                    </Grid>
+                                    <Grid item container xs={4}>
+                                        <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>澎湖縣</Box><Box display="inline" ml={2}></Box>                                     
+                                    </Grid> 
+                                    <Grid item container xs={4}>
+                                        <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>連江縣</Box><Box display="inline" ml={2}></Box>                                     
+                                    </Grid>                                 
+                                </Grid>
+
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
