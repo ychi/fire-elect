@@ -31,7 +31,17 @@ export default function Landing() {
           setPresident(results)
         })
       return () => unsub()
-    }, [firebase]);
+    },[firebase]);
+    
+    const [swing, setSwing] = useState([]);
+    useEffect(() => {
+      const unsub = firebase.db.collection('summary_swing')
+        .onSnapshot( snapshot => {
+          const results = snapshot.docs.map( d => ({...d.data()}));
+          setSwing(results)
+        })
+      return () => unsub()
+    },[firebase]);
 
     return(
     <div className="warroom">
@@ -186,12 +196,9 @@ export default function Landing() {
                 <Grid container item xs direction="column">
                     <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={3}>拉鋸選區勝選率AI預測</Box> 
                     <Grid item xs container spacing={2}>
-                        <DistParliament id="1" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
-                        <DistParliament id="2" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
-                        <DistParliament id="3" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
-                        <DistParliament id="4" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
-                        <DistParliament id="5" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
-                        <DistParliament id="6" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
+                      {swing.map( (dist, idx) => 
+                        <DistParliament id={idx} dist={dist.name} winner={dist.data[0].name} wincount={dist.data[0].counts} loser={dist.data[1].name} losecount={dist.data[1].counts} />
+                      )}
                     </Grid>
                 </Grid>
             </Grid> 
