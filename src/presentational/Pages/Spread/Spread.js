@@ -237,28 +237,32 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                         </Box>
                     </Grid>
                 <Grid container xs={12} md={12} direction="row">
-                  <FormControl className={styles.formControl}>
-                    {/* <InputLabel id={tag}>{tag}</InputLabel> */}
-                    <Select
-                      labelId="spread-county-select-label"
-                      name="spread-country-select"
-                      value={county}
-                      onChange={ (e) => {setCounty(e.target.value)}}
-                    >
-                      {countySelectMenus.map( (county, idx) => {
-                        return (<MenuItem key={idx} value={county}>{county}</MenuItem>)
-                      })}
-                    </Select>
-                  </FormControl>
-                    <Box item>
-                        <Typography className={styles.spread__subtitle}>十年平均藍綠得票率差異</Typography>
-                        <Box><img src={countyImages(counties[county]['left'])} width="450px" alt="" /></Box>
-                        <img src={require('./img/set1/map_who_win.svg')} alt="" />
+                    <Box item mt={3}>
+                      <FormControl className={styles.formControl}>
+                        {/* <InputLabel id={tag}>{tag}</InputLabel> */}
+                        <Select
+                          labelId="spread-county-select-label"
+                          name="spread-country-select"
+                          value={county}
+                          onChange={ (e) => {setCounty(e.target.value)}}
+                        >
+                          {countySelectMenus.map( (county, idx) => {
+                            return (<MenuItem key={idx} value={county}>{county}</MenuItem>)
+                          })}
+                        </Select>
+                      </FormControl>
                     </Box>
-                    <Box item>
-                        <Typography className={styles.spread__subtitle}>2008-2018 歷次選舉藍綠得票率差異</Typography>
-                        <img src={countyImages(counties[county]['right'])} width="450px" alt="" />
-                    </Box>
+                    <Grid container xs={12} md={12} direction="row">
+                        <Box item>
+                            <Typography className={styles.spread__subtitle}>十年平均藍綠得票率差異</Typography>
+                            <Box><img src={countyImages(counties[county]['left'])} width="450px" alt="" /></Box>
+                            <Box mt={1}><img src={require('./img/set1/map_who_win.svg')} alt="" /></Box>
+                        </Box>
+                        <Box item>
+                            <Typography className={styles.spread__subtitle}>2008-2018 歷次選舉藍綠得票率差異</Typography>
+                            <img src={countyImages(counties[county]['right'])} width="450px" alt="" />
+                        </Box>
+                    </Grid>
                 </Grid>
 
                 <Grid item xs={12} md={8} lg={10}>
@@ -439,9 +443,6 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                             </Box>
                         </Typography>
                         <Typography className={styles.spread__subtitle}>十年藍綠得票率差異</Typography>
-                        <Button variant="contained" className={styles.bottom__button__black} onclick="toggleImage();">
-                            切換視角
-                        </Button>
                         <Box><img src={require('./img/set2/margin_y.svg')} width="100%" alt="" id="toggleImage"/></Box>
                         <Typography className={styles.spread__subtitle}>上大學會怎樣？</Typography>
                         <Typography variant="body3" align="left">
