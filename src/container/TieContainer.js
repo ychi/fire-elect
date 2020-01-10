@@ -30,7 +30,7 @@ export default ({dist})=>{
                 losingStyle: candidates[1].party === 'independent'? 
                     PartyInfos.others.colorClass :
                     PartyInfos[candidates[1].party].colorClass,
-                winProb: candidates[0].prob
+                winProb: candidates[0].prob * 100
             };
             setState(s);
         });
