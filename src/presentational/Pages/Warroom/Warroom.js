@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './warroom.scss';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
@@ -19,7 +19,46 @@ import han from './img/han.svg';
 import tsai_head from './img/tsai_head.png';
 
 
+import FireBaseContext from '../../../tools/firebase/Context';
+
+const headImages = require.context('./img', true);
+
+function namePicSelector(name) {
+  switch (name){
+    case 'sonng':
+      return sung;
+    case 'han':
+      return han;
+    case 'tsai':
+    default:
+      return tsai;
+
+  }
+}
 export default function Landing() {
+    const firebase = useContext(FireBaseContext);
+    const [president, setPresident] = useState([]);
+
+    useEffect(() => {
+      const unsub = firebase.db.collection('summary_president').orderBy('counts', 'desc')
+        .onSnapshot( snapshot => {
+          const results = snapshot.docs.map( d => ({id: d.id, ...d.data()}));
+          console.log(results)
+          setPresident(results)
+        })
+      return () => unsub()
+    },[firebase]);
+
+    const [swing, setSwing] = useState([]);
+    useEffect(() => {
+      const unsub = firebase.db.collection('summary_swing')
+        .onSnapshot( snapshot => {
+          const results = snapshot.docs.map( d => ({...d.data()}));
+          setSwing(results)
+        })
+      return () => unsub()
+    },[firebase]);
+
     return(
     <div className="warroom">
 {/* ------------- 固定位置選單 */}
@@ -76,27 +115,27 @@ export default function Landing() {
                             <Box fontSize="substitle.fontSize"><span className="ranking">1</span><span>st</span></Box>
                         </Grid>
                         <Grid item xs={12}>
-                            <img src={tsai} className="img" alt="tsai" />
+                            <img src={president[0] ? namePicSelector(president[0]["id"]) : tsai} className="img" alt="tsai" />
                         </Grid>
                     </Grid>
                     <Grid item xs>
                         <Typography component="div">
                             <Box fontSize="caption.fontSize" lineHeight={1}>AI預測得票率</Box>
-                            <Box fontSize="h3.fontSize" fontWeight="500" lineHeight={1.5}>41<small>%▼</small></Box>
+                            <Box fontSize="h3.fontSize" fontWeight="500" lineHeight={1.5}>{president[0] ? Math.round(president[0]['project']*100) : 0 }<small>%▼</small></Box>
                             <Box fontSize="caption.fontSize" lineHeight={1}>最新得票</Box> 
-                            <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>0000145</Box>     
+                            <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>{president[0] ? president[0]['counts']: 0 }</Box>     
                         </Typography>
                     </Grid>
                     <Grid item xs>
                         <Typography component="div">
                             <Box fontSize="caption.fontSize" lineHeight={1}>AI預測當選率</Box>
-                            <Box fontSize="h3.fontSize" fontWeight="500" lineHeight={1.5}>41<small>%▼</small></Box>
+                            <Box fontSize="h3.fontSize" fontWeight="500" lineHeight={1.5}>{president[0] ? Math.round(president[0]['prob']*100) : 0 }<small>%▼</small></Box>
                             <Box fontSize="caption.fontSize" lineHeight={1}>最新得票率</Box> 
-                            <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>0000145</Box>     
+                            <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}></Box>     
                         </Typography>
                     </Grid>
                     <Grid item xs>
-                        <img src={tsai_head} className="img" alt="tsai" />
+                        <img src={president[0]? headImages(`./${president[0]["id"]}_head.svg`): headImages("./han_head.svg")} className="img" alt="tsai" />
                     </Grid>
                 </Grid>
                 <Divider/>
@@ -107,17 +146,17 @@ export default function Landing() {
                                 <Box fontSize="substitle.fontSize"><span className="ranking_s">2</span><span>nd</span></Box>
                             </Grid>
                             <Grid item xs={12}>
-                            <img src={han} className="img" alt="han" />
+                            <img src={president[1] ? namePicSelector(president[1]["id"]) : han} className="img" alt="han" />
                             </Grid>
                         </Grid>
                         <Grid item xs>
                             <Typography component="div">
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>AI預測得票率\當選率</Box>
-                                <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>41<small>%▼</small> 99<small>%</small></Box>
+                                <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>{president[1] ? Math.round(president[1]['project']*100) : 0 }<small>%▼</small> {president[1] ? Math.round(president[1]['prob']*100) : 0 }<small>%</small></Box>
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票</Box> 
                                 <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>0000145</Box>
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票數</Box> 
-                                <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>6890000</Box>     
+                                <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>{president[1] ? president[1]['counts']: 0 }</Box>     
                             </Typography>
                         </Grid>
                     </Grid>
@@ -128,17 +167,17 @@ export default function Landing() {
                                 <Box fontSize="substitle.fontSize"><span className="ranking_s">3</span><span>rd</span></Box>
                             </Grid>
                             <Grid item xs={12}>
-                                <img src={sung} className="img" alt="sung" />
+                                <img src={president[2] ? namePicSelector(president[2]["id"]) : sung} className="img" alt="sung" />
                             </Grid>
                         </Grid>
                         <Grid item xs>
                             <Typography component="div">
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>AI預測得票率\當選率</Box>
-                                <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>41<small>%▼</small> 99<small>%</small></Box>
+                                <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>{president[2] ? Math.round(president[2]['project']*100) : 0 }<small>%▼</small> {president[2] ? Math.round(president[2]['prob']*100) : 0 }<small>%</small></Box>
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票</Box> 
                                 <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>0000145</Box>
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票數</Box> 
-                                <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>6890000</Box>     
+                                <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>{president[2] ? president[2]['counts']: 0 }</Box>     
                             </Typography>
                         </Grid>
                     </Grid>
@@ -173,12 +212,9 @@ export default function Landing() {
                 <Grid container item xs direction="column">
                     <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={3}>拉鋸選區勝選率AI預測</Box> 
                     <Grid item xs container spacing={2}>
-                        <DistParliament id="1" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
-                        <DistParliament id="2" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
-                        <DistParliament id="3" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
-                        <DistParliament id="4" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
-                        <DistParliament id="5" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
-                        <DistParliament id="6" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
+                      {swing.map( (dist, idx) => 
+                        <DistParliament id={idx} dist={dist.name} winner={dist.data[0].name} wincount={dist.data[0].counts} loser={dist.data[1].name} losecount={dist.data[1].counts} />
+                      )}
                     </Grid>
                 </Grid>
             </Grid> 

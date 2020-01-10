@@ -18,7 +18,7 @@ function DistParliament(props) {
           <span className="wincount">{props.wincount}</span>
         </Grid>
         <Grid item xs={12}>
-          <span className="loser">{props.winner}</span>
+          <span className="loser">{props.loser}</span>
           <span className="losecount">{props.losecount}</span>
         </Grid>
       </Grid>  
