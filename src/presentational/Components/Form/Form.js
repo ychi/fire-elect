@@ -1,4 +1,4 @@
-import React, {useReducer} from '../../../../node_modules/react';
+import React, {useReducer, useState } from '../../../../node_modules/react';
 import styles from './form.module.scss';
 import FormControl from '../../../../node_modules/@material-ui/core/FormControl';
 import FormControlLabel from '../../../../node_modules/@material-ui/core/FormControlLabel';
@@ -122,12 +122,18 @@ function formStateReducer(state, event) {
           break;
       default:
     }
-
     return s;
 }
 
 export default function Form({formContent, submittable, handleSubmit}) {
   const [data, handleChange] = useReducer(formStateReducer, formContent||blankFormState);
+  const [legislatorName, setLegislatorName] = useState('');
+  
+  const handleSubmitProxy = (data) => {
+    data.legislatorName = legislatorName
+    handleSubmit(data)
+  }
+
   return submittable ? (
     <Grid container>
       <Hidden xsDown>
@@ -266,7 +272,7 @@ export default function Form({formContent, submittable, handleSubmit}) {
               {formOptions.legislator.map((opt, idx) =>
                 <FormControlLabel key={idx} control={<Checkbox disabled={!submittable} name='legislator-knowledge' value={opt.value} checked={data.legislatorKnowledge === opt.value} onChange={handleChange} />} label={opt.label} />
               )}
-              <TextField disabled={!submittable} name="legislator-name" id="standard-basic" label="請輸入立委名" />
+              <TextField disabled={!submittable || !data.legislatorKnowledge } name="legislator-name" id="standard-basic" label="請輸入立委名" value={legislatorName} onChange={(e) => {setLegislatorName(e.target.value)}}/>
             </FormControl>
           </Box>
           <hr width="90%" />
@@ -285,7 +291,7 @@ export default function Form({formContent, submittable, handleSubmit}) {
               disabled={(!submittable) || (!data.agreeTerms)} 
               className={styles.form__button} 
               width="60px"
-              onClick={()=>{handleSubmit(data)}}>送出預測</Button>
+              onClick={()=>{handleSubmitProxy(data)}}>送出預測</Button>
           </Box>
         </Box>
       </Grid>
@@ -301,5 +307,3 @@ export default function Form({formContent, submittable, handleSubmit}) {
     </Grid>
   ) : <FormComplete/>
 }
-
-
