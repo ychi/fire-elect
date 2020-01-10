@@ -1,9 +1,7 @@
 .distparliament {
     padding: 50px 0;    
     .predict_bar{
-        background-color: #dddddd;
-        margin: 5px 0;
-        padding: 10px 0;
+       height: 50px;
     }
     .winner, .wincount, .loser, .losecount{
         padding: 0 5px;
@@ -27,4 +25,5 @@
     .loser{
         border-color: transparent;
     }
+    
 }
