@@ -1,7 +1,8 @@
-import React, { useReducer } from 'react';
+import React, { useState, useReducer } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './spread.module.scss';
 import Grid from '@material-ui/core/Grid';
+import { Select, MenuItem } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
@@ -9,73 +10,80 @@ import Hidden from '@material-ui/core/Hidden';
 import Form from '../../Components/Form/Form'
 import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
 
+import FormControl from '../../../../node_modules/@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+
+const countyImages = require.context('.', true);
+
+const countySelectMenus = ["臺北市", "新北市", "基隆市","宜蘭縣","桃園市","新竹縣","新竹市","苗栗縣","臺中市","彰化縣","南投縣","嘉義市","嘉義縣","臺南市","屏東縣","花蓮縣","臺東縣"]
+
 const counties = {
   "臺北市": {
-    "left": "./img/set1/taipei_map_margin_10y.png"
+    "left": "./img/set1/taipei_map_margin_10y.png",
     "right": "./img/set1/taipei_margin_10y.png"
   },
   "新北市": {
-    "left": "./img/set1/newtaipei_map_margin_10y.png"
+    "left": "./img/set1/newtaipei_map_margin_10y.png",
     "right": "./img/set1/newtaipei_margin_10y.png"
   },
   "基隆市": {
-    "left": "./img/set1/keelung_map_margin_10y.png"
+    "left": "./img/set1/keelung_map_margin_10y.png",
     "right": "./img/set1/keelung_margin_10y.png"
   },
   "宜蘭縣": {
-    "left": "./img/set1/yilan_map_margin_10y.png"
+    "left": "./img/set1/yilan_map_margin_10y.png",
     "right": "./img/set1/yilan_margin_10y.png"
   },
   "桃園市": {
-    "left": "./img/set1/taoyuan_map_margin_10y.png"
+    "left": "./img/set1/taoyuan_map_margin_10y.png",
     "right": "./img/set1/taoyuan_margin_10y.png"
   },
   "新竹縣": {
-    "left": "./img/set1/hsincucounty_map_margin_10y.png"
+    "left": "./img/set1/hsincucounty_map_margin_10y.png",
     "right": "./img/set1/hsincucounty_margin_10y.png"
   },
   "新竹市": {
-    "left": "./img/set1/hsincucity_map_margin_10y.png"
+    "left": "./img/set1/hsincucity_map_margin_10y.png",
     "right": "./img/set1/hsincucity_margin_10y.png"
   },
   "苗栗縣": {
-    "left": "./img/set1/miaoli_map_margin_10y.png"
+    "left": "./img/set1/miaoli_map_margin_10y.png",
     "right": "./img/set1/miaoli_margin_10y.png"
   },
   "臺中市": {
-    "left": "./img/set1/taichung_map_margin_10y.png"
+    "left": "./img/set1/taichung_map_margin_10y.png",
     "right": "./img/set1/taichung_margin_10y.png"
   },
   "彰化縣": {
-    "left": "./img/set1/changhua_map_margin_10y.png"
+    "left": "./img/set1/changhua_map_margin_10y.png",
     "right": "./img/set1/changhua_margin_10y.png"
   },
   "南投縣": {
-    "left": "./img/set1/nantou_map_margin_10y.png"
+    "left": "./img/set1/nantou_map_margin_10y.png",
     "right": "./img/set1/nantou_margin_10y.png"
   },
   "嘉義市": {
-    "left": "./img/set1/jiayicity_map_margin_10y.png"
+    "left": "./img/set1/jiayicity_map_margin_10y.png",
     "right": "./img/set1/jiayicity_map_margin_10yty_margin_10y.png"
   },
   "嘉義縣": {
-    "left": "./img/set1/jiayicounty_map_margin_10y.png"
+    "left": "./img/set1/jiayicounty_map_margin_10y.png",
     "right": "./img/set1/jiayicounty_margin_10y.png"
   },
   "臺南市": {
-    "left": "./img/set1/tainan_map_margin_10y.png"
+    "left": "./img/set1/tainan_map_margin_10y.png",
     "right": "./img/set1/tainan_margin_10y.png"
   },
   "屏東縣": {
-    "left": "./img/set1/pingtung_map_margin_10y.png"
+    "left": "./img/set1/pingtung_map_margin_10y.png",
     "right": "./img/set1/pingtung_margin_10y.png"
   },
   "花蓮縣": {
-    "left": "./img/set1/hualian_map_margin_10y.png"
+    "left": "./img/set1/hualian_map_margin_10y.png",
     "right": "./img/set1/hualian_margin_10y.png"
   },
   "臺東縣": {
-    "left": "./img/set1/taitung_map_margin_10y.png"
+    "left": "./img/set1/taitung_map_margin_10y.png",
     "right": "./img/set1/taitung_margin_10y.png"
   }
 }
@@ -121,15 +129,10 @@ function legislativeReducer(state, action) {
     ].sort((a, b) => (b.prediction - a.prediction));
 }
 
-
-
-
-
-
-
 export default function PeopleVoice({ submittable = true, formContent = null, submitForm = (i, p) => { console.log({i: i, p:p})} }) {
     const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, { s: 33, h: 33, t: 33 });
     const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer(legislativeReducer, initialLegislativeDistribution);
+    const [county, setCounty] = useState('臺北市');
 
     const onClickSubmit = (formState) => {
         submitForm(
@@ -139,8 +142,6 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                 legislative: legislativeDistribution
             });
     };
-
-
 
     return(
     <div>
@@ -236,14 +237,27 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                         </Box>
                     </Grid>
                 <Grid container xs={12} md={12} direction="row">
+                  <FormControl className={styles.formControl}>
+                    {/* <InputLabel id={tag}>{tag}</InputLabel> */}
+                    <Select
+                      labelId="spread-county-select-label"
+                      name="spread-country-select"
+                      value={county}
+                      onChange={ (e) => {setCounty(e.target.value)}}
+                    >
+                      {countySelectMenus.map( (county, idx) => {
+                        return (<MenuItem key={idx} value={county}>{county}</MenuItem>)
+                      })}
+                    </Select>
+                  </FormControl>
                     <Box item>
                         <Typography className={styles.spread__subtitle}>十年平均藍綠得票率差異</Typography>
-                        <Box><img src={require('./img/set1/taipei_map_margin_10y.png')} width="450px" alt="" /></Box>
+                        <Box><img src={countyImages(counties[county]['left'])} width="450px" alt="" /></Box>
                         <img src={require('./img/set1/map_who_win.svg')} alt="" />
                     </Box>
                     <Box item>
                         <Typography className={styles.spread__subtitle}>2008-2018 歷次選舉藍綠得票率差異</Typography>
-                        <img src={require('./img/set1/taipei_margin_10y.png')} width="450px" alt="" />
+                        <img src={countyImages(counties[county]['right'])} width="450px" alt="" />
                     </Box>
                 </Grid>
 
