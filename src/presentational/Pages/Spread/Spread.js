@@ -9,6 +9,77 @@ import Hidden from '@material-ui/core/Hidden';
 import Form from '../../Components/Form/Form'
 import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
 
+const counties = {
+  "臺北市": {
+    "left": "./img/set1/taipei_map_margin_10y.png"
+    "right": "./img/set1/taipei_margin_10y.png"
+  },
+  "新北市": {
+    "left": "./img/set1/newtaipei_map_margin_10y.png"
+    "right": "./img/set1/newtaipei_margin_10y.png"
+  },
+  "基隆市": {
+    "left": "./img/set1/keelung_map_margin_10y.png"
+    "right": "./img/set1/keelung_margin_10y.png"
+  },
+  "宜蘭縣": {
+    "left": "./img/set1/yilan_map_margin_10y.png"
+    "right": "./img/set1/yilan_margin_10y.png"
+  },
+  "桃園市": {
+    "left": "./img/set1/taoyuan_map_margin_10y.png"
+    "right": "./img/set1/taoyuan_margin_10y.png"
+  },
+  "新竹縣": {
+    "left": "./img/set1/hsincucounty_map_margin_10y.png"
+    "right": "./img/set1/hsincucounty_margin_10y.png"
+  },
+  "新竹市": {
+    "left": "./img/set1/hsincucity_map_margin_10y.png"
+    "right": "./img/set1/hsincucity_margin_10y.png"
+  },
+  "苗栗縣": {
+    "left": "./img/set1/miaoli_map_margin_10y.png"
+    "right": "./img/set1/miaoli_margin_10y.png"
+  },
+  "臺中市": {
+    "left": "./img/set1/taichung_map_margin_10y.png"
+    "right": "./img/set1/taichung_margin_10y.png"
+  },
+  "彰化縣": {
+    "left": "./img/set1/changhua_map_margin_10y.png"
+    "right": "./img/set1/changhua_margin_10y.png"
+  },
+  "南投縣": {
+    "left": "./img/set1/nantou_map_margin_10y.png"
+    "right": "./img/set1/nantou_margin_10y.png"
+  },
+  "嘉義市": {
+    "left": "./img/set1/jiayicity_map_margin_10y.png"
+    "right": "./img/set1/jiayicity_map_margin_10yty_margin_10y.png"
+  },
+  "嘉義縣": {
+    "left": "./img/set1/jiayicounty_map_margin_10y.png"
+    "right": "./img/set1/jiayicounty_margin_10y.png"
+  },
+  "臺南市": {
+    "left": "./img/set1/tainan_map_margin_10y.png"
+    "right": "./img/set1/tainan_margin_10y.png"
+  },
+  "屏東縣": {
+    "left": "./img/set1/pingtung_map_margin_10y.png"
+    "right": "./img/set1/pingtung_margin_10y.png"
+  },
+  "花蓮縣": {
+    "left": "./img/set1/hualian_map_margin_10y.png"
+    "right": "./img/set1/hualian_margin_10y.png"
+  },
+  "臺東縣": {
+    "left": "./img/set1/taitung_map_margin_10y.png"
+    "right": "./img/set1/taitung_margin_10y.png"
+  }
+}
+
 function presidentReducer(state, action) {
     switch (action.type) {
         case 'S':
@@ -354,7 +425,10 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                             </Box>
                         </Typography>
                         <Typography className={styles.spread__subtitle}>十年藍綠得票率差異</Typography>
-                        <Box><img src={require('./img/set2/margin_y.svg')} width="100%" alt="" /></Box>
+                        <Button variant="contained" className={styles.bottom__button__black} onclick="toggleImage();">
+                            切換視角
+                        </Button>
+                        <Box><img src={require('./img/set2/margin_y.svg')} width="100%" alt="" id="toggleImage"/></Box>
                         <Typography className={styles.spread__subtitle}>上大學會怎樣？</Typography>
                         <Typography variant="body3" align="left">
                             <Box mt={3}>改從人口特徵出發，拉出擁有大學學歷的人口比例最多，跟最少的 10% 村里，檢視這兩群村里的藍綠得票率差異，會發現教育程度較高的這一群村里，相較於教育程度較低的那群，兩黨的勝差更小，也有整體轉藍或者轉綠的情況，可能對政黨的忠誠度較低。而大學學歷人口比例最少的村里群，雖然也有部分變天，但數量較少，單一村里開出的票，對特定政黨的支持較穩定。
