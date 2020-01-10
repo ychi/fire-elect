@@ -8,7 +8,7 @@ import Hidden from '@material-ui/core/Hidden';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CongressSummaryContainer from '../../../container/CongressSummaryContainer';
-import DistParliament from '../../Components/DistParliament/DistParliament';
+import TieContainer from '../../../container/TieContainer';
 import LineGraph from '../../Components/LineGraph/LineGraph';
 import Footer from '../../Footer/Footer';
 import title from './img/title.svg';
@@ -259,12 +259,12 @@ export default function Landing({congressDist=[]}) {
                 <Grid container item xs direction="column">
                     <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={3}>拉鋸選區勝選率AI預測</Box> 
                     <Grid item xs container spacing={2}>
-                        <DistParliament id="1" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
-                        <DistParliament id="2" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
-                        <DistParliament id="3" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
-                        <DistParliament id="4" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
-                        <DistParliament id="5" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
-                        <DistParliament id="6" dist="台北 4" winner="吳宜農" wincount="22222" loser="蔣萬安" losecount="11111"/>
+                        <TieContainer key={0}/>
+                        <TieContainer key={1}/>
+                        <TieContainer key={2}/>
+                        <TieContainer key={3}/>
+                        <TieContainer key={4}/>
+                        <TieContainer key={5}/>
                     </Grid>
                 </Grid>
             </Grid> 
