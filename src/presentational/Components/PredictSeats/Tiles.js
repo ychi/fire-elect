@@ -1,15 +1,15 @@
 import React from 'react';
 
-import styles from './PredictSeats.module.scss';
+import styles from './Tiles.module.scss';
 
-const Tile = ({colorClass = styles.default}) =>(
-    <div className={`${styles.tile} ${colorClass}`}></div>
+const Tile = ({colorClass = styles.default, tileClass= styles.tile}) =>(
+    <div className={`${tileClass} ${colorClass}`}></div>
 );
 
-const TileMap = ({seats}) => (
+const TileMap = ({seats, tileClass=styles.tile}) => (
     <div className = {styles.tilesContainer}>
-        {seats.map((seat, idx)=>(<Tile key={idx} colorClass={seat.colorClass}/>))}
+        {seats.map((seat, idx)=>(<Tile key={idx} colorClass={seat.colorClass} tileClass={tileClass}/>))}
     </div>
 );
 
-export {Tile, TileMap};
+export {Tile, TileMap, styles as TileStyles};
