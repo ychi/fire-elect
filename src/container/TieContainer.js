@@ -2,9 +2,9 @@ import React from 'react';
 import DistParliament from '../presentational/Components/DistParliament/DistParliament';
 import {PartyInfos} from '../logicUtils/PartyUtil';
 
-export default ()=>{
+export default ({dist})=>{
     return (<DistParliament 
-        dist="dist 1"
+        dist={dist}
         winner="winner"
         wincount={253}
         loser="loser"

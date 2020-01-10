@@ -259,12 +259,11 @@ export default function Landing({congressDist=[]}) {
                 <Grid container item xs direction="column">
                     <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={3}>拉鋸選區勝選率AI預測</Box> 
                     <Grid item xs container spacing={2}>
-                        <TieContainer key={0}/>
-                        <TieContainer key={1}/>
-                        <TieContainer key={2}/>
-                        <TieContainer key={3}/>
-                        <TieContainer key={4}/>
-                        <TieContainer key={5}/>
+                        {['dist 1', 'dist 2', 'dist 3', 'dist 4', 'dist 5', 'dist 6']
+                        .map((d, idx)=>(
+                            <TieContainer key={idx} dist={d}/>
+                        ))}
+                        
                     </Grid>
                 </Grid>
             </Grid> 
