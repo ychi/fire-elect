@@ -39,12 +39,12 @@ const counties = {
     "right": "./img/set1/taoyuan_margin_10y.png"
   },
   "新竹縣": {
-    "left": "./img/set1/hsincucounty_map_margin_10y.png",
-    "right": "./img/set1/hsincucounty_margin_10y.png"
+    "left": "./img/set1/hsinchucounty_map_margin_10y.png",
+    "right": "./img/set1/hsinchucounty_map_margin_10y.png"
   },
   "新竹市": {
-    "left": "./img/set1/hsincucity_map_margin_10y.png",
-    "right": "./img/set1/hsincucity_margin_10y.png"
+    "left": "./img/set1/hsinchucity_map_margin_10y.png",
+    "right": "./img/set1/hsinchucity_map_margin_10y.png"
   },
   "苗栗縣": {
     "left": "./img/set1/miaoli_map_margin_10y.png",
@@ -64,7 +64,7 @@ const counties = {
   },
   "嘉義市": {
     "left": "./img/set1/jiayicity_map_margin_10y.png",
-    "right": "./img/set1/jiayicity_map_margin_10yty_margin_10y.png"
+    "right": "./img/set1/jiayicity_map_margin_10y.png"
   },
   "嘉義縣": {
     "left": "./img/set1/jiayicounty_map_margin_10y.png",
