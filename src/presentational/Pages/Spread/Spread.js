@@ -159,22 +159,22 @@ export default function Spread() {
         <section className={styles.window__section}>
             <Grid container>
                 <Grid xs={1} md={1}></Grid>
-                <Grid container xs={10} md={1}>
+                <Grid container xs={10} md={1} alignContent='flex-start'>
                     <Grid item xs={12} md={12}>
-                        <Box width={50} height={50} display="inline-block" textAlign="center">
-                            <img src={require('./section_pattern.svg')} alt="" width="200%" />
+                        <Box width={50} display="inline-block" textAlign="center">
+                            <Typography variant="h3">1</Typography>
+                            <Box top="-40px" left='-20px' position="relative" zIndex='-1'>
+                                <img src={require('./section_pattern.svg')} alt="" width="100px" />
+                            </Box>
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={12}>
                         <Box>
-                            <Typography variant="h2" className={styles.predict__subtitle__vertical} display="inline">身在<br/>是何方</Typography>
+                            <Typography variant="h2" className={styles.predict__subtitle__vertical} display="inline">身在<br />是何方</Typography>
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={12}>
                         <Box height="8vh"></Box>
-                    </Grid>
-
-                    <Grid item xs={12} md={12}>
                     </Grid>
                 </Grid>
                 <Grid container xs={12} md={2}></Grid>
@@ -215,15 +215,19 @@ export default function Spread() {
                     </Grid>
 
                     <Grid container xs={12} md={10} direction="row">
-                        <Box item>
-                            <Typography className={styles.spread__subtitle}>十年平均藍綠得票率差異</Typography>
-                            <Box><img src={countyImages(counties[county]['left'])} width="100%" alt="" /></Box>
-                            <Box mt={1}><img src={require('./img/set1/map_who_win.svg')} width="100%" alt="" /></Box>
-                        </Box>
-                        <Box item>
-                            <Typography className={styles.spread__subtitle}>2008-2018 歷次選舉藍綠得票率差異</Typography>
-                            <img src={countyImages(counties[county]['right'])} width="100%" alt="" />
-                        </Box>
+                        <Grid md={6}>
+                            <Box item>
+                                <Typography className={styles.spread__subtitle}>十年平均藍綠得票率差異</Typography>
+                                <Box><img src={countyImages(counties[county]['left'])} width="100%" alt="" /></Box>
+                                <Box mt={1}><img src={require('./img/set1/map_who_win.svg')} width="100%" alt="" /></Box>
+                            </Box>
+                        </Grid>
+                        <Grid md={6}>
+                            <Box item>
+                                <Typography className={styles.spread__subtitle}>2008-2018 歷次選舉藍綠得票率差異</Typography>
+                                <img src={countyImages(counties[county]['right'])} width="100%" alt="" />
+                            </Box>
+                        </Grid>
                     </Grid>
                 </Grid>
                 <Hidden smUp>
@@ -271,27 +275,26 @@ export default function Spread() {
         <section className={styles.window__section}>
             <Grid container>
                 <Grid xs={1} md={1}></Grid>
-                <Grid container xs={10} md={1}>
-                    <Grid item xs={12} md={12}>
-                        <Box width={50} height={50} display="inline-block" textAlign="center">
-                            <img src={require('./section_pattern.svg')} alt="" width="200%" />
-                        </Box>
+                <Grid container xs={10} md={1} alignContent="flex-start">
+                    <Grid container xs={12} md={12} alignContent="flex-start">
+                            <Box width={50} display="inline-block" textAlign="center">
+                                <Typography variant="h3">2</Typography>
+                                <Box top="-40px" left='-20px' position="relative" zIndex='-1'>
+                                    <img src={require('./section_pattern.svg')} alt="" width="100px" />
+                                </Box>
+                            </Box>
                     </Grid>
                     <Grid item xs={12} md={12}>
                         <Box>
-                            <Typography variant="h2" className={styles.predict__subtitle__vertical} display="inline">台灣<br/>走透透</Typography>
+                            <Typography variant="h2" className={styles.predict__subtitle__vertical} display="inline">台灣<br />走透透</Typography>
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={12}>
                         <Box height="8vh"></Box>
                     </Grid>
-
-                    <Grid item xs={12} md={12}>
-                    </Grid>
-                </Grid>
-                <Grid container xs={12} md={2}>
                 </Grid>
 
+                <Grid container xs={12} md={2}></Grid>
                 <Hidden smUp>
                         <Grid item xs={1}></Grid>
                 </Hidden>
