@@ -7,11 +7,12 @@ import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
 import Hidden from '@material-ui/core/Hidden';
 import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
-
+import {Link} from 'react-router-dom';
 import FormControl from '../../../../node_modules/@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 
 const countyImages = require.context('.', true);
+
 
 const countySelectMenus = ["臺北市", "新北市", "基隆市","宜蘭縣","桃園市","新竹縣","新竹市","苗栗縣","臺中市","彰化縣","南投縣","嘉義市","嘉義縣","臺南市","高雄市","屏東縣","花蓮縣","臺東縣"]
 
@@ -514,9 +515,11 @@ export default function Spread() {
                                 <Box>把握倒數幾天</Box>
                                 <Box marginTop="12px" marginBottom="24px">看看你能否鐵口直斷</Box>
                             </Typography>
-                            <Button variant="contained" className={styles.bottom__button__black}>
-                                我要預測
-                            </Button>
+                            <Link to='/predict'>
+                                <Button variant="contained" className={styles.bottom__button__black}>
+                                    我要發聲
+                                </Button>
+                            </Link>
                         </Box>
                     </Grid>
                     <Grid item xs={3} md={2}>
