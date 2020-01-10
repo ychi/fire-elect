@@ -1,5 +1,4 @@
-import React, { useState, useReducer } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
 import styles from './spread.module.scss';
 import Grid from '@material-ui/core/Grid';
 import { Select, MenuItem } from '@material-ui/core'
@@ -7,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
 import Hidden from '@material-ui/core/Hidden';
-import Form from '../../Components/Form/Form'
 import CoundownTimer from "../../Components/Common/CountdownTimer/CoundownTimer";
 
 import FormControl from '../../../../node_modules/@material-ui/core/FormControl';
@@ -15,7 +13,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 
 const countyImages = require.context('.', true);
 
-const countySelectMenus = ["臺北市", "新北市", "基隆市","宜蘭縣","桃園市","新竹縣","新竹市","苗栗縣","臺中市","彰化縣","南投縣","嘉義市","嘉義縣","臺南市","屏東縣","花蓮縣","臺東縣"]
+const countySelectMenus = ["臺北市", "新北市", "基隆市","宜蘭縣","桃園市","新竹縣","新竹市","苗栗縣","臺中市","彰化縣","南投縣","嘉義市","嘉義縣","臺南市","高雄市","屏東縣","花蓮縣","臺東縣"]
 
 const counties = {
   "臺北市": {
@@ -40,11 +38,11 @@ const counties = {
   },
   "新竹縣": {
     "left": "./img/set1/hsinchucounty_map_margin_10y.png",
-    "right": "./img/set1/hsinchucounty_map_margin_10y.png"
+    "right": "./img/set1/hualian_map_margin_10y.png"
   },
   "新竹市": {
     "left": "./img/set1/hsinchucity_map_margin_10y.png",
-    "right": "./img/set1/hsinchucity_map_margin_10y.png"
+    "right": "./img/set1/hsinchucity__margin_10y.png"
   },
   "苗栗縣": {
     "left": "./img/set1/miaoli_map_margin_10y.png",
@@ -85,63 +83,15 @@ const counties = {
   "臺東縣": {
     "left": "./img/set1/taitung_map_margin_10y.png",
     "right": "./img/set1/taitung_margin_10y.png"
+  },
+  "高雄市": {
+    "left": "./img/set1/kaohsiung_map_margin_10y.png",
+    "right": "./img/set1/kaohsiung_margin_10y.png" 
   }
 }
 
-function presidentReducer(state, action) {
-    switch (action.type) {
-        case 'S':
-            return {
-                ...state,
-                s: (state.h + state.t + action.commitedV > 100) ?
-                    100 - state.h - state.t :
-                    action.commitedV
-            };
-        case 'H':
-            return {
-                ...state,
-                h: (state.s + state.t + action.commitedV > 100) ?
-                    100 - state.s - state.t :
-                    action.commitedV
-            };
-        case 'T':
-            return {
-                ...state,
-                t: (state.s + state.h + action.commitedV > 100) ?
-                    100 - state.s - state.h :
-                    action.commitedV
-            };
-        default:
-            return state;
-    }
-}
-
-const initialLegislativeDistribution = [];
-
-
-function legislativeReducer(state, action) {
-    let filtered = state.filter((d) => (d.partyId !== action.partyId));
-    let filteredTotal = filtered.reduce((agg, p) => (agg + p.prediction), 0);
-    let verifiedPrediction = action.prediction > 0 ? Math.min(113 - filteredTotal, action.prediction) : 0;
-    return [
-        ...filtered,
-        { partyId: action.partyId, prediction: verifiedPrediction }
-    ].sort((a, b) => (b.prediction - a.prediction));
-}
-
-export default function PeopleVoice({ submittable = true, formContent = null, submitForm = (i, p) => { console.log({i: i, p:p})} }) {
-    const [presidentPercentages, dispatchPresidentPercentages] = useReducer(presidentReducer, { s: 33, h: 33, t: 33 });
-    const [legislativeDistribution, dispatchLegislativeDistribution] = useReducer(legislativeReducer, initialLegislativeDistribution);
+export default function Spread() {
     const [county, setCounty] = useState('臺北市');
-
-    const onClickSubmit = (formState) => {
-        submitForm(
-            formState,
-            {
-                president: presidentPercentages,
-                legislative: legislativeDistribution
-            });
-    };
 
     return(
     <div>
@@ -152,7 +102,7 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                         <Box textAlign="right">
                             <Box height="10vh"></Box>
                             <Typography variant="h5" className={styles.text__vertical__lr} display="inline">SPREAD THE WORD</Typography>
-                            <Box borderLeft={2} height="25vw" width="24px" ml="6vw"></Box>
+                            <Box borderLeft={2} height="25vw" width="24px" ml="7vw"></Box>
                         </Box>
                     </Hidden>
                 </Grid>
@@ -228,7 +178,10 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                 </Grid>
                 <Grid container xs={12} md={2}></Grid>
                 <Grid container xs={12} md={8}>
-                    <Grid item xs={12} md={8} lg={10}>
+                    <Hidden smUp>
+                        <Grid item xs={1}></Grid>
+                    </Hidden>
+                    <Grid item xs={10} md={8} lg={10}>
                         <Box>
                             <Typography variant="body3" align="left">
                                 <Box>提起藍綠版圖，「南綠北藍」是普遍印象。誰來自台南，「我感覺你是綠的」，誰出身台北，知識藍經濟藍的標籤，立刻浮現腦海。但是，地球的板塊都會位移了，沒道理政治的板塊不會變動。當國家機器動來動去，藍綠支持者究竟是要進來，還是要出去呢？十年藍綠兩茫茫，你的家鄉怎麼動，一起來看看。
@@ -236,7 +189,13 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                             </Typography>
                         </Box>
                     </Grid>
-                <Grid container xs={12} md={12} direction="row">
+                    <Hidden smUp>
+                        <Grid item xs={1}></Grid>
+                    </Hidden>               
+                <Hidden smUp>
+                    <Grid item xs={1}></Grid>
+                </Hidden>
+                <Grid container xs={10} md={12} direction="row">
                     <Box item mt={3}>
                       <FormControl className={styles.formControl}>
                         {/* <InputLabel id={tag}>{tag}</InputLabel> */}
@@ -252,20 +211,27 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                         </Select>
                       </FormControl>
                     </Box>
+                    
                     <Grid container xs={12} md={12} direction="row">
                         <Box item>
                             <Typography className={styles.spread__subtitle}>十年平均藍綠得票率差異</Typography>
-                            <Box><img src={countyImages(counties[county]['left'])} width="450px" alt="" /></Box>
-                            <Box mt={1}><img src={require('./img/set1/map_who_win.svg')} alt="" /></Box>
+                            <Box><img src={countyImages(counties[county]['left'])} width="100%" alt="" /></Box>
+                            <Box mt={1}><img src={require('./img/set1/map_who_win.svg')} width="100%" alt="" /></Box>
                         </Box>
                         <Box item>
                             <Typography className={styles.spread__subtitle}>2008-2018 歷次選舉藍綠得票率差異</Typography>
-                            <img src={countyImages(counties[county]['right'])} width="450px" alt="" />
+                            <img src={countyImages(counties[county]['right'])} width="100%" alt="" />
                         </Box>
                     </Grid>
                 </Grid>
+                <Hidden smUp>
+                        <Grid item xs={1}></Grid>
+                </Hidden>
 
-                <Grid item xs={12} md={8} lg={10}>
+                <Hidden smUp>
+                        <Grid item xs={1}></Grid>
+                </Hidden>
+                <Grid item xs={10} md={8} lg={10}>
                     <Box>
                         <Typography variant="body1" align="left">
                             <Box mt={2}>使用方法：</Box>
@@ -286,6 +252,10 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                         </Typography>
                     </Box>
                 </Grid>
+                <Hidden smUp>
+                        <Grid item xs={1}></Grid>
+                </Hidden>
+
                     <Hidden mdUp>
                         <Grid xs={1}></Grid>
                     </Hidden>
@@ -318,7 +288,11 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                 </Grid>
                 <Grid container xs={12} md={2}>
                 </Grid>
-                <Grid container xs={12} md={8}>
+
+                <Hidden smUp>
+                        <Grid item xs={1}></Grid>
+                </Hidden>
+                <Grid container xs={10} md={8}>
                     <Typography className={styles.spread__subtitle}>各縣市十年平均藍綠得票率差異</Typography>
                     <Grid container xs={12} md={8} lg={10} mb={2} direction="row">
                         <Box item height="150px">
@@ -394,21 +368,25 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                             <Typography variant="body4" align="left"><Box>臺東縣</Box></Typography>
                         </Box>
                     </Grid>
-                <Grid item xs={12} md={8} lg={10}>
-                    <Typography className={styles.spread__subtitle}>齁，我的鄰居都是 X 粉啦</Typography>
-                    <Typography variant="body3" align="left">
-                        <Box mt={2}>鍵盤繞境台灣，會發現各縣市的藍綠區塊，頗有一種漸層質感。藍色的相鄰區塊，大致是藍的，綠色的鄰居，大多也是綠的，藍綠相接處，常有接近 0 的米白色，或至少淺藍淺綠作為緩衝。深藍綠短兵相接處雖有，但數量稀少。
-                        </Box>
-                        <Box mt={2}>大部分的縣市，藍綠壁壘分明，唯有基隆，全區夢幻粉彩，輕飄飄跨越藍綠之間，來去自如。藍綠除了開戰濁水溪南北之外，部分包含山區的縣市，也有平地區域較綠、而大面積的山地區塊較藍的情形。
-                        </Box>
-                    </Typography>
-                </Grid>
+
+                    <Grid item xs={12} md={8} lg={10}>
+                        <Typography className={styles.spread__subtitle}>齁，我的鄰居都是 X 粉啦</Typography>
+                        <Typography variant="body3" align="left">
+                            <Box mt={2}>鍵盤繞境台灣，會發現各縣市的藍綠區塊，頗有一種漸層質感。藍色的相鄰區塊，大致是藍的，綠色的鄰居，大多也是綠的，藍綠相接處，常有接近 0 的米白色，或至少淺藍淺綠作為緩衝。深藍綠短兵相接處雖有，但數量稀少。
+                            </Box>
+                            <Box mt={2}>大部分的縣市，藍綠壁壘分明，唯有基隆，全區夢幻粉彩，輕飄飄跨越藍綠之間，來去自如。藍綠除了開戰濁水溪南北之外，部分包含山區的縣市，也有平地區域較綠、而大面積的山地區塊較藍的情形。
+                            </Box>
+                        </Typography>
+                    </Grid>
 
                     <Hidden mdUp>
                         <Grid xs={1}></Grid>
                     </Hidden>
                     <Grid md={1}></Grid>
                 </Grid>
+                <Hidden smUp>
+                        <Grid item xs={1}></Grid>
+                </Hidden>
             </Grid>
         </section>
 
@@ -435,7 +413,10 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                     </Grid>
                 </Grid>
                 <Grid container xs={12} md={2}></Grid>
-                <Grid container xs={12} md={8}>
+                <Hidden smUp>
+                        <Grid item xs={1}></Grid>
+                </Hidden>
+                <Grid container xs={10} md={8}>
                     <Grid item xs={12} md={8} lg={10}>
                         <Typography className={styles.spread__subtitle}>鐵藍區長什麼樣子？</Typography>
                         <Typography variant="body3" align="left">
@@ -455,6 +436,9 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                     </Hidden>
                     <Grid md={1}></Grid>
                 </Grid>
+                <Hidden smUp>
+                        <Grid item xs={1}></Grid>
+                </Hidden>
             </Grid>
         </section>
 
@@ -476,11 +460,14 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                         <Box height="8vh"></Box>
                     </Grid>
 
-                    <Grid item xs={12} md={12}>
-                    </Grid>
+                    <Grid item xs={12} md={12}></Grid>
                 </Grid>
+
                 <Grid container xs={12} md={2}></Grid>
-                <Grid container xs={12} md={8}>
+                <Hidden smUp>
+                        <Grid item xs={1}></Grid>
+                </Hidden>
+                <Grid container xs={10} md={8}>
                     <Grid item xs={12} md={8} lg={10}>
                         <Typography variant="body3" align="left">
                             <Box mt={2}>本篇圖表所使用的，加上村里代碼的 2008-2018 選舉資料
@@ -501,6 +488,9 @@ export default function PeopleVoice({ submittable = true, formContent = null, su
                     </Hidden>
                     <Grid md={1}></Grid>
                 </Grid>
+                <Hidden smUp>
+                        <Grid item xs={1}></Grid>
+                </Hidden>
             </Grid>
         </section>
 

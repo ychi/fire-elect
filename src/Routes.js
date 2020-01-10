@@ -5,7 +5,6 @@ import Warroom from "./presentational/Pages/Warroom/Warroom";
 import Prejudice from "./presentational/Pages/Prejudice/Prejudice";
 import Spread from "./presentational/Pages/Spread/Spread";
 import CommingSoonWrapper from "./presentational/Pages/CommingSoon/CommingSoonWrapper";
-import Dummy from "./presentational/Dummy/Dummy";
 
 export default [
     {
