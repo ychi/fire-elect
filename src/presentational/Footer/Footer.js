@@ -17,10 +17,10 @@ function Footer(props) {
           <Grid item xs={12}>
             <Typography component="div" align="left" style={{color: '#e9f2f2'}}>
               <Box fontSize="body3.fontSize" fontWeight="500" lineHeight={1.6}>
-                身為一介庶民<br/>
-                除了用選票教訓政黨<br/>
-                就是製作一個視覺化網站<br/>
-                讓團員們一起同甘共苦
+                通往民主的車票<br/>
+                是不是隔日作廢？<br/>
+                我們不是老司機<br/>
+                只求大家一起上車
               </Box>
             </Typography>
           </Grid>
@@ -31,7 +31,7 @@ function Footer(props) {
               <Box fontSize="fontSize" lineHeight={1.6} fontWeight="fontWeightBold" style={{color: '#CC9423'}}>資訊圖表</Box>
               <Box fontSize="fontSize" fontWeight="fontWeightMedium" lineHeight={2}>Claire Tsao, Yu Lin</Box>
               <Box fontSize="fontSize" lineHeight={1.6} fontWeight="fontWeightBold" style={{color: '#CC9423'}}>UI/UX</Box>
-              <Box fontSize="fontSize" fontWeight="fontWeightMedium" lineHeight={2}>Chiung Shen</Box>
+              <Box fontSize="fontSize" fontWeight="fontWeightMedium" lineHeight={2}>Chiung Shen, Ansin</Box>
               <Box fontSize="fontSize" lineHeight={1.6} fontWeight="fontWeightBold" style={{color: '#CC9423'}}>視覺設計</Box>
               <Box fontSize="fontSize" fontWeight="fontWeightMedium" lineHeight={2}>Yu Lin</Box>
               <Box fontSize="fontSize" lineHeight={1.6} fontWeight="fontWeightBold" style={{color: '#CC9423'}}>資料處理</Box>
