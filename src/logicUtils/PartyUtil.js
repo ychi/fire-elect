@@ -48,7 +48,7 @@ const PartyInfos = {
   }
 };
 
-const distributionToSeats = (dist) => {
+const distributionToSeats = (dist, total = 113) => {
   let aggr = dist.reduce((aggregate, party) => {
     for (let i = 0; i < party.prediction; i++) {
       aggregate.seats.push({
@@ -59,7 +59,7 @@ const distributionToSeats = (dist) => {
     return aggregate;
   }, { count: 0, seats: [] });
 
-  while (aggr.count < 113) {
+  while (aggr.count < total) {
     aggr.seats.push({
       colorClass: styles.default
     });
