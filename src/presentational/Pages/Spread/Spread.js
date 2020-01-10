@@ -515,7 +515,7 @@ export default function Spread() {
                                 <Box>把握倒數幾天</Box>
                                 <Box marginTop="12px" marginBottom="24px">看看你能否鐵口直斷</Box>
                             </Typography>
-                            <Link to='/predict'>
+                            <Link to='/ipredict'>
                                 <Button variant="contained" className={styles.bottom__button__black}>
                                     我要發聲
                                 </Button>
