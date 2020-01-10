@@ -171,6 +171,12 @@ export default function Predict({ submittable = true, formContent = null, submit
                                     <Box fontSize="body2.fontSize">你是神預測還是馬後砲</Box>
                                     <Box fontSize="body2.fontSize">快來拉拉看得票率！</Box>
                                 </Typography>
+                                <Typography component="div" className={styles.section__brief__red}>
+                                    <Box fontSize="body2.fontSize"><br/></Box>
+                                    <Box fontSize="body2.fontSize">請參考歷年總統得票率</Box>
+                                    <Box fontSize="body2.fontSize">以此預測三位候選人得票率</Box>
+                                    <Box fontSize="body2.fontSize">（拖曳到對應數字）</Box>
+                                </Typography>
                             </Box>
                         </Grid>
                     </Grid>
@@ -260,6 +266,12 @@ export default function Predict({ submittable = true, formContent = null, submit
                                     <Box fontSize="body2.fontSize">哪個政黨上位</Box>
                                     <Box fontSize="body2.fontSize">哪個又被下架</Box>
                                     <Box fontSize="body2.fontSize">填填看你預測的席次！</Box>
+                                </Typography>
+                                <Typography component="div" className={styles.section__brief__red}>
+                                    <Box fontSize="body2.fontSize"><br/></Box>
+                                    <Box fontSize="body2.fontSize">請參考上次政黨得票席次</Box>
+                                    <Box fontSize="body2.fontSize">以此預測今年立委選情</Box>
+                                    <Box fontSize="body2.fontSize">（請填入預測數字）</Box>
                                 </Typography>
                             </Box>
                         </Grid>
