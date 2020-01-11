@@ -25,7 +25,7 @@ const headImages = require.context('./img', true);
 
 function namePicSelector(name) {
   switch (name){
-    case 'sonng':
+    case 'soong':
       return sung;
     case 'han':
       return han;
@@ -44,16 +44,6 @@ export default function Landing() {
         .onSnapshot( snapshot => {
           const results = snapshot.docs.map( d => ({id: d.id, ...d.data()}));
           setPresident(results);
-        })
-      return unsub;
-    },[firebase]);
-
-    const [swing, setSwing] = useState([]);
-    useEffect(() => {
-      const unsub = firebase.db.collection('summary_swing')
-        .onSnapshot( snapshot => {
-          const results = snapshot.docs.map( d => ({...d.data()}));
-          setSwing(results);
         })
       return unsub;
     },[firebase]);
@@ -127,7 +117,7 @@ export default function Landing() {
                     <Grid item xs={6} md={3}>
                         <Typography component="div">
                             <Box fontSize="caption.fontSize" lineHeight={1}>AI預測得票率</Box>
-                            <Box fontSize="h3.fontSize" fontWeight="500" lineHeight={1.5}>{president[0] ? Math.round(president[0]['project']*100) : 0 }<small>%▼</small></Box>
+                            <Box fontSize="h3.fontSize" fontWeight="500" lineHeight={1.5}>{president[0] ? Math.floor(president[0]['project']*100) : 0 }<small>%▼</small></Box>
                             <Box fontSize="caption.fontSize" lineHeight={1}>最新得票</Box> 
                             <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>{president[0] ? president[0]['counts']: 0 }</Box>     
                         </Typography>
@@ -136,7 +126,7 @@ export default function Landing() {
                     <Grid item xs={6} md={3}>
                         <Typography component="div">
                             <Box fontSize="caption.fontSize" lineHeight={1}>AI預測當選率</Box>
-                            <Box fontSize="h3.fontSize" fontWeight="500" lineHeight={1.5}>{president[0] ? Math.round(president[0]['prob']*100) : 0 }<small>%▼</small></Box>
+                            <Box fontSize="h3.fontSize" fontWeight="500" lineHeight={1.5}>{president[0] ? Math.floor(president[0]['prob']*100) : 0 }<small>%▼</small></Box>
                             <Box fontSize="caption.fontSize" lineHeight={1}>最新得票率</Box> 
                             <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}></Box>     
                         </Typography>
@@ -164,7 +154,7 @@ export default function Landing() {
                         <Grid item xs={12} md={6}>
                             <Typography component="div">
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>AI預測得票率\當選率</Box>
-                                <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>{president[1] ? Math.round(president[1]['project']*100) : 0 }<small>%▼</small> {president[1] ? Math.round(president[1]['prob']*100) : 0 }<small>%</small></Box>
+                                <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>{president[1] ? Math.floor(president[1]['project']*100) : 0 }<small>%▼</small> {president[1] ? Math.floor(president[1]['prob']*100) : 0 }<small>%</small></Box>
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票</Box> 
                                 <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>0000145</Box>
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票數</Box> 
@@ -187,7 +177,7 @@ export default function Landing() {
                         <Grid item xs={12} md={6}>
                             <Typography component="div">
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>AI預測得票率\當選率</Box>
-                                <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>{president[2] ? Math.round(president[2]['project']*100) : 0 }<small>%▼</small> {president[2] ? Math.round(president[2]['prob']*100) : 0 }<small>%</small></Box>
+                                <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>{president[2] ? Math.floor(president[2]['project']*100) : 0 }<small>%▼</small> {president[2] ? Math.floor(president[2]['prob']*100) : 0 }<small>%</small></Box>
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票</Box> 
                                 <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>0000145</Box>
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票數</Box> 

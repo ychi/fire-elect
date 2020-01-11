@@ -10,19 +10,14 @@ export default ({county='台北市', seatCount})=>{
         const unsub = firebase.db.collection('summary_local').doc(county)
         .onSnapshot(snapshot => {
             const result = snapshot.data().data;
-            console.log("CongressAIPredictContainer")
-            console.log(result)
             let dist = [];
             for (let k in result) {
-              console.log(k)
                 dist.push({
                     partyId: result[k].party === 'independent' ? 'other' : result[k].party,
                     prediction: result[k].project
                 })
             }
-            console.log(dist)
             const seats =distributionToSeats(dist,seatCount);
-            console.log(seats)
             setSeats(seats);
         });
         return unsub;
