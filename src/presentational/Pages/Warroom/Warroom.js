@@ -20,6 +20,7 @@ import PresidentSummaryContainer from '../../../container/PresidentSummaryContai
 import CongressAIPredictContainer from '../../../container/CongressAIPredictContainer'
 
 import FireBaseContext from '../../../tools/firebase/Context';
+import LineGraphContainer from '../../../container/LineGraphContainer';
 
 const headImages = require.context('./img', true);
 
@@ -181,7 +182,8 @@ export default function Landing() {
                 </Grid>
 
                 <Grid container item xs={12} md={12}>
-                    <LineGraph/>
+                    {/* <LineGraph/> */}
+                    <LineGraphContainer />
                 </Grid>
             </Grid>
             
