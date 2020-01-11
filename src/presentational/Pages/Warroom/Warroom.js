@@ -61,53 +61,61 @@ export default function Landing() {
     return(
     <div className="warroom">
 {/* ------------- 固定位置選單 */}
+
         <Hidden smDown>
-        <Grid container xs={12} spacing={4}>         
-            <Grid container item sm={3} xs={12} className="menu">
-                <Grid container item xs={12}>
-                    <Grid item xs={8}>
-                        <Box fontSize="h2.fontSize" fontWeight="900" lineHeight={1.3}>大選<br/>速報</Box>
-                    </Grid>
-                    <Grid container item xs={4} alignItems="flex-end">
-                        <Grid item xs>
-                            <img src={title} className="img" alt="title" />
-                            <Typography gutterBottom>
-                                <Box fontSize="caption.fontSize" lineHeight={1.3}><b>45秒</b>前即時更新</Box>
-                            </Typography>
+            <Grid container xs={0} md={2} spacing={4}>         
+                <Grid container item sm={3} xs={12} className="menu">
+                    <Grid container item xs={12}>
+                        <Grid item xs={8}>
+                            <Box fontSize="h2.fontSize" fontWeight="900" lineHeight={1.3}>大選<br/>速報</Box>
+                        </Grid>
+                        <Grid container item xs={4} alignItems="flex-end">
+                            <Grid item xs>
+                                <img src={title} className="img" alt="title" />
+                                <Typography gutterBottom>
+                                    <Box fontSize="caption.fontSize" lineHeight={1.3}><b>45秒</b>前即時更新</Box>
+                                </Typography>
+                            </Grid>
                         </Grid>
                     </Grid>
+                    <Box className="nav">
+                        <CardActionArea>
+                            <CardContent>
+                                <Box fontSize="h6.fontSize" fontWeight={700} lineHeight={1.3}>即時戰情總覽</Box>
+                            </CardContent>
+                        </CardActionArea>
+                        <Divider/>
+                        <CardActionArea>
+                            <CardContent>
+                                <Box fontSize="h6.fontSize" fontWeight={700} lineHeight={1.3}>總統大選開票</Box>
+                                <PresidentSummaryContainer/>
+                            </CardContent>
+                        </CardActionArea>
+                        <Divider/>
+                        <CardActionArea>
+                            <CardContent>
+                                <Box fontSize="h6.fontSize" fontWeight={700} lineHeight={1.3}>立法委員開票</Box>
+                                <CongressSummaryContainer/>
+                            </CardContent>
+                        </CardActionArea>
+                    </Box>
                 </Grid>
-                <Box className="nav">
-                    <CardActionArea>
-                        <CardContent>
-                            <Box fontSize="h6.fontSize" fontWeight={700} lineHeight={1.3}>即時戰情總覽</Box>
-                        </CardContent>
-                    </CardActionArea>
-                    <Divider/>
-                    <CardActionArea>
-                        <CardContent>
-                            <Box fontSize="h6.fontSize" fontWeight={700} lineHeight={1.3}>總統大選開票</Box>
-                            <PresidentSummaryContainer/>
-                        </CardContent>
-                    </CardActionArea>
-                    <Divider/>
-                    <CardActionArea>
-                        <CardContent>
-                            <Box fontSize="h6.fontSize" fontWeight={700} lineHeight={1.3}>立法委員開票</Box>
-                            <CongressSummaryContainer/>
-                        </CardContent>
-                    </CardActionArea>
-                </Box>
             </Grid>
-        </Grid>
         </Hidden>
 {/* ----------------- 右側視覺化區塊 */}
-        <Grid container xs={12} spacing={4} className="vizbloc">
+        <Grid container xs={12} md={12} spacing={3} className="vizbloc">
 {/* 總統候選人 */}
-            <Grid container item xs={12} sm={7} direction="column">
-                <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={1.3} className="header_bd">總統大選開票</Box>
-                <Grid container item xs spacing={3} className="p_2" alignItems="center">
-                    <Grid container item xs>
+            <Grid item xs={1} md={3} ></Grid>
+            <Grid container item xs={10} md={5} direction="row">
+{/* subtitle */}
+                <Grid md={12} xs={12}>
+                    <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={1.3} className="header_bd">總統大選開票</Box>
+                </Grid>
+{/* ranking No.1 */}
+                <Grid container item xs={12} spacing={1} className="p_2" alignItems="center">
+
+                    {/* Name & Ranking */}
+                    <Grid container item xs={6} md={3}>
                         <Grid item xs={12}>
                             <Box fontSize="substitle.fontSize"><span className="ranking">1</span><span>st</span></Box>
                         </Grid>
@@ -115,7 +123,8 @@ export default function Landing() {
                             <img src={president[0] ? namePicSelector(president[0]["id"]) : tsai} className="img" alt={president[0]?president[0].name: "蔡英文"} />
                         </Grid>
                     </Grid>
-                    <Grid item xs>
+                    {/* 預測當選率 */}
+                    <Grid item xs={6} md={3}>
                         <Typography component="div">
                             <Box fontSize="caption.fontSize" lineHeight={1}>AI預測得票率</Box>
                             <Box fontSize="h3.fontSize" fontWeight="500" lineHeight={1.5}>{president[0] ? Math.round(president[0]['project']*100) : 0 }<small>%▼</small></Box>
@@ -123,7 +132,8 @@ export default function Landing() {
                             <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>{president[0] ? president[0]['counts']: 0 }</Box>     
                         </Typography>
                     </Grid>
-                    <Grid item xs>
+                    {/* 預測得票率 */}
+                    <Grid item xs={6} md={3}>
                         <Typography component="div">
                             <Box fontSize="caption.fontSize" lineHeight={1}>AI預測當選率</Box>
                             <Box fontSize="h3.fontSize" fontWeight="500" lineHeight={1.5}>{president[0] ? Math.round(president[0]['prob']*100) : 0 }<small>%▼</small></Box>
@@ -131,22 +141,27 @@ export default function Landing() {
                             <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}></Box>     
                         </Typography>
                     </Grid>
-                    <Grid item xs>
+                    <Grid item xs={6} md={3}>
                         <img src={president[0]? headImages(`./${president[0]["id"]}_head.svg`): headImages("./han_head.svg")} className="img" alt="tsai" />
+                    {/* img */}
                     </Grid>
                 </Grid>
                 <Divider/>
-                <Grid container item xs>
-                    <Grid container item xs alignItems="center" spacing={3} className="p_2">
-                        <Grid container item xs={4}>
-                            <Grid item xs={12}>
+{/* ranking No.2 & No.3*/}
+                <Grid container item xs={12} justify='space-around'>
+
+                    {/* Ranking No.2 */}
+                    <Grid container item xs={5} alignItems="center" spacing={0} className="p_2">
+
+                        <Grid container item xs={12} md={6}>
+                            <Grid item xs={12} md={3}>
                                 <Box fontSize="substitle.fontSize"><span className="ranking_s">2</span><span>nd</span></Box>
                             </Grid>
-                            <Grid item xs={12}>
-                            <img src={president[1] ? namePicSelector(president[1]["id"]) : han} className="img" alt="han" />
+                            <Grid item xs={12} md={6}>
+                              <img src={president[1] ? namePicSelector(president[1]["id"]) : han} className="img" alt="han" />
                             </Grid>
                         </Grid>
-                        <Grid item xs>
+                        <Grid item xs={12} md={6}>
                             <Typography component="div">
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>AI預測得票率\當選率</Box>
                                 <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>{president[1] ? Math.round(president[1]['project']*100) : 0 }<small>%▼</small> {president[1] ? Math.round(president[1]['prob']*100) : 0 }<small>%</small></Box>
@@ -158,16 +173,18 @@ export default function Landing() {
                         </Grid>
                     </Grid>
                     <Divider orientation="vertical"/>
-                    <Grid container item xs alignItems="center" spacing={3} className="p_2">
-                        <Grid container item xs={4}>
-                            <Grid item xs={12}>
+
+                    {/* Ranking No.3 */}
+                    <Grid container item xs={5} alignItems="center" spacing={0} className="p_2">
+                        <Grid container item xs={12} md={6}>
+                            <Grid item xs={12} md={3}>
                                 <Box fontSize="substitle.fontSize"><span className="ranking_s">3</span><span>rd</span></Box>
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={12} md={6}>
                                 <img src={president[2] ? namePicSelector(president[2]["id"]) : sung} className="img" alt="sung" />
                             </Grid>
                         </Grid>
-                        <Grid item xs>
+                        <Grid item xs={12} md={6}>
                             <Typography component="div">
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>AI預測得票率\當選率</Box>
                                 <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>{president[2] ? Math.round(president[2]['project']*100) : 0 }<small>%▼</small> {president[2] ? Math.round(president[2]['prob']*100) : 0 }<small>%</small></Box>
@@ -180,32 +197,49 @@ export default function Landing() {
                     </Grid>
                 </Grid>
                 <Divider/>
-                <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={1.3} className="header_bd">實際開票走勢/AI預測走勢</Box>
-                <Grid container item xs>
+
+{/* Line chart substitle                 */}
+                <Grid xs={12} md={12}> 
+                    <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={1.3} className="header_bd">實際開票走勢/AI預測走勢</Box>
+                </Grid>
+
+                <Grid container item xs={12} md={12}>
                     <LineGraph/>
                 </Grid>
             </Grid>
             
+            <Hidden smUp>
+                <Grid item xs={1}></Grid>
+            </Hidden>
 {/* 立委 */}
-            <Grid container item xs={12} sm={5} direction="column">
-                <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={1.3} className="header_bd">決戰立法院</Box>
+            <Hidden smUp>
+                <Grid item xs={1} md={4}></Grid>
+            </Hidden>
+
+            <Grid container item xs={10} md={4} direction="row">
+                <Grid xs={12}> 
+                    <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={1.3} className="header_bd">決戰立法院</Box>
+                </Grid>
                 {/* 立委ＡＩ預測 */}
-                <Grid container item xs>
+                <Grid container item xs={12}>
                     <Grid container item xs={12}>
                         <Box fontSize="substitle2.fontSize" fontWeight={500} my={1}>AI預測政黨立委總席次</Box>
                         <CongressSummaryContainer type="total_project" seatTotal={13}/>
                     </Grid>
+
                     <Grid container item xs={12}>
+
                         <Grid container item xs={12}>
-                            <Grid item xs>
+                            <Grid item xs={6}>
                                 <Box fontSize="overline.fontSize" fontWeight={500} my={1}>不分區 AI 預估</Box>
                                   <CongressSummaryContainer type="party_list_project" seatTotal={34}/> 
                             </Grid>
-                            <Grid item xs>
+                            <Grid item xs={6}>
                             <Box fontSize="overline.fontSize" fontWeight={500} my={1}>原住民立委 AI 預估</Box>
                               <CongressSummaryContainer type="aborigines_project" seatTotal={6}/> 
                             </Grid>
                         </Grid>
+
                         <Grid item container xs={12}>
                             <Grid item container xs={12}>
                                 <Box fontSize="overline.fontSize" fontWeight={500} my={1}>區域 AI 預估</Box>
@@ -317,10 +351,11 @@ export default function Landing() {
                     </Grid>
                 </Grid>
                 <Divider/>
+
                 {/* 區域拉鋸選區 */}
-                <Grid container item xs direction="column">
+                <Grid container item xs={12} direction="column">
                     <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={3}>拉鋸選區勝選率AI預測</Box> 
-                    <Grid item xs container spacing={2}>
+                      <Grid item xs container spacing={0}>
                         {['台中 3', '台北 3', '台北 4', '台北 5', '新北 12', '花蓮']
                         .map((d, idx)=>(
                             <TieContainer key={idx} dist={d}/>
@@ -329,7 +364,9 @@ export default function Landing() {
                 </Grid>
             </Grid> 
 
-
+            <Hidden smUp>
+                <Grid item xs={1} ></Grid>
+            </Hidden>
 {/* ------------------- 火熱開票中 */}
 {/* ------------------- 總統 */}
 {/*
