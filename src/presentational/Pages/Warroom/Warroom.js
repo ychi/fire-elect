@@ -109,7 +109,7 @@ export default function Landing({congressDist=[]}) {
                     <Grid container item xs={5} alignItems="center" spacing={0} className="p_2">
 
                         <Grid container item xs={12} md={6}>
-                            <Grid item xs={12} md={3}>
+                            <Grid item xs={12} md={5}>
                                 <Box fontSize="substitle.fontSize"><span className="ranking_s">2</span><span>nd</span></Box>
                             </Grid>
                             <Grid item xs={12} md={6}>
@@ -130,7 +130,7 @@ export default function Landing({congressDist=[]}) {
                     {/* Ranking No.3 */}
                     <Grid container item xs={5} alignItems="center" spacing={0} className="p_2">
                         <Grid container item xs={12} md={6}>
-                            <Grid item xs={12} md={3}>
+                            <Grid item xs={12} md={5}>
                                 <Box fontSize="substitle.fontSize"><span className="ranking_s">3</span><span>rd</span></Box>
                             </Grid>
                             <Grid item xs={12} md={6}>
