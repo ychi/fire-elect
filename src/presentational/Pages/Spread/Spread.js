@@ -130,9 +130,9 @@ export default function Spread() {
                     </Hidden>
                     <Box>
                         <Typography variant="body3" align="left">
-                            <Box>發文不附圖，感覺很模糊</Box>
-                            <Box>資訊不分享，全民不幸福</Box>
-                            <Box>十年選舉無人聞，一頁成名天下知！</Box>
+                            <Box lineHeight={1.5} >發文不附圖，感覺很模糊</Box>
+                            <Box lineHeight={1.5} >資訊不分享，全民不幸福</Box>
+                            <Box lineHeight={1.5} >十年選舉無人聞，一頁成名天下知！</Box>
                         </Typography>
                     </Box>
                 </Grid>
@@ -182,10 +182,10 @@ export default function Spread() {
                     <Hidden smUp>
                         <Grid item xs={1}></Grid>
                     </Hidden>
-                    <Grid item xs={10} md={8} lg={10}>
-                        <Box>
+                    <Grid item xs={10} md={8} lg={8}>
+                        <Box mt={5}>
                             <Typography variant="body3" align="left">
-                                <Box>提起藍綠版圖，「南綠北藍」是普遍印象。誰來自台南，「我感覺你是綠的」，誰出身台北，知識藍經濟藍的標籤，立刻浮現腦海。但是，地球的板塊都會位移了，沒道理政治的板塊不會變動。當國家機器動來動去，藍綠支持者究竟是要進來，還是要出去呢？十年藍綠兩茫茫，你的家鄉怎麼動，一起來看看。
+                                <Box lineHeight={1.8}>提起藍綠版圖，「南綠北藍」是普遍印象。誰來自台南，「我感覺你是綠的」，誰出身台北，知識藍經濟藍的標籤，立刻浮現腦海。但是，地球的板塊都會位移了，沒道理政治的板塊不會變動。當國家機器動來動去，藍綠支持者究竟是要進來，還是要出去呢？十年藍綠兩茫茫，你的家鄉怎麼動，一起來看看。
                                 </Box>
                             </Typography>
                         </Box>
@@ -238,13 +238,13 @@ export default function Spread() {
                         <Grid item xs={1}></Grid>
                 </Hidden>
 
-                <Grid item xs={10} md={8} lg={10}>
+                <Grid item xs={10} md={8} lg={8}>
                     <Box>
-                        <Typography variant="body1" align="left">
-                            <Box mt={2}>使用方法：</Box>
+                        <Typography variant="body1" gutterBottom align="left">
+                            <Box mt={2} color="light">使用方法：</Box>
                         </Typography>
                         <Typography variant="body2" align="left">
-                            <Box>
+                            <Box lineHeight={1.6} >
                             左圖為縣市各村里十年得票率差異平均，藍色即為藍贏，綠色是綠贏，米白色表示差異接近 0。十年平均可以視為該縣市兩政營支持基準。<br/>
                             <br/>
                             右圖為縣市所有村里，十年間七次選舉（縣市長及總統）的兩黨勝差，一條線代表一個村里，線段顏色來自該村里「前一次」選舉，是藍勝或是綠勝，比如從 2012 到 2014 的線段，會是 2012 該村里的勝利陣營的代表色。<br/>
@@ -254,7 +254,7 @@ export default function Spread() {
                         </Typography>
                         <Typography className={styles.spread__subtitle}>寶傑，十年選舉路，你怎麼看</Typography>
                         <Typography variant="body3" align="left">
-                            <Box mt={2}>觀察右圖的七次選舉，兩黨得票率差異，直轄市六都的線段大多平行變動，隨當年大勢同幅增長或減少，趨勢和幅度都相當一致。然而關注其他縣市的 2012-2018 區段，會發現兩群村里往不同方向變動的情形，比如雲林 2012-2014 、花蓮 2014-2016、南投 2012-2016。台東及花蓮的 2012-2014 則是變動走向一致，但有部分村里消長幅度較大的情形。另外，屏東跟高雄有明顯分成兩群，藍綠村里涇渭分明的情形。
+                            <Box mt={2} lineHeight={1.8}>觀察右圖的七次選舉，兩黨得票率差異，直轄市六都的線段大多平行變動，隨當年大勢同幅增長或減少，趨勢和幅度都相當一致。然而關注其他縣市的 2012-2018 區段，會發現兩群村里往不同方向變動的情形，比如雲林 2012-2014 、花蓮 2014-2016、南投 2012-2016。台東及花蓮的 2012-2014 則是變動走向一致，但有部分村里消長幅度較大的情形。另外，屏東跟高雄有明顯分成兩群，藍綠村里涇渭分明的情形。
                             </Box>
                         </Typography>
                     </Box>
@@ -375,12 +375,12 @@ export default function Spread() {
                         </Box>
                     </Grid>
                     <Grid item md={1}></Grid>
-                    <Grid item xs={12} md={8} lg={10}>
+                    <Grid item xs={12} md={8} lg={8}>
                         <Typography className={styles.spread__subtitle}>齁，我的鄰居都是 X 粉啦</Typography>
                         <Typography variant="body3" align="left">
-                            <Box mt={2}>鍵盤繞境台灣，會發現各縣市的藍綠區塊，頗有一種漸層質感。藍色的相鄰區塊，大致是藍的，綠色的鄰居，大多也是綠的，藍綠相接處，常有接近 0 的米白色，或至少淺藍淺綠作為緩衝。深藍綠短兵相接處雖有，但數量稀少。
+                            <Box mt={2} lineHeight={1.8}>鍵盤繞境台灣，會發現各縣市的藍綠區塊，頗有一種漸層質感。藍色的相鄰區塊，大致是藍的，綠色的鄰居，大多也是綠的，藍綠相接處，常有接近 0 的米白色，或至少淺藍淺綠作為緩衝。深藍綠短兵相接處雖有，但數量稀少。
                             </Box>
-                            <Box mt={2}>大部分的縣市，藍綠壁壘分明，唯有基隆，全區夢幻粉彩，輕飄飄跨越藍綠之間，來去自如。藍綠除了開戰濁水溪南北之外，部分包含山區的縣市，也有平地區域較綠、而大面積的山地區塊較藍的情形。
+                            <Box mt={2} lineHeight={1.8}>大部分的縣市，藍綠壁壘分明，唯有基隆，全區夢幻粉彩，輕飄飄跨越藍綠之間，來去自如。藍綠除了開戰濁水溪南北之外，部分包含山區的縣市，也有平地區域較綠、而大面積的山地區塊較藍的情形。
                             </Box>
                         </Typography>
                     </Grid>
@@ -423,17 +423,17 @@ export default function Spread() {
                         <Grid item xs={1}></Grid>
                 </Hidden>
                 <Grid container xs={10} md={8}>
-                    <Grid item xs={12} md={8} lg={10}>
+                    <Grid item xs={12} md={8} lg={8}>
                         <Typography className={styles.spread__subtitle}>鐵藍區長什麼樣子？</Typography>
                         <Typography variant="body3" align="left">
-                            <Box mt={2}>我們將最國民黨支持度最高的前 10% 村里抓出來，標記為鐵桿藍營區，以回歸模型探索，是否有哪些人口特徵，與高度支持藍營相關。模型發現這些藍營區，大體男性人口較多，且多為已婚男性多的區域。民進黨支持度最高的區域，則大致呈現相反的趨勢。
+                            <Box mt={2} lineHeight={1.8}>我們將最國民黨支持度最高的前 10% 村里抓出來，標記為鐵桿藍營區，以回歸模型探索，是否有哪些人口特徵，與高度支持藍營相關。模型發現這些藍營區，大體男性人口較多，且多為已婚男性多的區域。民進黨支持度最高的區域，則大致呈現相反的趨勢。
                             </Box>
                         </Typography>
                         <Typography className={styles.spread__subtitle}>十年藍綠得票率差異</Typography>
                         <Box><img src={require('./img/set2/margin_y.svg')} width="100%" alt="" id="toggleImage"/></Box>
                         <Typography className={styles.spread__subtitle}>上大學會怎樣？</Typography>
                         <Typography variant="body3" align="left">
-                            <Box mt={3}>改從人口特徵出發，拉出擁有大學學歷的人口比例最多，跟最少的 10% 村里，檢視這兩群村里的藍綠得票率差異，會發現教育程度較高的這一群村里，相較於教育程度較低的那群，兩黨的勝差更小，也有整體轉藍或者轉綠的情況，可能對政黨的忠誠度較低。而大學學歷人口比例最少的村里群，雖然也有部分變天，但數量較少，單一村里開出的票，對特定政黨的支持較穩定。
+                            <Box mt={3} lineHeight={1.8}>改從人口特徵出發，拉出擁有大學學歷的人口比例最多，跟最少的 10% 村里，檢視這兩群村里的藍綠得票率差異，會發現教育程度較高的這一群村里，相較於教育程度較低的那群，兩黨的勝差更小，也有整體轉藍或者轉綠的情況，可能對政黨的忠誠度較低。而大學學歷人口比例最少的村里群，雖然也有部分變天，但數量較少，單一村里開出的票，對特定政黨的支持較穩定。
                             </Box>
                         </Typography>
                     </Grid>
@@ -474,9 +474,9 @@ export default function Spread() {
                         <Grid item xs={1}></Grid>
                 </Hidden>
                 <Grid container xs={10} md={8}>
-                    <Grid item xs={12} md={8} lg={10}>
+                    <Grid item xs={12} md={8} lg={8}>
                         <Typography variant="body3" align="left">
-                            <Box mt={2}>本篇圖表所使用的，加上村里代碼的 2008-2018 選舉資料
+                            <Box mt={2} lineHeight={1.8}>本篇圖表所使用的，加上村里代碼的 2008-2018 選舉資料
                                 <a href="https://github.com/missmoss/expires-next-day-2020-data" target="_blank"  className={styles.spread__link}>
                                     在此
                                 </a>
