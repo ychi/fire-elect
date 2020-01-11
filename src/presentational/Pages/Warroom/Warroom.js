@@ -162,7 +162,7 @@ export default function Landing({congressDist=[]}) {
                 <Divider/>
 
 {/* Line chart substitle                 */}
-                <Grid xs={12}> 
+                <Grid xs={12} md={12}> 
                     <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={1.3} className="header_bd">實際開票走勢/AI預測走勢</Box>
                 </Grid>
 
@@ -179,23 +179,27 @@ export default function Landing({congressDist=[]}) {
                 <Grid item xs={1} md={4}></Grid>
             </Hidden>
 
-            <Grid container item xs={10} md={4} direction="column">
-
-                <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={1.3} className="header_bd">決戰立法院</Box>
+            <Grid container item xs={10} md={4} direction="row">
+                <Grid xs={12}> 
+                    <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={1.3} className="header_bd">決戰立法院</Box>
+                </Grid>
                 {/* 立委ＡＩ預測 */}
-                <Grid container item xs>
+                <Grid container item xs={12}>
                     <Grid container item xs={12}>
                         <Box fontSize="substitle2.fontSize" fontWeight={500} my={1}>AI預測政黨立委總席次</Box>
                     </Grid>
+
                     <Grid container item xs={12}>
+
                         <Grid container item xs={12}>
-                            <Grid item xs>
+                            <Grid item xs={6}>
                                 <Box fontSize="overline.fontSize" fontWeight={500} my={1}>不分區 AI 預估</Box>
                             </Grid>
-                            <Grid item xs>
+                            <Grid item xs={6}>
                             <Box fontSize="overline.fontSize" fontWeight={500} my={1}>原住民立委 AI 預估</Box> 
                             </Grid>
                         </Grid>
+
                         <Grid item container xs={12}>
                             <Grid item container xs={12}>
                                 <Box fontSize="overline.fontSize" fontWeight={500} my={1}>區域 AI 預估</Box>
@@ -285,8 +289,9 @@ export default function Landing({congressDist=[]}) {
                     </Grid>
                 </Grid>
                 <Divider/>
+
                 {/* 區域拉鋸選區 */}
-                <Grid container item xs direction="column">
+                <Grid container item xs={12} direction="column">
                     <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={3}>拉鋸選區勝選率AI預測</Box> 
                     <Grid item xs container spacing={0}>
                         {['dist 1', 'dist 2', 'dist 3', 'dist 4', 'dist 5', 'dist 6']
