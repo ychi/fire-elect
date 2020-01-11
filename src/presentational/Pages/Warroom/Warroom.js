@@ -193,14 +193,17 @@ export default function Landing() {
                 <Grid container item xs>
                     <Grid container item xs={12}>
                         <Box fontSize="substitle2.fontSize" fontWeight={500} my={1}>AI預測政黨立委總席次</Box>
+                        <CongressSummaryContainer type="total_project" seatTotal={13}/>
                     </Grid>
                     <Grid container item xs={12}>
                         <Grid container item xs={12}>
                             <Grid item xs>
                                 <Box fontSize="overline.fontSize" fontWeight={500} my={1}>不分區 AI 預估</Box>
+                                  <CongressSummaryContainer type="party_list_project" seatTotal={34}/> 
                             </Grid>
                             <Grid item xs>
-                            <Box fontSize="overline.fontSize" fontWeight={500} my={1}>原住民立委 AI 預估</Box> 
+                            <Box fontSize="overline.fontSize" fontWeight={500} my={1}>原住民立委 AI 預估</Box>
+                              <CongressSummaryContainer type="aborigines_project" seatTotal={6}/> 
                             </Grid>
                         </Grid>
                         <Grid item container xs={12}>
