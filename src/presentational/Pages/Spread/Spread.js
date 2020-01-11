@@ -123,7 +123,7 @@ export default function Spread() {
                         </Grid>
                     </Grid>
                     <Hidden mdUp>
-                        <Typography variant="h5" display="inline">SPREAS THE WORD</Typography>
+                        <Typography variant="h5" display="inline">SPREAD THE WORD</Typography>
                     </Hidden>
                     <Hidden mdUp>
                         <Box height="25vh"></Box>
