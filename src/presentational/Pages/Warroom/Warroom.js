@@ -65,16 +65,16 @@ export default function Landing({congressDist=[]}) {
                 </Grid>
             </Grid>
         </Hidden>
-{/* ----------------- 右側視覺化區塊 */}
+        {/* ----------------- 右側視覺化區塊 */}
         <Grid container xs={12} md={12} spacing={3} className="vizbloc">
-{/* 總統候選人 */}
+            {/* 總統候選人 */}
             <Grid item xs={1} md={3} ></Grid>
             <Grid container item xs={10} md={5} direction="row">
-{/* subtitle */}
+                {/* subtitle */}
                 <Grid md={12} xs={12}>
                     <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={1.3} className="header_bd">總統大選開票</Box>
                 </Grid>
-{/* ranking No.1 */}
+                {/* ranking No.1 */}
                 <Grid container item xs={12} spacing={1} className="p_2" alignItems="center">
 
                     {/* Name & Ranking */}
@@ -87,23 +87,15 @@ export default function Landing({congressDist=[]}) {
                         </Grid>
                     </Grid>
                     {/* 預測當選率 */}
-                    <Grid item xs={6} md={3}>
+                    <Grid item xs={12} md={6}>
                         <Typography component="div">
                             <Box fontSize="caption.fontSize" lineHeight={1}>AI預測得票率</Box>
                             <Box fontSize="h3.fontSize" fontWeight="500" lineHeight={1.5}>41<small>%▼</small></Box>
-                            <Box fontSize="caption.fontSize" lineHeight={1}>最新得票</Box> 
                             <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>0000145</Box>     
                         </Typography>
                     </Grid>
                     {/* 預測得票率 */}
-                    <Grid item xs={6} md={3}>
-                        <Typography component="div">
-                            <Box fontSize="caption.fontSize" lineHeight={1}>AI預測當選率</Box>
-                            <Box fontSize="h3.fontSize" fontWeight="500" lineHeight={1.5}>41<small>%▼</small></Box>
-                            <Box fontSize="caption.fontSize" lineHeight={1}>最新得票率</Box> 
-                            <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>0000145</Box>     
-                        </Typography>
-                    </Grid>
+
                     {/* img */}
                     <Grid item xs={6} md={3}>
                         <img src={tsai_head} className="img" alt="tsai" />
@@ -128,8 +120,6 @@ export default function Landing({congressDist=[]}) {
                             <Typography component="div">
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>AI預測得票率\當選率</Box>
                                 <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>41<small>%▼</small> 99<small>%</small></Box>
-                                <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票</Box> 
-                                <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>0000145</Box>
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票數</Box> 
                                 <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>6890000</Box>     
                             </Typography>
@@ -151,8 +141,6 @@ export default function Landing({congressDist=[]}) {
                             <Typography component="div">
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>AI預測得票率\當選率</Box>
                                 <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>41<small>%▼</small> 99<small>%</small></Box>
-                                <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票</Box> 
-                                <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>0000145</Box>
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票數</Box> 
                                 <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>6890000</Box>     
                             </Typography>
