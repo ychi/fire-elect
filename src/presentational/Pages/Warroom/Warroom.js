@@ -17,7 +17,7 @@ import sung from './img/sung.svg';
 import han from './img/han.svg';
 import tsai_head from './img/tsai_head.png';
 import PresidentSummaryContainer from '../../../container/PresidentSummaryContainer';
-
+import CongressAIPredictContainer from '../../../container/CongressAIPredictContainer'
 
 import FireBaseContext from '../../../tools/firebase/Context';
 
@@ -210,80 +210,102 @@ export default function Landing() {
                             <Grid item container xs={12} sm={6}>
                                 <Grid item container xs={12}>
                                     <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>台北市</Box><Box display="inline" ml={2}></Box>                                     
+                                      <CongressAIPredictContainer county="台北市" seatCount={8} />
                                 </Grid>
                                 <Grid item container xs={12}>
-                                    <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>新北市</Box><Box display="inline" ml={2}></Box>                                     
+                                    <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>新北市</Box><Box display="inline" ml={2}></Box>                                   
+                                      <CongressAIPredictContainer county="新北市" seatCount={12} /> 
                                 </Grid>
                                 <Grid item container xs={12}>
                                     <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>桃園市</Box><Box display="inline" ml={2}></Box>                                     
+                                      <CongressAIPredictContainer county="桃園市" seatCount={6} />
                                 </Grid>
                                 <Grid item container xs={12}>
                                     <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>台中市</Box><Box display="inline" ml={2}></Box>                                     
+                                      <CongressAIPredictContainer county="台中市" seatCount={8} /> 
                                 </Grid>
                                 <Grid item container xs={12}>
                                     <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>台南市</Box><Box display="inline" ml={2}></Box>                                     
+                                      <CongressAIPredictContainer county="台南市" seatCount={6} />
                                 </Grid>
                                 <Grid item container xs={12}>
                                     <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>高雄市</Box><Box display="inline" ml={2}></Box>                                     
+                                      <CongressAIPredictContainer county="高雄市" seatCount={8} />
                                 </Grid>
                             </Grid>
                             <Grid item container xs={12} sm={6}>
                                 <Grid item container xs={12}>
                                     <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>基隆市</Box><Box display="inline" ml={2}></Box>                                     
+                                      <CongressAIPredictContainer county="基隆市" seatCount={1} />
                                 </Grid>
                                 <Grid item container xs={12}>
                                     <Grid item container xs={6}>
                                         <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>新竹縣</Box><Box display="inline" ml={2}></Box>                                     
+                                          <CongressAIPredictContainer county="新竹縣" seatCount={2} />
                                     </Grid>
                                     <Grid item container xs={6}>
                                         <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>新竹市</Box><Box display="inline" ml={2}></Box>                                     
+                                          <CongressAIPredictContainer county="新竹市" seatCount={1} />
                                     </Grid>
                                 </Grid>
                                 <Grid item container xs={12}>
                                     <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>苗栗縣</Box><Box display="inline" ml={2}></Box>                                     
+                                      <CongressAIPredictContainer county="苗栗縣" seatCount={2} />
                                 </Grid>
                                 <Grid item container xs={12}>
                                     <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>彰化縣</Box><Box display="inline" ml={2}></Box>                                     
+                                      <CongressAIPredictContainer county="彰化縣" seatCount={4} />
                                 </Grid>
                                 <Grid item container xs={12}>
                                     <Grid item container xs={6}>
                                         <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>雲林縣</Box><Box display="inline" ml={2}></Box>                                     
+                                          <CongressAIPredictContainer county="雲林縣" seatCount={2} />
                                     </Grid>
                                     <Grid item container xs={6}>
                                         <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>南投縣</Box><Box display="inline" ml={2}></Box>                                     
+                                          <CongressAIPredictContainer county="南投縣" seatCount={2} />
                                     </Grid>                                     
                                 </Grid>
                                 <Grid item container xs={12}>
                                     <Grid item container xs={6}>
                                         <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>嘉義縣</Box><Box display="inline" ml={2}></Box>                                     
+                                          <CongressAIPredictContainer county="嘉義縣" seatCount={2} />
                                     </Grid>
                                     <Grid item container xs={6}>
                                         <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>嘉義市</Box><Box display="inline" ml={2}></Box>                                     
+                                          <CongressAIPredictContainer county="嘉義市" seatCount={1} />
                                     </Grid>                                 
                                 </Grid>
                                 <Grid item container xs={12}>
                                     <Grid item container xs={4}>
                                         <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>宜蘭縣</Box><Box display="inline" ml={2}></Box>                                     
+                                          <CongressAIPredictContainer county="宜蘭縣" seatCount={1} />
                                     </Grid>
                                     <Grid item container xs={4}>
                                         <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>花蓮縣</Box><Box display="inline" ml={2}></Box>                                     
+                                          <CongressAIPredictContainer county="花蓮縣" seatCount={1} />
                                     </Grid> 
                                     <Grid item container xs={4}>
                                         <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>台東縣</Box><Box display="inline" ml={2}></Box>                                     
+                                          <CongressAIPredictContainer county="台東縣" seatCount={1} />
                                     </Grid>                                 
                                 </Grid>
                                 <Grid item container xs={12}>
                                     <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>屏東縣</Box><Box display="inline" ml={2}></Box>                                     
+                                      <CongressAIPredictContainer county="屏東縣" seatCount={2} />
                                 </Grid>
                                 <Grid item container xs={12}>
                                     <Grid item container xs={4}>
                                         <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>金門縣</Box><Box display="inline" ml={2}></Box>                                     
+                                          <CongressAIPredictContainer county="金門縣" seatCount={1} />
                                     </Grid>
                                     <Grid item container xs={4}>
                                         <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>澎湖縣</Box><Box display="inline" ml={2}></Box>                                     
+                                          <CongressAIPredictContainer county="澎湖縣" seatCount={1} />
                                     </Grid> 
                                     <Grid item container xs={4}>
                                         <Box display="inline" fontSize="overline.fontSize" fontWeight={400} my={1}>連江縣</Box><Box display="inline" ml={2}></Box>                                     
+                                          <CongressAIPredictContainer county="連江縣" seatCount={1} />
                                     </Grid>                                 
                                 </Grid>
 
