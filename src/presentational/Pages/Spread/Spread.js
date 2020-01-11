@@ -61,6 +61,10 @@ const counties = {
     "left": "./img/set1/nantou_map_margin_10y.png",
     "right": "./img/set1/nantou_margin_10y.png"
   },
+  "雲林縣": {
+    "left": "./img/set1/yunling_map_margin_10y.png",
+    "right": "./img/set1/yunling_margin_10y.png"
+  },
   "嘉義市": {
     "left": "./img/set1/jiayicity_map_margin_10y.png",
     "right": "./img/set1/jiayicity_map_margin_10y.png"
@@ -344,6 +348,10 @@ export default function Spread() {
                         <Box item height="150px">
                             <Box height="120px"><img src={require('./img/set1/nantou_map_margin_10y.png')} width="150px" alt="" /></Box>
                             <Typography variant="body4" align="left"><Box>南投縣</Box></Typography>
+                        </Box>
+                        <Box item height="150px">
+                            <Box height="120px"><img src={require('./img/set1/yunling_map_margin_10y.png')} width="150px" alt="" /></Box>
+                            <Typography variant="body4" align="left"><Box>雲林縣</Box></Typography>
                         </Box>
                         <Box item height="150px">
                             <Box height="120px"><img src={require('./img/set1/jiayicity_map_margin_10y.png')} width="150px" alt="" /></Box>
