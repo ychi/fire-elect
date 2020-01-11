@@ -87,7 +87,7 @@ const counties = {
   },
   "高雄市": {
     "left": "./img/set1/kaohsiung_map_margin_10y.png",
-    "right": "./img/set1/kaohsiung_margin_10y.png" 
+    "right": "./img/set1/kaohsiung_margin_10y.png"
   }
 }
 
@@ -123,7 +123,7 @@ export default function Spread() {
                         </Grid>
                     </Grid>
                     <Hidden mdUp>
-                        <Typography variant="h5" display="inline">SPREAS THE WORD</Typography>
+                        <Typography variant="h5" display="inline">SPREAD THE WORD</Typography>
                     </Hidden>
                     <Hidden mdUp>
                         <Box height="25vh"></Box>
@@ -196,7 +196,7 @@ export default function Spread() {
                     <Grid item xs={1}></Grid>
                 </Hidden>
                 <Grid container xs={10} md={12} direction="row">
-                    <Grid xs={12} md={12}>  
+                    <Grid xs={12} md={12}>
                         <Box item mt={3}>
                         <FormControl className={styles.formControl}>
                             {/* <InputLabel id={tag}>{tag}</InputLabel> */}
@@ -311,7 +311,7 @@ export default function Spread() {
                         </Box>
                         <Box item height="150px">
                             <Box height="120px"><img src={require('./img/set1/taipei_map_margin_10y.png')} width="150px" alt="" /></Box>
-                            <Typography variant="body4" align="left"><Box>臺中市</Box></Typography>
+                            <Typography variant="body4" align="left"><Box>臺北市</Box></Typography>
                         </Box>
                         <Box item height="150px">
                             <Box height="120px"><img src={require('./img/set1/yilan_map_margin_10y.png')} width="150px" alt="" /></Box>
