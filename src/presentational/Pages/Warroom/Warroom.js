@@ -102,16 +102,16 @@ export default function Landing() {
                 </Grid>
             </Grid>
         </Hidden>
-{/* ----------------- 右側視覺化區塊 */}
+        {/* ----------------- 右側視覺化區塊 */}
         <Grid container xs={12} md={12} spacing={3} className="vizbloc">
-{/* 總統候選人 */}
+            {/* 總統候選人 */}
             <Grid item xs={1} md={3} ></Grid>
             <Grid container item xs={10} md={5} direction="row">
-{/* subtitle */}
+                {/* subtitle */}
                 <Grid md={12} xs={12}>
                     <Box fontSize="substitle.fontSize" fontWeight={500} lineHeight={1.3} className="header_bd">總統大選開票</Box>
                 </Grid>
-{/* ranking No.1 */}
+                {/* ranking No.1 */}
                 <Grid container item xs={12} spacing={1} className="p_2" alignItems="center">
 
                     {/* Name & Ranking */}
@@ -124,23 +124,14 @@ export default function Landing() {
                         </Grid>
                     </Grid>
                     {/* 預測當選率 */}
-                    <Grid item xs={6} md={3}>
+                    <Grid item xs={12} md={6}>
                         <Typography component="div">
                             <Box fontSize="caption.fontSize" lineHeight={1}>AI預測得票率</Box>
                             <Box fontSize="h3.fontSize" fontWeight="500" lineHeight={1.5}>{president[0] ? Math.round(president[0]['project']*100) : 0 }<small>%▼</small></Box>
-                            <Box fontSize="caption.fontSize" lineHeight={1}>最新得票</Box> 
                             <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>{president[0] ? president[0]['counts']: 0 }</Box>     
                         </Typography>
                     </Grid>
-                    {/* 預測得票率 */}
-                    <Grid item xs={6} md={3}>
-                        <Typography component="div">
-                            <Box fontSize="caption.fontSize" lineHeight={1}>AI預測當選率</Box>
-                            <Box fontSize="h3.fontSize" fontWeight="500" lineHeight={1.5}>{president[0] ? Math.round(president[0]['prob']*100) : 0 }<small>%▼</small></Box>
-                            <Box fontSize="caption.fontSize" lineHeight={1}>最新得票率</Box> 
-                            <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}></Box>     
-                        </Typography>
-                    </Grid>
+                    {/* img */}
                     <Grid item xs={6} md={3}>
                         <img src={president[0]? headImages(`./${president[0]["id"]}_head.svg`): headImages("./han_head.svg")} className="img" alt="tsai" />
                     {/* img */}
@@ -154,7 +145,7 @@ export default function Landing() {
                     <Grid container item xs={5} alignItems="center" spacing={0} className="p_2">
 
                         <Grid container item xs={12} md={6}>
-                            <Grid item xs={12} md={3}>
+                            <Grid item xs={12} md={5}>
                                 <Box fontSize="substitle.fontSize"><span className="ranking_s">2</span><span>nd</span></Box>
                             </Grid>
                             <Grid item xs={12} md={6}>
@@ -165,8 +156,6 @@ export default function Landing() {
                             <Typography component="div">
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>AI預測得票率\當選率</Box>
                                 <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>{president[1] ? Math.round(president[1]['project']*100) : 0 }<small>%▼</small> {president[1] ? Math.round(president[1]['prob']*100) : 0 }<small>%</small></Box>
-                                <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票</Box> 
-                                <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>0000145</Box>
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票數</Box> 
                                 <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>{president[1] ? president[1]['counts']: 0 }</Box>     
                             </Typography>
@@ -177,7 +166,7 @@ export default function Landing() {
                     {/* Ranking No.3 */}
                     <Grid container item xs={5} alignItems="center" spacing={0} className="p_2">
                         <Grid container item xs={12} md={6}>
-                            <Grid item xs={12} md={3}>
+                            <Grid item xs={12} md={5}>
                                 <Box fontSize="substitle.fontSize"><span className="ranking_s">3</span><span>rd</span></Box>
                             </Grid>
                             <Grid item xs={12} md={6}>
@@ -188,8 +177,6 @@ export default function Landing() {
                             <Typography component="div">
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>AI預測得票率\當選率</Box>
                                 <Box fontSize="h5.fontSize" fontWeight="500" lineHeight={1.5}>{president[2] ? Math.round(president[2]['project']*100) : 0 }<small>%▼</small> {president[2] ? Math.round(president[2]['prob']*100) : 0 }<small>%</small></Box>
-                                <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票</Box> 
-                                <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>0000145</Box>
                                 <Box fontSize="caption.fontSize" fontWeight="500" lineHeight={1}>最新得票數</Box> 
                                 <Box fontSize="h6.fontSize" fontWeight="500" lineHeight={1.5}>{president[2] ? president[2]['counts']: 0 }</Box>     
                             </Typography>
