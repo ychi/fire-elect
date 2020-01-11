@@ -30,7 +30,7 @@ const options = {
 };
 
 const LineGraph = () => (
-  <div className="linegraph">
+  <div className="linegraph" width="100%">
     <HighchartsReact
       highcharts={Highcharts}
       constructorType={'stockChart'}
