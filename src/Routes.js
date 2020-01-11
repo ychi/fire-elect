@@ -31,7 +31,7 @@ export default [
         label: 'AI戰情室',
         path: '/aiwarroom',
         render: ()=>(<CommingSoonWrapper
-            ready={true}
+            ready={false}
             renderComp={()=>(<Warroom/>)}/>
             )
     },
