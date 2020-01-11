@@ -25,7 +25,7 @@ const headImages = require.context('./img', true);
 
 function namePicSelector(name) {
   switch (name){
-    case 'sonng':
+    case 'soong':
       return sung;
     case 'han':
       return han;
@@ -44,16 +44,6 @@ export default function Landing() {
         .onSnapshot( snapshot => {
           const results = snapshot.docs.map( d => ({id: d.id, ...d.data()}));
           setPresident(results);
-        })
-      return unsub;
-    },[firebase]);
-
-    const [swing, setSwing] = useState([]);
-    useEffect(() => {
-      const unsub = firebase.db.collection('summary_swing')
-        .onSnapshot( snapshot => {
-          const results = snapshot.docs.map( d => ({...d.data()}));
-          setSwing(results);
         })
       return unsub;
     },[firebase]);
